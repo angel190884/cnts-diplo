@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route :: group ([ ' middleware '  => [ ' role: super-admin ' ]], function () {
+Route :: group ([ 'middleware'  => [ 'role: god' ]], function () {
 
     Route::resource('users', 'UserController');
 
