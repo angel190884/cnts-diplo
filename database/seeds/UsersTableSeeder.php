@@ -14,14 +14,16 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user=factory(User::class)->create([
-            'name' => 'angel daniel peregrino juarez',
+            'name' => 'angel daniel',
+            'last_name' => 'peregrino juarez',
             'email' => 'angel190884@gmail.com',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ]);
         $user->assignRole(Role::all());
 
         $user=factory(User::class)->create([
-            'name' => 'administrador',
+            'name' => 'aide',
+            'last_name' => 'velazquez',
             'email' => 'admin@admin.com',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ]);
