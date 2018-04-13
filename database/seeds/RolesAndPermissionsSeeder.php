@@ -18,7 +18,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         // create permissions
         Permission::create(['name' => 'edit_roles&permissions']);
-        Permission::create(['name' => 'inscriptions']);
+        Permission::create(['name' => 'inscription']);
 
         // create roles and assign created permissions
 
@@ -26,7 +26,7 @@ class RolesAndPermissionsSeeder extends Seeder
             $role->givePermissionTo(['edit_roles&permissions']);
 
         $role = Role::create(['name' => 'admin']);
-            $role->givePermissionTo(['inscriptions']);
+            $role->givePermissionTo(['inscription']);
 
         $role = Role::create(['name' => 'teacher']);
             //$role->givePermissionTo(['permission']);
@@ -35,6 +35,6 @@ class RolesAndPermissionsSeeder extends Seeder
             //$role->givePermissionTo(['permission']);
 
         $role = Role::create(['name' => 'authenticated']);
-            //$role->givePermissionTo(['permission']);
+            $role->givePermissionTo(['inscription']);
     }
 }

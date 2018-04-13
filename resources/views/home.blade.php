@@ -14,7 +14,19 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @role('authenticated')
+                        @include('authenticated.home')
+                    @endrole
+                    @role('student')
+                        @include('student.home')
+                    @endrole
+                    @role('teacher')
+                        @include('teacher.home')
+                    @endrole
+                    @role('admin')
+                        @include('admin.home')
+                    @endrole
+
                 </div>
             </div>
         </div>
