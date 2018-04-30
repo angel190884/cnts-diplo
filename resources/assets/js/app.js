@@ -18,6 +18,9 @@ fontawesome.library.add(regular);
 fontawesome.library.add(solid);
 fontawesome.library.add(brands);
 
+import toastr from 'toastr'
+import moment from 'moment'
+
 
 
 /**
