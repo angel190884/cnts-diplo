@@ -12,9 +12,6 @@
             @guest
 
             @else
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
-                </li>
                 @role('authenticated')
                     @include('authenticated.top-menu')
                 @endrole

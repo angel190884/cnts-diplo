@@ -9,6 +9,17 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import fontawesome from '@fortawesome/fontawesome'
+import regular from '@fortawesome/fontawesome-free-regular'
+import solid from '@fortawesome/fontawesome-free-solid'
+import brands from '@fortawesome/fontawesome-free-brands'
+
+fontawesome.library.add(regular);
+fontawesome.library.add(solid);
+fontawesome.library.add(brands);
+
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -16,6 +27,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('inscription', require('./components/Inscription.vue'));
 
 const app = new Vue({
     el: '#app'
