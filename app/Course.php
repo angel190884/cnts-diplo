@@ -30,4 +30,16 @@ class Course extends Model
         $dt=Carbon::parse($this->created_at);
         return $dt->format('d-m-Y');
     }
+
+    public function getStartFormatBasicAttribute()
+    {
+        $dt=Carbon::parse($this->start);
+        return $dt->format('d-m-Y');
+    }
+
+    public function getEndFormatBasicAttribute()
+    {
+        $dt=Carbon::parse($this->end);
+        return $dt->format('d-m-Y');
+    }
 }

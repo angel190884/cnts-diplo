@@ -11,12 +11,14 @@
                             <table class="table table-sm table-bordered table-hover">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th colspan="8">DIPLOMADOS</th>
+                                        <th colspan="10">DIPLOMADOS</th>
                                     </tr>
                                     <tr>
                                         <th scope="col"><i class="fas fa-graduation-cap"></i></th>
                                         <th scope="col">Nombre corto</th>
                                         <th scope="col">Creado</th>
+                                        <th scope="col"><i class="far fa-calendar-alt"></i> inicio</th>
+                                        <th scope="col"><i class="far fa-calendar-alt"></i> fin</th>
                                         <th scope="col"><i class="fas fa-clipboard"></i></th>
                                         <th scope="col"><i class="fas fa-users"></i></th>
                                         <th scope="col"><i class="fas fa-pen-square"></i></th>
@@ -30,6 +32,8 @@
                                         <th scope="row">{{ $course->generation }}</th>
                                         <td>{{ $course->short_name }}</td>
                                         <td>{{ $course->createdAtFormatBasic }}</td>
+                                        <td>{{ $course->startFormatBasic }}</td>
+                                        <td>{{ $course->endFormatBasic }}</td>
                                         <td><i class="fas fa-clipboard"></i></td>
                                         <td><i class="fas fa-users"></i></td>
                                         <td><i class="fas fa-pen-square"></i></td>
