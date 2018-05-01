@@ -19,16 +19,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+//Rutas god
 Route::group(['middleware' => ['role:god']], function () {
-
     Route::resource('users', 'UserController');
-
     Route::resource('roles', 'RoleController');
-
     Route::resource('permissions', 'PermissionController');
 });
 
+//Rutas admin
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::resource('courses', 'CourseController');
+});
+
+
+//Rutas authenticated
 Route::resource('profile', 'ProfileController');
 Route::put('upload_file_img/{id}','ProfileController@uploadFileImg')->name('u_img');
 Route::put('upload_file_title/{id}','ProfileController@uploadFileTitle')->name('u_title');
