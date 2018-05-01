@@ -6,13 +6,15 @@
         Diplomados
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">listar</a>
-        <a class="dropdown-item" href="#">editar</a>
-        <a class="dropdown-item" href="#">fechas</a>
+        <a class="dropdown-item" href="{{ route('courses.index') }}">listar</a>
+        <a class="dropdown-item" href="#">editar fechas</a>
+        <a class="dropdown-item" href="#">copiar</a>
+        <a class="dropdown-item" href="#">foro de preguntas</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">alumnos</a>
+        <a class="dropdown-item" href="#">usuarios registrados</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">emitir diploma</a>
+        <a class="dropdown-item" href="#">emisión de diplomas</a>
     </div>
 </li>
 <li class="nav-item dropdown">
