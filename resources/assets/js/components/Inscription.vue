@@ -1,6 +1,6 @@
 <template>
     <ul class="list-group mb-3">
-        <li v-if="valid==true" class="list-group-item d-flex justify-content-between">
+        <li v-if="valid=true" class="list-group-item d-flex justify-content-between">
             <a href="/home" class="btn btn-block btn-success">ENVIAR SOLICITUD DE INSCRIPCIÓN</a>
         </li>
         <li v-else class="list-group-item d-flex justify-content-between">
@@ -13,7 +13,7 @@
   export default {
     data () {
         return {
-          data: Object
+          data: Object,
         }
     },
     created: function () {
@@ -37,26 +37,30 @@
       }
     },
     computed: {
-      valid () {
-        return  this.data.name != null &&
-          this.data.last_name != null &&
-          this.data.email != null &&
-          this.data.curp != null &&
-          this.data.rfc != null &&
-          this.data.homoclave != null &&
-          this.data.calle != null &&
-          this.data.colonia != null &&
-          this.data.municipio != null &&
-          this.data.entidad != null &&
-          this.data.cp != null &&
-          this.data.telefono != null &&
-          this.data.titulo != null &&
-          this.data.cedula != null &&
-          this.data.institucion != null &&
-          this.data.date_examen_profesional != null &&
-          this.data.file_titulo != null &&
-          this.data.file_cedula != null &&
-          this.data.file_carta != null;
+      valid: function () {
+        return this.data['curp'] !== null;
+
+        //return this.data.curp !== null
+
+        /*return  this.data.name != null &&
+          this.data.user.last_name != null &&
+          this.data.user.email != null &&
+          this.data.user.curp != null &&
+          this.data.user.rfc != null &&
+          this.data.user.homoclave != null &&
+          this.data.user.calle != null &&
+          this.data.user.colonia != null &&
+          this.data.user.municipio != null &&
+          this.data.user.entidad != null &&
+          this.data.user.cp != null &&
+          this.data.user.telefono != null &&
+          this.data.user.titulo != null &&
+          this.data.user.cedula != null &&
+          this.data.user.institucion != null &&
+          this.data.user.date_examen_profesional != null &&
+          this.data.user.file_titulo != null &&
+          this.data.user.file_cedula != null &&
+          this.data.user.file_carta != null;*/
       }
     }
   }

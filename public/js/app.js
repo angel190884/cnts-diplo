@@ -69739,7 +69739,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   computed: {
     valid: function valid() {
-      return this.data.name != null && this.data.last_name != null && this.data.email != null && this.data.curp != null && this.data.rfc != null && this.data.homoclave != null && this.data.calle != null && this.data.colonia != null && this.data.municipio != null && this.data.entidad != null && this.data.cp != null && this.data.telefono != null && this.data.titulo != null && this.data.cedula != null && this.data.institucion != null && this.data.date_examen_profesional != null && this.data.file_titulo != null && this.data.file_cedula != null && this.data.file_carta != null;
+      return this.data['curp'] !== null;
+
+      //return this.data.curp !== null
+
+      /*return  this.data.name != null &&
+        this.data.user.last_name != null &&
+        this.data.user.email != null &&
+        this.data.user.curp != null &&
+        this.data.user.rfc != null &&
+        this.data.user.homoclave != null &&
+        this.data.user.calle != null &&
+        this.data.user.colonia != null &&
+        this.data.user.municipio != null &&
+        this.data.user.entidad != null &&
+        this.data.user.cp != null &&
+        this.data.user.telefono != null &&
+        this.data.user.titulo != null &&
+        this.data.user.cedula != null &&
+        this.data.user.institucion != null &&
+        this.data.user.date_examen_profesional != null &&
+        this.data.user.file_titulo != null &&
+        this.data.user.file_cedula != null &&
+        this.data.user.file_carta != null;*/
     }
   }
 });
@@ -69753,7 +69775,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("ul", { staticClass: "list-group mb-3" }, [
-    _vm.valid == true
+    (_vm.valid = true)
       ? _c(
           "li",
           { staticClass: "list-group-item d-flex justify-content-between" },

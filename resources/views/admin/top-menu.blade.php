@@ -22,7 +22,7 @@
         Inscripciones
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">revizar documentación</a>
+        <a class="dropdown-item" href="{{ route('authenticated.index') }}">revizar documentación</a>
     </div>
 </li>
 <li class="nav-item dropdown">

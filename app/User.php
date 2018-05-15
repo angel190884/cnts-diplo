@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'last_name', 'email', 'password', 'avatar'
+        'name', 'last_name', 'email', 'password', 'avatar','date_inscription'
     ];
 
     /**
@@ -28,8 +29,77 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    //RELACIONES
+
+    public function course()
+    {
+        return $this->belongsTo('App\Course');
+    }
+
+    //SCOPE
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+    public function scopeInscribed($query)
+    {
+        return $query->where('course_id','!=',null);
+    }
+
+    public function scopeVoucherSend($query, $voucher_send)
+    {
+        if ($voucher_send)
+        {
+            return $query->where('file_voucher','!=',null);
+        }
+    }
+
+    public function scopeCoursePaid($query, $paid)
+    {
+        if ($paid)
+        {
+            return $query->where('file_paid_voucher','!=',null);
+        }
+    }
+
+    public function scopeFullName($query, $full_name)
+    {
+        if ($full_name)
+        {
+            return $query->where('name', 'LIKE', "%$full_name%")->orWhere('last_name', 'LIKE', "%$full_name%");
+        }
+    }
+    public function scopeEmail($query, $email)
+    {
+        if ($email)
+        {
+            return $query->where('email', 'LIKE', "%$email%");
+        }
+    }
+    public function scopeCourse($query, $course)
+    {
+        if ($course)
+        {
+            return $query->where('course_id', '=', $course);
+        }
+    }
+
+    //getters
     public function getFullNameAttribute()
     {
         return strtoupper("{$this->name} {$this->last_name}");
+    }
+
+    public function getDateInscriptionFormatBasicAttribute()
+    {
+        $dt=Carbon::parse($this->date_inscription);
+        return $dt->format('d-m-Y  -- h:m');
+    }
+
+    public function getAddressAttribute()
+    {
+        $address = "$this->calle col. $this->colonia CP.$this->cp municipio $this->municipio, $this->entidad, México.";
+        return $address;
     }
 }

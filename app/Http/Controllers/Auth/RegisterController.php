@@ -68,7 +68,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
+            'avatar' => 'avatars/no_user.png',
             'password' => Hash::make($data['password']),
-        ]);
+        ])->assignRole('authenticated');
     }
 }

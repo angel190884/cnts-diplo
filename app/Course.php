@@ -25,6 +25,21 @@ class Course extends Model
 
     ];
 
+    //RELACIONES
+    public function user()
+    {
+        return $this->hasMany('App\User');
+    }
+
+
+    //SCOPE
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+
+    //getters
     public function getCreatedAtFormatBasicAttribute()
     {
         $dt=Carbon::parse($this->created_at);

@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class='col-lg-4 col-lg-offset-4'>
-		<h1><center>401<br>
-		ACCESS DENIED</center></h1>
+	<div class='col-xs-12'>
+		<h1>401<br>
+		ACCESS DENIED
+		</h1>
 	</div>
 
 @endsection

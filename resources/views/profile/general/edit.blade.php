@@ -6,9 +6,9 @@
 
         <div class="py-5 text-center">
             <h1>DATOS NECESARIOS PARA PODER INCRIBIRTE</h1>
-            <div class="alert alert-warning">
+            <div class="alert alert-info">
                 <p>
-                    <strong class="bg-warning">Aviso importante:</strong> <small>Favor de leer y llenar tus datos generales asi como los 3 archivos que te piden, el "CENTRO NACIONAL DE LA TRANSFUSIÓN SANGUÍNEA" revisará los datos proporcionados, al terminar se te informara la situación de tu solicitud en el diplomado por medio de un e-mail donde se indicaran los pasos a seguir, cualquier duda ponemos a tú disposición los teléfonos 55-55-55-55 con horario de atención de 9:00 a 18:00 hrs.</small>
+                    <strong class="bg-warning">Aviso importante:</strong> <small> <i class="fas fa-info-circle"></i> Favor de leer y llenar tus datos generales asi como los 3 archivos que te piden, el "CENTRO NACIONAL DE LA TRANSFUSIÓN SANGUÍNEA" revisará los datos proporcionados, al terminar se te informara la situación de tu solicitud en el diplomado por medio de un e-mail donde se indicaran los pasos a seguir, cualquier duda ponemos a tú disposición los teléfonos 55-55-55-55 con horario de atención de 9:00 a 18:00 hrs.</small>
                 </p>
             </div>
             <div>
@@ -22,8 +22,6 @@
             </div>
 
             <h3>HOLA {{ $user->fullName }}</h3>
-            @include('layouts.messages')
-            @include('layouts.errors')
         </div>
 
 
@@ -369,7 +367,39 @@
                         </div>
                     </div>
                 </div>
-                <inscription></inscription>
+                <ul class="list-group mb-3">
+
+
+                </ul>
+                @if($user->curp != null &&
+                    $user->rfc !=null &&
+                    $user->homoclave !=null &&
+                    $user->calle !=null &&
+                    $user->colonia !=null &&
+                    $user->municipio !=null &&
+                    $user->entidad !=null &&
+                    $user->cp !=null &&
+                    $user->telefono !=null &&
+                    $user->titulo !=null &&
+                    $user->cedula !=null &&
+                    $user->institucion !=null &&
+                    $user->date_examen_profesional !=null &&
+                    $user->file_titulo !=null &&
+                    $user->file_cedula !=null &&
+                    $user->file_carta !=null)
+
+                    <p class="alert alert-info"><i class="fas fa-info-circle"></i> Todos los datos han sido recibidos y guardados en la base de datos de CNTS por favor selecciona el diplomado en el cual estas solicitando entrar.</p>
+                    <li class="list-group-item d-flex justify-content-between">
+                        {{ Form::select('course', $courses, null, ['placeholder' => 'Selecciona...', 'class' => 'form-control']) }}
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">ENVIAR SOLICITUD DE INSCRIPCIÓN</button>
+                    </li>
+                @else
+                    <li class="list-group-item d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Actualizar Datos</button>
+                    </li>
+                @endif
 
                 {{ Form::close() }}
 
@@ -487,6 +517,11 @@
                             @endif
                         </span>
                     </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div class="alert alert-warning">
+                            <h6 class="my-0"><strong>Al subir los 3 pdf obligatorios el boton inferior azul cambiara a <i class="bg-success text-dark">_ verde _</i> para que puedas seleccionar el diplomado al que quieres aplicar. </strong></h6>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -580,14 +615,5 @@
                 </div>
             </div>
         </div>
-
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-            <p class="mb-1">© 2018 ADX software SA de CV</p>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
-            </ul>
-        </footer>
     </div>
 @stop

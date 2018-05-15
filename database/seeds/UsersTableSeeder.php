@@ -60,7 +60,15 @@ class UsersTableSeeder extends Seeder
         }
 
         for ($i = 0; $i < 40; ++$i) {
-            $user=factory(User::class)->create();
+            $user=factory(User::class)->create([
+                'course_id' => '1'
+            ]);
+            $user->assignRole('authenticated');
+        }
+        for ($i = 0; $i < 40; ++$i) {
+            $user=factory(User::class)->create([
+                'course_id' => '2'
+            ]);
             $user->assignRole('authenticated');
         }
     }

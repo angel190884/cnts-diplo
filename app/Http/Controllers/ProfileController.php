@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Http\Requests\ProfileUpdateRequest;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -13,63 +16,28 @@ class ProfileController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','role:authenticated']);
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+        $this->middleware(['auth','permission:editProfile']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $user=User::findOrFail($id);
+        if (Auth::user()->hasPermissionTo('editProfile'))
+        {
+            return view('profile.show', compact('user'));
+        }else{
+            abort(401);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $user=User::findOrFail($id);
+        $courses=Course::active()->pluck('short_name', 'id');
 
         if ($user->id == Auth::user()->id)
         {
-            return view('profile.general.edit', compact('user'));
+            return view('profile.general.edit', compact('user','courses'));
         }else{
             abort(401);
         }
@@ -83,35 +51,8 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileUpdateRequest $request, $id)
     {
-        $this->validate($request,[
-            'nombre'            =>  'required',
-            'apellido'          =>  'required',
-            'email'             =>  'email|required',
-            'avatar'            =>  'image',
-            'curp'              =>  'min:18|max:18|required',
-            'rfc'               =>  'min:10|max:13|required',
-            'homoclave'         =>  'min:3|max:3|required',
-
-            'calle'             =>  'required',
-            'colonia'           =>  'required',
-            'cp'                =>  'required',
-            'entidad'           =>  'required',
-            'municipio'         =>  'required',
-            'telefono'          =>  'required|min:11|numeric',
-            //'celular'           =>  'required',
-            //'fax'               =>  'required',
-
-            'titulo'            =>  'required',
-            'institucion'            =>  'required',
-            'cedula'               =>  'required',
-            'date_examen_profesional'               =>  'required'
-
-
-        ]);
-
-
         $user = User::findOrFail($id);
 
         $user->name = Input::get('nombre');
@@ -154,117 +95,21 @@ class ProfileController extends Controller
         $user->cargo = Input::get('v');
         $user->trabajo_inst = Input::get('trabajo_inst');
 
+        $user->course_id = Input::get('course');
+
         session()->flash('success', 'Datos Actualizados!!!');
 
         $user->save();
-        //return Redirect::route('home');
-        return Redirect::route('profile.edit',$user->id);
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function uploadFileImg(Request $request,$id)
-    {
-        $this->validate($request,[
-            'avatar'            =>  'required|image|max:10000'
-        ]);
-
-
-        $user = User::findOrFail($id);
-        if ($request->hasFile('avatar'))
+        if ($user->course != null)
         {
-            if ($user->avatar && $user->avatar != 'avatars/no_user.png')
-            {
-                Storage::delete($user->avatar);
-            }
-            $user->avatar = $request->file('avatar')->store('public/avatars');
+            /*
+             * todo enviar mail al usuario que diga que que ya esta inscrito y el cnts revisara sus datos
+             */
+            $user->date_inscription = Carbon::parse(now());
+            $user->save();
+            return redirect(route('home')->with('success','Te haz inscrito, se te enviara un email con mas instrucciones'));
         }
-
-        $user->save();
-        session()->flash('success', 'Su imagen de perfil a sido cambiada con exito!!!');
-        return Redirect::route('profile.edit',$user->id);
-
-    }
-
-    public function uploadFileTitle(Request $request,$id)
-    {
-        $this->validate($request,[
-            'file_titulo'            =>  'required|mimes:pdf|max:10000'
-        ]);
-
-
-        $user = User::findOrFail($id);
-        if ($user->file_titulo)
-        {
-            Storage::delete($user->file_titulo);
-        }
-
-        if ($request->hasFile('file_titulo'))
-        {
-            $user->file_titulo = $request->file('file_titulo')->store('public/titulos');
-        }
-        $user->save();
-        session()->flash('success', 'Titulo subido y grabado en base de datos!!!');
-        return Redirect::route('profile.edit',$user->id);
-
-    }
-    public function uploadFileCedula(Request $request,$id)
-    {
-        $this->validate($request,[
-            'file_cedula'            =>  'required|mimes:pdf|max:10000'
-        ]);
-
-
-        $user = User::findOrFail($id);
-        if ($user->file_cedula)
-        {
-            Storage::delete($user->file_cedula);
-        }
-
-        if ($request->hasFile('file_cedula'))
-        {
-            $user->file_cedula = $request->file('file_cedula')->store('public/cedulas');
-        }
-        $user->save();
-        session()->flash('success', 'Cédula subida y grabada en base de datos!!!');
-        return Redirect::route('profile.edit',$user->id);
-
-    }
-    public function uploadFileCarta(Request $request,$id)
-    {
-        $this->validate($request,[
-            'file_carta'            =>  'required|mimes:pdf|max:10000'
-        ]);
-
-
-        $user = User::findOrFail($id);
-        if ($user->file_carta)
-        {
-            Storage::delete($user->file_carta);
-        }
-
-        if ($request->hasFile('file_carta'))
-        {
-            $user->file_carta = $request->file('file_carta')->store('public/cartas');
-        }
-        $user->save();
-        session()->flash('success', 'Carta subida y grabada en base de datos!!!');
-        return Redirect::route('profile.edit',$user->id);
-
-    }
-
-    public function getData()
-    {
-        $user = User::findOrFail(auth()->user()->id);
-        return $user;
+        return redirect(route('profile.edit',$user->id));
     }
 }

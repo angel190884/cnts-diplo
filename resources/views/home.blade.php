@@ -6,14 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Panel Principal</div>
-
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     @role('authenticated')
                         @include('authenticated.home')
                     @endrole

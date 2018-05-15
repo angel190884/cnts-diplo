@@ -21,11 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('no_user.png');
             $table->string('password');
 
+            $table->dateTime('date_inscription')->nullable();
+
+            $table->boolean('active')->default(true);
+
             $table->string('curp')->nullable();
             $table->string('rfc')->nullable();
             $table->string('homoclave')->nullable();
-
-
 
             $table->string('calle')->nullable();
             $table->string('colonia')->nullable();
@@ -39,7 +41,7 @@ class CreateUsersTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('cedula')->nullable();
             $table->string('institucion')->nullable();
-            $table->date('date_examen_profesional')->nullable();
+            $table->dateTime('date_examen_profesional')->nullable();
             $table->string('especialidad')->nullable();
             $table->string('especialidad_inst')->nullable();
             $table->string('maestria')->nullable();
@@ -51,7 +53,9 @@ class CreateUsersTable extends Migration
             $table->string('file_titulo')->nullable();
             $table->string('file_cedula')->nullable();
             $table->string('file_carta')->nullable();
-
+            $table->string('file_voucher')->nullable();
+            $table->string('file_paid_voucher')->nullable();
+            $table->text('text_refuse')->nullable();
 
 
             $table->rememberToken();

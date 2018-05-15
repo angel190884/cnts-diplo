@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 
 use App\User;
-use Auth;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Session;
 
 class UserController extends Controller
 {
@@ -24,7 +22,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-
         return view('users.index')->with('users', $users);
     }
 
