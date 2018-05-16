@@ -33,7 +33,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 
     //rutas para administrar los Authenticated
-    Route::get('usersAuthenticated','AuthenticatedController@index')->name('authenticated.index'); //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
+    Route::get('authenticated','AuthenticatedController@index')->name('authenticated.index');                   //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
     Route::get('acceptStudent/{user}','AuthenticatedController@acceptStudent')->name('accept.student');         //ruta para aceptar un usuario como Estudiante
     Route::get('refuseStudent/{user}','AuthenticatedController@refuseStudent')->name('refuse.student');         //ruta para rechazar un usuario como Estudiante
 
@@ -43,7 +43,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 
 //Rutas authenticated
-Route::resource('profile', 'ProfileController');
+Route::resource('profile', 'ProfileController',['only' => ['show','edit','update']]);
 
 //Rutas para subir archivos
 Route::put('upload_file_img/{id}','FilesUploadController@uploadFileImg')->name('u_img');
