@@ -122,7 +122,7 @@ class FilesUploadController extends Controller
         }
         $user->save();
         session()->flash('success', 'Voucher subido y grabado en base de datos!!!');
-        return redirect(route('users_authenticated'));
+        return redirect(route('authenticated.index'));
 
     }
     public function uploadFilePaidVoucher(Request $request,$id)

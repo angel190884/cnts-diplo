@@ -19,7 +19,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'angel190884@gmail.com',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ]);
-        $user->assignRole(Role::all());
+        $user->assignRole(['god','admin']);
+
 
         $user=factory(User::class)->create([
             'name' => 'aide',

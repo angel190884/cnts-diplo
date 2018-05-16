@@ -11,7 +11,7 @@
         <a class="dropdown-item" href="#">copiar</a>
         <a class="dropdown-item" href="#">foro de preguntas</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">alumnos</a>
+        <a class="dropdown-item" href="{{ route('student.index') }}">alumnos</a>
         <a class="dropdown-item" href="#">usuarios registrados</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">emisión de diplomas</a>

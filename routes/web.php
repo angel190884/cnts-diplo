@@ -38,7 +38,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('refuseStudent/{user}','AuthenticatedController@refuseStudent')->name('refuse.student');         //ruta para rechazar un usuario como Estudiante
 
     //rutas para administrar los students
-    //Route::get('student_index','StudentController@index')->name('student.index');                       //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
+    Route::get('student_index','StudentController@index')->name('student.index');                       //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
 });
 
 
