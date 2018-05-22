@@ -14,8 +14,11 @@ class CourseController extends Controller
      */
     public function index()
     {
+        /*
+         * todo mostrar error de base de datos si no hay conexión
+         */
         $courses=Course::orderBy('start','DESC')->paginate(10);
-        return view('admin.list', compact('courses'));
+        return view('admin.listOfCourses', compact('courses'));
     }
 
     /**
