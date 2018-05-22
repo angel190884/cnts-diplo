@@ -32,7 +32,7 @@ class AuthenticatedController extends Controller
 
 
         $courses=Course::active()->pluck('short_name', 'id');
-        return view('admin.listUserAuthenticated',compact('users','courses', 'full_name','email','course', 'paid', 'voucher_send'));
+        return view('admin.listOfUserAuthenticated',compact('users','courses', 'full_name','email','course', 'paid', 'voucher_send'));
     }
     public function acceptStudent(User $user)
     {
