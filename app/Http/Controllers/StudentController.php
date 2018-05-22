@@ -28,4 +28,9 @@ class StudentController extends Controller
 
         return view('admin.studentsList',compact('users', 'courses', 'full_name','email','course'));
     }
+
+    public function viewContent()
+    {
+        return view('student.content');
+    }
 }

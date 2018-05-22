@@ -46,9 +46,14 @@ Route::group(['middleware' => ['role:admin']], function () {
 Route::resource('profile', 'ProfileController',['only' => ['show','edit','update']]);
 
 //Rutas para subir archivos
-Route::put('upload_file_img/{id}','FilesUploadController@uploadFileImg')->name('u_img');
-Route::put('upload_file_title/{id}','FilesUploadController@uploadFileTitle')->name('u_title');
-Route::put('upload_file_cedula/{id}','FilesUploadController@uploadFileCedula')->name('u_cedula');
-Route::put('upload_file_carta/{id}','FilesUploadController@uploadFileCarta')->name('u_carta');
-Route::put('upload_file_paid_voucher/{id}','FilesUploadController@uploadFilePaidVoucher')->name('u_paid_voucher');
-Route::put('upload_file_voucher/{id}','FilesUploadController@uploadFileVoucher')->name('u_voucher');
+Route::put('upload_file_img/{id}',          'FilesUploadController@uploadFileImg')->        name('u_img');
+Route::put('upload_file_title/{id}',        'FilesUploadController@uploadFileTitle')->      name('u_title');
+Route::put('upload_file_cedula/{id}',       'FilesUploadController@uploadFileCedula')->     name('u_cedula');
+Route::put('upload_file_carta/{id}',        'FilesUploadController@uploadFileCarta')->      name('u_carta');
+Route::put('upload_file_paid_voucher/{id}', 'FilesUploadController@uploadFilePaidVoucher')->name('u_paid_voucher');
+Route::put('upload_file_voucher/{id}',      'FilesUploadController@uploadFileVoucher')->    name('u_voucher');
+
+
+
+//Rutas Student
+Route::get('content/1/1/1',             'StudentController@viewContent')->      name('view.student.content');

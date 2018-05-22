@@ -91,6 +91,11 @@ class User extends Authenticatable
         return strtoupper("{$this->name} {$this->last_name}");
     }
 
+    public function getLinkCedulaAttribute()
+    {
+        return "http://cedula.buholegal.com/{$this->cedula}/";
+    }
+
     public function getDateInscriptionFormatBasicAttribute()
     {
         $dt=Carbon::parse($this->date_inscription);

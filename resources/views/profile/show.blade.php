@@ -48,7 +48,7 @@
                             <td class="text-muted">Título</td>
                             <th colspan="2">{{ $user->titulo }}</th>
                             <td class="text-muted">Cedula</td>
-                            <th>{{ $user->celula }}</th>
+                            <th><a href="{{$user->linkCedula}}" target="_blank">{{ $user->cedula }}</a></th>
                         </tr>
                         <tr>
                             <td class="text-muted">Institución</td>
