@@ -35,7 +35,7 @@
                                         <td>{{ $course->startFormatBasic }}</td>
                                         <td>{{ $course->endFormatBasic }}</td>
                                         <td><i class="fas fa-clipboard"></i></td>
-                                        <td><i class="fas fa-users"></i></td>
+                                        <td><a href="{{ route('student.index',['course' => $course->id]) }}"><i class="fas fa-users"></i></a></td>
                                         <td><i class="fas fa-pen-square"></i></td>
                                         <td><i class="fas fa-comments"></i></td>
                                         <td><i class="fas fa-trash"></i></td>
