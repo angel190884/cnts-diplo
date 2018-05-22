@@ -75,7 +75,7 @@ class UsersTableSeeder extends Seeder
         for ($i = 0; $i < 30; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '1',
-                'file_voucher' => 'vouchers/test.php',
+                'file_voucher' => 'vouchers/test.pdf',
                 'file_paid_voucher' => 'paid_vouchers/test.php'
             ]);
             $user->assignRole('student');
@@ -83,7 +83,7 @@ class UsersTableSeeder extends Seeder
         for ($i = 0; $i < 30; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '2',
-                'file_voucher' => 'vouchers/test.php',
+                'file_voucher' => 'vouchers/test.pdf',
                 'file_paid_voucher' => 'paid_vouchers/test.php'
             ]);
             $user->assignRole('student');
