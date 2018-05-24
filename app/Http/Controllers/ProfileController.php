@@ -37,7 +37,7 @@ class ProfileController extends Controller
 
         if ($user->id == Auth::user()->id)
         {
-            return view('profile.general.edit', compact('user','courses'));
+            return view('profile.edit', compact('user','courses'));
         }else{
             abort(401);
         }
@@ -83,7 +83,6 @@ class ProfileController extends Controller
         $user->titulo = Input::get('titulo');
         $user->institucion = Input::get('institucion');
         $user->cedula = Input::get('cedula');
-        $user->date_examen_profesional = Input::get('date_examen_profesional');
 
         $user->especialidad = Input::get('especialidad');
         $user->especialidad_inst = Input::get('especialidad_inst');
@@ -97,8 +96,6 @@ class ProfileController extends Controller
 
         $user->course_id = Input::get('course');
 
-        session()->flash('success', 'Datos Actualizados!!!');
-
         $user->save();
 
         if ($user->course != null)
@@ -108,8 +105,8 @@ class ProfileController extends Controller
              */
             $user->date_inscription = Carbon::parse(now());
             $user->save();
-            return redirect(route('home')->with('success','Te haz inscrito, se te enviara un email con mas instrucciones'));
+            return redirect(route('home'))->with('success','Te haz inscrito, se te enviara un email con mas instrucciones');
         }
-        return redirect(route('profile.edit',$user->id));
+        return redirect(route('profile.edit',$user->id))->with('success','Datos actualizados correctamente. Recuerda que para poder inscribirte debes subir los tres archivos en PDF que se te indican al lado derecho de la pantalla');
     }
 }
