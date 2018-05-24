@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "df7719d87d5eeb691377541083fd7e69",
+    "content-hash": "781a990601d2303e9d79dbcf1400f528",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -868,6 +868,64 @@
                 "storage"
             ],
             "time": "2018-04-06T09:58:14+00:00"
+        },
+        {
+            "name": "leobeal/laravel-quiz",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leobeal/laravel-quiz.git",
+                "reference": "cfe75a71aa5b338808858b2161041014903dde66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leobeal/laravel-quiz/zipball/cfe75a71aa5b338808858b2161041014903dde66",
+                "reference": "cfe75a71aa5b338808858b2161041014903dde66",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.6",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Leobeal\\LaravelQuiz\\QuizServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelQuiz": "Leobeal\\LaravelQuiz\\Facades\\LaravelQuiz"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Leobeal\\LaravelQuiz\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leo Beal",
+                    "email": "leonardobeal@gmail.com",
+                    "homepage": "https://leobeal.com"
+                }
+            ],
+            "description": "A simple Laravel Quiz package",
+            "homepage": "https://github.com/leobeal/laravelquiz",
+            "keywords": [
+                "LaravelQuiz",
+                "laravel",
+                "questions and answers",
+                "quiz"
+            ],
+            "time": "2018-05-23T21:24:59+00:00"
         },
         {
             "name": "monolog/monolog",
