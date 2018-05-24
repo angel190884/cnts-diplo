@@ -219,21 +219,6 @@
                             @endif
                         </div>
                     </div>
-
-                    <div class="col-md-6 mb-3">
-                        <label class="sr-only" for="date_examen_profesional">Examen Profesional</label>
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">Examen Profesional</div>
-                            </div>
-                            {!! Form::date('date_examen_profesional',$user->date_examen_profesional,['class' => 'form-control','placeholder' => 'fecha examen','id'=>'date_examen_profesional']) !!}
-                        </div>
-                        <div class="text-sm-left text-danger">
-                            @if ($errors->has('date_examen_profesional'))
-                                {{ $errors->first('date_examen_profesional') }}
-                            @endif
-                        </div>
-                    </div>
                 </div>
 
                 <hr>
@@ -383,7 +368,6 @@
                     $user->titulo !=null &&
                     $user->cedula !=null &&
                     $user->institucion !=null &&
-                    $user->date_examen_profesional !=null &&
                     $user->file_titulo !=null &&
                     $user->file_cedula !=null &&
                     $user->file_carta !=null)

@@ -37,7 +37,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'titulo' => $faker->randomElement(['medico','doctor','instrumentista']),
         'cedula' => $faker->unique()->bothify('######'),
         'institucion' => $faker->randomElement(['unam','ipn','itam']),
-        'date_examen_profesional' => $faker->dateTime($max = 'now', $timezone = null), // DateTime('2008-04-25 08:37:17', 'UTC'),
 
         'file_titulo' => 'titulos/test.pdf',
         'file_cedula' => 'cedulas/test.pdf',

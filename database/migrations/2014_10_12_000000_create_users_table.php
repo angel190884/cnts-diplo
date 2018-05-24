@@ -41,7 +41,6 @@ class CreateUsersTable extends Migration
             $table->string('titulo')->nullable();
             $table->string('cedula')->nullable();
             $table->string('institucion')->nullable();
-            $table->dateTime('date_examen_profesional')->nullable();
             $table->string('especialidad')->nullable();
             $table->string('especialidad_inst')->nullable();
             $table->string('maestria')->nullable();

@@ -24,6 +24,24 @@
                             <th colspan="6"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></th>
                         </tr>
                         <tr>
+                            <td class="text-muted align-middle">PDF's</td>
+                            <th>
+                                <a href="{{ Storage::url($user->file_titulo) }}" target="_blank" style="font-size:2em; color:darkred">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>Título
+                            </th>
+                            <th colspan="2">
+                                <a href="{{ Storage::url($user->file_cedula) }}" target="_blank" style="font-size:2em; color:darkred">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>Cédula
+                            </th>
+                            <th colspan="2">
+                                <a href="{{ Storage::url($user->file_carta) }}" target="_blank" style="font-size:2em; color:darkred">
+                                    <i class="fas fa-file-pdf"></i>
+                                </a>Carta de Motivos
+                            </th>
+                        </tr>
+                        <tr>
                             <td class="text-muted">CURP</td>
                             <th>{{ $user->curp }}</th>
                             <td class="text-muted">RFC</td>
@@ -53,8 +71,8 @@
                         <tr>
                             <td class="text-muted">Institución</td>
                             <th colspan="2">{{ $user->institucion }}</th>
-                            <td class="text-muted">Fecha de Examen</td>
-                            <th>{{ $user->date_examen_profesional }}</th>
+                            <td class="text-muted">--</td>
+                            <th>--</th>
                         </tr>
                         <tr>
                             <td rowspan="3" class="text-muted align-middle">Posgrados</td>
