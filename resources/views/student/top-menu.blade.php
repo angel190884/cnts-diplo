@@ -12,7 +12,7 @@
                 <li class="dropdown-submenu">
                     <a class="dropdown-item" href="#">Introducción</a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a href="#">Programas de educación a distancia</a></li>
+                        <li class="dropdown-item"><a href="{{ route('view.student.content') }}">Programas de educación a distancia</a></li>
                         <li class="dropdown-item"><a href="#">Módulos</a></li>
                         <li class="dropdown-item"><a href="#">Papel del asesor</a></li>
                         <li class="dropdown-item"><a href="#">Papel del tutor</a></li>
