@@ -4,9 +4,11 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Leobeal\LaravelQuiz\Traits\Quizzable;
 
 class Course extends Model
 {
+    use Quizzable;
     /**
      * The attributes that are mass assignable.
      *
