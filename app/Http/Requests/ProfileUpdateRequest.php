@@ -41,8 +41,7 @@ class ProfileUpdateRequest extends FormRequest
 
             'titulo'            =>  'required',
             'institucion'            =>  'required',
-            'cedula'               =>  'required',
-            'date_examen_profesional'               =>  'required'
+            'cedula'               =>  'required'
         ];
     }
 }
