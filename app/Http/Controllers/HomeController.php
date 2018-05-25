@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Module;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->hasRole('student'))
+        {
+            $modules=Module::where('course_id','=',Auth::user()->course_id)
+                ->get();
+
+            return view('home',compact('modules'));
+        }
         return view('home');
     }
 }

@@ -3,9 +3,28 @@
 </li>
 <li class="nav-item dropdown">
     <a class=" nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Diplomado
+        Contenido Curso
     </a>
     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+    @foreach ($modules as $module)
+        <li class="dropdown-submenu">
+            <a class="dropdown-item" tabindex="-1" href="#">{{ $module->name }}</a>
+            <ul class="dropdown-menu">
+            @foreach ($module->subModules as $subModule)
+                <li class="dropdown-submenu">
+                    <a class="dropdown-item" tabindex="-1" href="#">{{ $subModule->name }}</a>
+                    <ul class="dropdown-menu">
+                    @foreach ($subModule->topics as $topic)
+                        <li class="dropdown-item">
+                            <a href="www.google.com">{{ $topic->name }}</a>
+                        </li>
+                    @endforeach
+                    </ul>
+                </li>
+            @endforeach
+            </ul>
+        </li>
+    @endforeach
         <li class="dropdown-submenu">
             <a  class="dropdown-item" tabindex="-1" href="#">Modulo Introductorio</a>
             <ul class="dropdown-menu">

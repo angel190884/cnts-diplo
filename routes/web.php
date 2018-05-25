@@ -52,8 +52,3 @@ Route::put('upload_file_cedula/{id}',       'FilesUploadController@uploadFileCed
 Route::put('upload_file_carta/{id}',        'FilesUploadController@uploadFileCarta')->      name('u_carta');
 Route::put('upload_file_paid_voucher/{id}', 'FilesUploadController@uploadFilePaidVoucher')->name('u_paid_voucher');
 Route::put('upload_file_voucher/{id}',      'FilesUploadController@uploadFileVoucher')->    name('u_voucher');
-
-
-
-//Rutas Student
-Route::get('content/1/1/1',             'StudentController@viewContent')->      name('view.student.content');

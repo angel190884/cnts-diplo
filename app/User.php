@@ -77,11 +77,12 @@ class User extends Authenticatable
             return $query->where('email', 'LIKE', "%$email%");
         }
     }
-    public function scopeCourse($query, $course)
+
+    public function scopeCourseId($query, $courseId)
     {
-        if ($course)
+        if ($courseId)
         {
-            return $query->where('course_id', '=', $course);
+            return $query->where('course_id', '=', $courseId);
         }
     }
 

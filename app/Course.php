@@ -13,7 +13,7 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-
+        'name', 'short_name', 'active', 'start', 'end', 'description', 'generation'
     ];
 
     /**
@@ -26,11 +26,15 @@ class Course extends Model
     ];
 
     //RELACIONES
-    public function user()
+    public function users()
     {
         return $this->hasMany('App\User');
     }
 
+    public function modules()
+    {
+        return$this->hasMany('App\Module');
+    }
 
     //SCOPE
     public function scopeActive($query)
