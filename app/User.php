@@ -78,7 +78,7 @@ class User extends Authenticatable
         }
     }
 
-    public function scopeCourseId($query, $courseId)
+    public function scopeCourseFilter($query, $courseId)
     {
         if ($courseId)
         {

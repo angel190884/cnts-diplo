@@ -20,7 +20,7 @@ class StudentController extends Controller
             ->inscribed()
             ->fullName($full_name)
             ->email($email)
-            ->course($course)
+            ->courseFilter($course)
             ->orderBy('name','ASC')
             ->paginate(10);
 

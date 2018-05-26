@@ -23,7 +23,7 @@ class AuthenticatedController extends Controller
             ->inscribed()
             ->fullName($full_name)
             ->email($email)
-            ->course($course)
+            ->courseFilter($course)
             ->voucherSend($voucher_send)
             ->coursePaid($paid)
             ->orderBy('date_inscription','ASC')
