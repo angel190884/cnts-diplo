@@ -15,7 +15,7 @@ class SubModulesTableSeeder extends Seeder
     {
         $modules= Module::all();
         foreach ($modules as $module){
-            for ($i = 1; $i <= random_int(1,6); $i++) {
+            for ($i = 1; $i <= random_int(1,5); $i++) {
                 factory(SubModule::class)->create([
                     'order_submodule' => $i,
                     'module_id' => $module->id

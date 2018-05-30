@@ -18,9 +18,10 @@ class CreateTopicsTable extends Migration
 
             $table->string('name');
             $table->unsignedTinyInteger('order_topic');
+            $table->string('slug')->unique();
             $table->unsignedInteger('sub_module_id');
             $table->foreign('sub_module_id')->references('id')->on('sub_modules');
-
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

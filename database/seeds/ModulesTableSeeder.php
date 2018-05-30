@@ -13,7 +13,7 @@ class ModulesTableSeeder extends Seeder
     public function run()
     {
         for ($x = 1; $x <= 50; $x++){
-            for ($i = 1; $i <= random_int(2,8); $i++) {
+            for ($i = 1; $i <= random_int(2,5); $i++) {
                 factory(Module::class)->create([
                     'order_module' => $i,
                     'course_id' => $x
