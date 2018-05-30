@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->hasRole('student'))
+        if (Auth::user()->hasAnyRole('student','teacher'))
         {
             $modules=Module::where('course_id','=',Auth::user()->course_id)
                 ->get();
