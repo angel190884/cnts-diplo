@@ -33,7 +33,7 @@ class Course extends Model
 
     public function modules()
     {
-        return$this->hasMany('App\Module');
+        return $this->hasMany('App\Module');
     }
 
     //SCOPE
