@@ -39,5 +39,6 @@
             </ul>
         </footer>
     </div>
+<script id="dsq-count-scr" src="//cnts-1.disqus.com/count.js" async></script>
 </body>
 </html>

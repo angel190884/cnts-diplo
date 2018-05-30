@@ -52,3 +52,10 @@ Route::put('upload_file_cedula/{id}',       'FilesUploadController@uploadFileCed
 Route::put('upload_file_carta/{id}',        'FilesUploadController@uploadFileCarta')->      name('u_carta');
 Route::put('upload_file_paid_voucher/{id}', 'FilesUploadController@uploadFilePaidVoucher')->name('u_paid_voucher');
 Route::put('upload_file_voucher/{id}',      'FilesUploadController@uploadFileVoucher')->    name('u_voucher');
+
+
+Route::group(['middleware' => ['role:teacher|student']], function () {
+    //rutas para mostrar el contenido de cada topic
+    //Route::get('content/{slug}',        'TopicController@show')->name('showContent');
+});
+Route::get('content/{slug}',        'TopicController@show')->name('showContent');
