@@ -14,4 +14,9 @@ class Topic extends Model
     {
         return $this->belongsTo('App\SubModule');
     }
+
+    public function activities()
+    {
+        return $this->hasMany('App\Activity');
+    }
 }

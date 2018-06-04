@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Course');
     }
 
+    public function activities()
+    {
+        return $this->belongsToMany('App\Activity')->withTimestamps();
+    }
+
     //SCOPE
     public function scopeActive($query)
     {
