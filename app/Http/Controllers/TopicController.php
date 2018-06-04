@@ -11,6 +11,16 @@ use Log;
 class TopicController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -53,8 +63,7 @@ class TopicController extends Controller
 
         if (Auth::user()->hasAnyRole('student','teacher'))
         {
-            $modules=Module::where('course_id','=',Auth::user()->course_id)->get();
-            return view('student.showContent',compact('topic','modules'));
+            return view('student.showContent',compact('topic'));
         }
         Log::error('un usuario quiso ver una url que no le corresponde | '.'user:'. Auth::user()->id);
         return abort(403, 'Unauthorized action.');
