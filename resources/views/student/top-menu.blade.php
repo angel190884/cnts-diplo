@@ -6,7 +6,7 @@
         Contenido Curso
     </a>
     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-    @foreach ($modules as $module)
+    @foreach (Auth::user()->course->modules as $module)
         <li class="dropdown-submenu">
             <a class="dropdown-item" tabindex="-1" href="#">{{ $module->name }}</a>
             <ul class="dropdown-menu">
