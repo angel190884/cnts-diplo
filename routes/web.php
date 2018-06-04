@@ -56,6 +56,5 @@ Route::put('upload_file_voucher/{id}',      'FilesUploadController@uploadFileVou
 
 Route::group(['middleware' => ['role:teacher|student']], function () {
     //rutas para mostrar el contenido de cada topic
-    //Route::get('content/{slug}',        'TopicController@show')->name('showContent');
+    Route::get('content/{slug}',        'TopicController@show')->name('showContent');
 });
-Route::get('content/{slug}',        'TopicController@show')->name('showContent');
