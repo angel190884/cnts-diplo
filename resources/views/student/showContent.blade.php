@@ -28,24 +28,39 @@
             <!-- Add to cart -->
             <div class="col-12 col-lg-4 add_to_cart_block">
                 <div class="card bg-light mb-3">
+                    <div class="card-header bg-primary text-white text-uppercase">
+                        @if(blank($topic->activities))
+                            Sin Actividades
+                        @else
+                            Actividades
+                        @endif
+                    </div>
                     <div class="card-body">
-                        <p>Actividades</p>
-                        <p class="alert alert-warning">Este documento no presenta actividades</p>
-
-                        <div class="row">
-                            <div class="col-md-12 col-lg-12">
-                                @for ($i = 0; $i < 5; $i++)
-                                    <p>actividad # {{ $i }}.- hacer un dibujo.<a href="#"><i class="fas fa-upload"></i></a></p>
-                                @endfor
-
+                        @if(blank($topic->activities))
+                            ninguna
+                        @else
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+                                    @foreach($topic->activities as $activity)
+                                        <p>
+                                            @if(Auth::user()->activities->where('id','=',$activity->id)->count() > 0)
+                                                <a href="#" title="ver pdf subido con anterioridad"><i class="fas fa-eye"></i></a>
+                                            @else
+                                                <a href="#" title="subir PDF"><i class="fas fa-upload"></i></a>
+                                            @endif
+                                            Actividad # {{ $activity->number_activity }}.- {{ $activity->description }}
+                                        </p>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-
+                        @endif
                     </div>
                 </div>
                 <div class="card bg-light mb-3">
+                    <div class="card-header bg-info text-white text-uppercase">
+                        Persona Responsable
+                    </div>
                     <div class="card-body">
-                        <p>Persona Responsable</p>
                         <ul>
                             <li>Nombre: Profesor</li>
                             <li>Contacto: Telefonos de contacto</li>
@@ -54,8 +69,10 @@
                     </div>
                 </div>
                 <div class="card bg-light mb-3">
+                    <div class="card-header bg-info text-white text-uppercase">
+                        Administración del Diplomado
+                    </div>
                     <div class="card-body">
-                        <p>Administración del Diplomado</p>
                         <ul>
                             <li>Aide Velazquez</li>
                             <li>Contacto: 55-55-55-55</li>
@@ -87,10 +104,7 @@
                 <div class="card border-light mb-3">
                     <div class="card-header bg-primary text-white text-uppercase">
                         <div class="text-left">
-                            <i class="fa fa-comment"></i>Foro de preguntas
-                        </div>
-                        <div class="text-right">
-                            <a class="btn-sm btn-info" href="{{ route('showContent',$topic->slug)}}">Recargar Foro</a>
+                            <i class="fa fa-comment"></i>Foro de preguntas <a class="btn-sm btn-info" href="{{ route('showContent',$topic->slug)}}"><i class="fa fa-sync-alt"></i></a>
                         </div>
                     </div>
                     <div class="card-body">
