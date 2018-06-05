@@ -3,6 +3,7 @@
 /public/js
 /public/hot
 /public/storage
+!/public/storage/content/test.pdf
 /storage/*.key
 /vendor
 /.idea

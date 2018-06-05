@@ -20,7 +20,7 @@
             <div class="col-12 col-lg-8">
                 <div class="card bg-light mb-3">
                     <div class="card-body">
-                        <embed src="{{ Storage::url("content/1-1-1.pdf#toolbar=0") }}" type='application/pdf' class="container-fluid" height="825">
+                        <embed src="{{ Storage::url("content/test.pdf#toolbar=0") }}" type='application/pdf' class="container-fluid" height="825">
                     </div>
                 </div>
             </div>
