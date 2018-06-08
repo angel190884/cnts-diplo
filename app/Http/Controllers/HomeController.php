@@ -26,13 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->hasAnyRole('student','teacher'))
-        {
-            $modules=Module::where('course_id','=',Auth::user()->course_id)
-                ->get();
-
-            return view('home',compact('modules'));
-        }
         return view('home');
     }
 }
