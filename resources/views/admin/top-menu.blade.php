@@ -1,6 +1,4 @@
-<li class="nav-item">
-    <a class="nav-link" href="{{ route('home') }}">Inicio</a>
-</li>
+@role('admin')
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Diplomados
@@ -56,3 +54,4 @@
         <a class="dropdown-item" href="#">Something else here</a>
     </div>
 </li>
+@endrole

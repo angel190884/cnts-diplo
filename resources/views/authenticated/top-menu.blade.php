@@ -1,0 +1,3 @@
+@role('authenticated')
+
+@endrole

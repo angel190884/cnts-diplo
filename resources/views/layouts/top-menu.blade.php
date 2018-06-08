@@ -12,18 +12,13 @@
             @guest
 
             @else
-                @role('authenticated')
-                    @include('authenticated.top-menu')
-                @endrole
-                @role('student')
-                    @include('student.top-menu')
-                @endrole
-                @role('teacher')
-                    @include('teacher.top-menu')
-                @endrole
-                @role('admin')
-                    @include('admin.top-menu')
-                @endrole
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Inicio</a>
+                </li>
+                @include('authenticated.top-menu')
+                @include('student.top-menu')
+                @include('teacher.top-menu')
+                @include('admin.top-menu')
             @endguest
         </ul>
 
