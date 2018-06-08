@@ -89,7 +89,7 @@
                 <div class="card border-light mb-3">
                     <div class="card-header bg-primary text-white text-uppercase">
                         <div class="text-left">
-                            <i class="fa fa-comment"></i>Foro de preguntas <a class="btn-sm btn-info" href="{{ route('showContent',$topic->slug)}}"><i class="fa fa-sync-alt"></i></a>
+                            <i class="fa fa-comment"></i>Comentarios</a>
                         </div>
                     </div>
                     <div class="card-body">
