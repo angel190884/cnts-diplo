@@ -21,7 +21,6 @@ class CreateTopicsTable extends Migration
             $table->string('slug')->unique();
             $table->unsignedInteger('sub_module_id');
             $table->foreign('sub_module_id')->references('id')->on('sub_modules');
-            $table->longText('description')->nullable();
             $table->string('file_topic')->default('content/test.pdf');
             $table->timestamps();
         });
