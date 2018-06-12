@@ -21,7 +21,8 @@ class CreateActivityUserTable extends Migration
             $table->unsignedInteger('activity_id');
             $table->foreign('activity_id')->references('id')->on('activities');
 
-
+            $table->string('file_activity')->nullable();
+            $table->unsignedSmallInteger('score')->default(0);
             $table->timestamps();
         });
     }
