@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function activities()
     {
-        return $this->belongsToMany('App\Activity')->withTimestamps();
+        return $this->belongsToMany('App\Activity')->withTimestamps()->withPivot(['score','file_activity']);
     }
 
     //SCOPE
