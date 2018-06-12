@@ -28,7 +28,7 @@
                                         <td scope="row">{{ $activity->number_activity }}</td>
                                         <td>{{ $activity->topic->submodule->module->name }}</td>
                                         <td>{{ $activity->topic->submodule->name }}</td>
-                                        <td>{{ $activity->topic->name }}</td>
+                                        <td><a href="{{ route('showContent',$activity->topic->slug)}}">{{ $activity->topic->name }}</a></td>
                                         @if($activity->pivot->file_activity == null)
                                             <td>---</td>
                                         @else
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        estas son todas lac actividades
+                        Estas son todas lac actividades
                     </div>
                 </div>
             </div>
