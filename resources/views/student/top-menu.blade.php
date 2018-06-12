@@ -27,6 +27,6 @@
 </li>
 
 <li class="nav-item">
-    <a class="nav-link" href="#">Actividades</a>
+    <a class="nav-link" href="{{ route('activity.index') }}">Actividades</a>
 </li>
 @endrole

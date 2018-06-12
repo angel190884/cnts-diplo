@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,7 +11,7 @@ class FilesUploadController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth','permission:editProfile']);
+
     }
     public function uploadFileImg(Request $request,$id)
     {
@@ -148,6 +149,32 @@ class FilesUploadController extends Controller
         $user->save();
         session()->flash('success', 'Voucher Pagado subido y grabado en base de datos!!!');
         return redirect(route('home'));
+
+    }
+    public function uploadFileActivity(Request $request,$id)
+    {
+        /*
+         * todo verificar que solo los student puedan hacer esta accion
+         */
+        $this->validate($request,[
+            'file_activity'            =>  'required|mimes:pdf|max:10000'
+        ]);
+
+        $activity = Activity::findOrFail($id);
+        $relation=$activity->users()->where('user_id', auth()->user()->id)->first();
+
+        if ($relation->pivot->file_activity)
+        {
+            Storage::delete($relation->pivot->file_activity);
+        }
+
+        if ($request->hasFile('file_activity'))
+        {
+            $activity->users()->updateExistingPivot(auth()->user()->id, ['file_activity' => $request->file('file_activity')->store('public/activities')]);
+        }
+
+        session()->flash('success', 'Actividad grabada en base de datos!!!');
+        return redirect(route('activity.index'));
 
     }
 }
