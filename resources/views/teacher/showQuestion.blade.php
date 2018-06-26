@@ -7,7 +7,7 @@
             <p class="lead">{{ $question->observations }}</p>
             <p class="lead">
                 @if(auth()->user()->hasRole('teacher'))
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Calificar Pregunta</a>
+                    <a class="btn btn-primary btn-lg" href="{{ route('scoreQuestion',$question->slug) }}" role="button">Calificar Pregunta</a>
                 @endif
             </p>
             <p class="text-info"><sub>TIENES HASTA EL {{ strtoupper($question->formattedEnd) }} PARA RESPONDER EL FORO O LA PREGUNTA.</sub></p>
