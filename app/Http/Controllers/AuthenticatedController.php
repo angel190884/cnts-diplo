@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use App\Course;
+use App\Question;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -41,6 +43,26 @@ class AuthenticatedController extends Controller
          */
         if ($user->file_paid_voucher)
         {
+            $questions=Question::where('course_id','=',$user->course_id)->get();
+            $user->questions()->attach($questions);
+            $course=$user->course;
+            $modules=$course->modules;
+            foreach ($modules as $module)
+            {
+                $subModules=$module->subModules;
+                foreach ($subModules as $subModule)
+                {
+                    $topics=$subModule->topics;
+                    foreach ($topics as $topic)
+                    {
+                        $user->activities()->attach($topic->activities);
+                    }
+                }
+            }
+
+            dump($user,$user->questions,$user->activities);
+
+
             $user->syncRoles(['student']);
             return redirect(route('authenticated.index'))->with('success', 'Se acepto al usuario correctamente');
         }
