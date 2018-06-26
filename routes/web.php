@@ -56,14 +56,32 @@ Route::group(['middleware' => ['auth','permission:editProfile']], function () {
 
 });
 
-Route::group(['middleware' => ['role:teacher|student']], function () {
+Route::group(['middleware' => ['auth','role:teacher|student']], function () {
     //rutas para mostrar el contenido de cada topic
     Route::get('content/{slug}',        'TopicController@show')->name('showContent');
+    Route::get('activities',        'ActivityController@index')->name('activity.index');
 });
 
-Route::group(['middleware' => ['role:student']], function () {
+Route::group(['middleware' => ['auth','role:student']], function () {
     //rutas para mostrar activities
-    Route::get('activities',        'ActivityController@index')->name('activity.index');
+
     Route::put('upload_activity/{id}',      'FilesUploadController@uploadFileActivity')->name('u_activity');
     Route::get('activity/{slug}',        'ActivityController@show')->name('show.activity');
 });
+
+Route::group(['middleware' => ['auth','permission:forumOfQuestions']], function () {
+    //rutas para mostrar preguntas
+    Route::resource('questions', 'QuestionController');
+});
+
+Route::group(['middleware' => ['auth','permission:scoreActivity']], function (){
+    Route::get('scoresActivity/{slug}',        'ActivityController@scoreActivity')->name('scoreActivity');
+});
+
+Route::group(['middleware' => ['auth','permission:changeScoreActivity']], function (){
+    Route::post('editScoreActivity/{user}', 'ActivityController@changeScore')->name('changeScoreActivity');
+});
+
+
+    Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion');
+    Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion');

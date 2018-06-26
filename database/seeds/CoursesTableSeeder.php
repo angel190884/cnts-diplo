@@ -12,13 +12,13 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 30; $i++) {
+        for ($i = 1; $i <= 3; $i++) {
             factory(Course::class)->create([
                 'short_name' => 'diplo-gen-' . $i,
                 'generation' => $i
             ]);
         }
-        for ($i = 31; $i <= 50; $i++) {
+        for ($i = 4; $i <= 6; $i++) {
             factory(Course::class)->create([
                 'short_name' => 'diplo-gen-' . $i,
                 'generation' => $i,

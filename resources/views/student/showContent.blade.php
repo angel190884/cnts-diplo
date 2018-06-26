@@ -45,32 +45,33 @@
                                         <p>
                                             <strong>Actividad # {{ $activity->number_activity }}</strong>.- {{ $activity->description }}
 
+                                            @role('student')
                                             @if($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity)
                                                 <a href="{{ Storage::url($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity) }}" title="ver pdf subido anteriormente" target="_blank"><i class="fas fa-eye"></i>Ver</a>
                                             @else
                                                 <a href="#" title="subir PDF" data-toggle="modal" data-target="#modalActivity"><i class="fas fa-upload"></i>Subir</a>
-                                                <div class="modal fade" id="modalActivity" tabindex="-1" role="dialog" aria-labelledby="ImgLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            {{ Form::model($activity, ['route' => ['u_activity', $activity->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-activity" id="activityLabel">Subir Actividad</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <input  class="btn btn-secondary btn-block" type="file" name="file_activity" accept="application/pdf" />
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                {{ Form::submit('Subir', array('class' => 'btn btn-primary btn-lg btn-block')) }}
-                                                            </div>
-                                                            {{ Form::close() }}
+                                            @endif
+                                            @endrole
+                                            <div class="modal fade" id="modalActivity" tabindex="-1" role="dialog" aria-labelledby="ImgLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        {{ Form::model($activity, ['route' => ['u_activity', $activity->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-activity" id="activityLabel">Subir Actividad</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
+                                                        <div class="modal-body">
+                                                            <input  class="btn btn-secondary btn-block" type="file" name="file_activity" accept="application/pdf" />
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            {{ Form::submit('Subir', array('class' => 'btn btn-primary btn-lg btn-block')) }}
+                                                        </div>
+                                                        {{ Form::close() }}
                                                     </div>
                                                 </div>
-                                            @endif
-
+                                            </div>
                                         </p>
                                     @endforeach
                                 </div>

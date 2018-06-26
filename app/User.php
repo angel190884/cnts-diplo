@@ -41,6 +41,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Activity')->withTimestamps()->withPivot(['score','file_activity']);
     }
 
+    public function questions()
+    {
+        return $this->belongsToMany('App\Question')->withTimestamps()->withPivot(['score']);
+    }
+
     //SCOPE
     public function scopeActive($query)
     {

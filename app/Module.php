@@ -19,4 +19,9 @@ class Module extends Model
     {
         return$this->hasMany('App\SubModule');  //A UN MODULO LE CORRESPONDEN MUCHOS MODULOS
     }
+
+    public function teacher()
+    {
+        return $this->belongsTo('App\User','teacher_id','id');
+    }
 }

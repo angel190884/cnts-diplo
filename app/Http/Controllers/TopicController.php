@@ -61,7 +61,7 @@ class TopicController extends Controller
     {
         $topic = Topic::where('slug', '=', $slug)->firstOrFail();
 
-        if (Auth::user()->hasAnyRole('student','teacher'))
+        if (auth()->user()->hasAnyRole(['student','teacher']))
         {
             return view('student.showContent',compact('topic'));
         }

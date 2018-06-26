@@ -33,10 +33,14 @@ $factory->define(App\User::class, function (Faker $faker) {
         'entidad' => $faker->city,
         'cp' => $faker->postcode,
         'telefono' => $faker->phoneNumber,
+        'celular' => $faker->phoneNumber,
 
         'titulo' => $faker->randomElement(['medico','doctor','instrumentista']),
         'cedula' => $faker->unique()->bothify('######'),
         'institucion' => $faker->randomElement(['unam','ipn','itam']),
+
+        'trabajo_inst'=> $faker->company,
+        'cargo' => $faker->jobTitle,
 
         'file_titulo' => 'titulos/test.pdf',
         'file_cedula' => 'cedulas/test.pdf',

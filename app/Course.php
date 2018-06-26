@@ -36,12 +36,16 @@ class Course extends Model
         return $this->hasMany('App\Module');
     }
 
+    public function questions()
+    {
+        return $this->hasMany('App\Question');
+    }
+
     //SCOPE
     public function scopeActive($query)
     {
         return $query->where('active', 1);
     }
-
 
     //getters
     public function getCreatedAtFormatBasicAttribute()

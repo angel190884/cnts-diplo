@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Usuario: <strong>{{ auth()->user()->fullName }}</strong></div>
+                    <div class="card-header">Profesor: <strong>{{ auth()->user()->fullName }}</strong></div>
                     <div class="card-body">
                         <div>
                             <table class="table table-sm table-bordered table-hover">
@@ -15,37 +15,24 @@
                                 </tr>
                                 <tr>
                                     <th scope="col">#</th>
+                                    <th scope="col">Diplomado</th>
                                     <th scope="col">Capitulo</th>
                                     <th scope="col">Sub Capitulo</th>
                                     <th scope="col">Tema</th>
                                     <th scope="col">Actividad</th>
-                                    <th scope="col">Enlace</th>
-                                    <th scope="col">Calificación</th>
+                                    <th scope="col">Calificaciones</th>
                                 </tr>
                                 </thead>
-                                <tbody class="text-center">
+                                <tbody>
                                 @foreach ($activities as $activity)
                                     <tr>
                                         <td scope="row">{{ $activity->number_activity }}</td>
+                                        <td>{{ $activity->topic->submodule->module->course->short_name }}</td>
                                         <td>{{ $activity->topic->submodule->module->name }}</td>
                                         <td>{{ $activity->topic->submodule->name }}</td>
                                         <td><a href="{{ route('showContent',$activity->topic->slug)}}">{{ $activity->topic->name }}</a></td>
                                         <td>{{ $activity->name }}</td>
-                                        @if($activity->pivot->file_activity == null)
-                                            <td>---</td>
-                                        @else
-                                            <td>
-                                                <a href="{{ Storage::url($activity->pivot->file_activity) }}" target="_blank" style="color: darkred">
-                                                    <i class="fas fa-file-pdf"></i>
-                                                </a>
-
-                                            </td>
-                                        @endif
-                                        @if($activity->pivot->score==5||$activity->pivot->score==0)
-                                            <td style="font-size: large; color:red">{{ $activity->pivot->score }}</td>
-                                        @else
-                                            <td style="font-size: large; color:green">{{ $activity->pivot->score }}</td>
-                                        @endif
+                                        <td><a href="{{ route('scoreActivity',$activity->slug) }}"><i class="fas fa-sort-numeric-up"></i></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

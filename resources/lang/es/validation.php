@@ -117,6 +117,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'score' => 'calificación',
+        'end'   => 'fin',
+        'course' => 'curso',
+        'question' => 'pregunta'
+    ],
 
 ];

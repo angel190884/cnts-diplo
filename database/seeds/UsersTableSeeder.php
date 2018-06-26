@@ -61,19 +61,19 @@ class UsersTableSeeder extends Seeder
             $user->assignRole('teacher');
         }
 
-        for ($i = 0; $i < 40; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '1'
             ]);
             $user->assignRole('authenticated');
         }
-        for ($i = 0; $i < 40; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '2'
             ]);
             $user->assignRole('authenticated');
         }
-        for ($i = 0; $i < 30; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '1',
                 'file_voucher' => 'vouchers/test.pdf',
@@ -81,7 +81,7 @@ class UsersTableSeeder extends Seeder
             ]);
             $user->assignRole('student');
         }
-        for ($i = 0; $i < 30; ++$i) {
+        for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '2',
                 'file_voucher' => 'vouchers/test.pdf',

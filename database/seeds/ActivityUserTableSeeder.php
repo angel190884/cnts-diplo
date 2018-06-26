@@ -13,7 +13,7 @@ class ActivityUserTableSeeder extends Seeder
      */
     public function run()
     {
-        $users= User::where('course_id','=','1')->get();
+        $users= User::where('course_id','=','1')->role('student')->get();
         $activities = Activity
             ::join('topics', 'topics.id', '=', 'activities.topic_id')
             ->join('sub_modules', 'sub_modules.id', '=', 'topics.sub_module_id')
