@@ -105,7 +105,7 @@ class ProfileController extends Controller
              */
             $user->date_inscription = Carbon::parse(now());
             $user->save();
-            return redirect(route('home'))->with('success','Te haz inscrito, se te enviara un email con mas instrucciones');
+            return redirect(route('home'))->with('success','Te has inscrito, se te enviara un email con mas instrucciones');
         }
         return redirect(route('profile.edit',$user->id))->with('success','Datos actualizados correctamente. Recuerda que para poder inscribirte debes subir los tres archivos en PDF que se te indican al lado derecho de la pantalla');
     }
