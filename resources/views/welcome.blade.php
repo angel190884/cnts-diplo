@@ -112,7 +112,6 @@
                 background: #1a1a1a;
                 margin: 0;
             }
-
             .footer-widget-area .footer-subscription input[type="submit"] {
                 background: #FE3C47;
                 border: 0 solid #CCCCCC;
@@ -150,8 +149,6 @@
             .footer-widget-area .textwidget p {
                 padding-left: 42px;
             }
-
-
             .footer-widget-area li {
                 line-height: 32px;
             }
@@ -234,7 +231,7 @@
                             <a class="nav-link" href="#inicio">Inicio <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#link">Link</a>
+                            <a class="nav-link" href="#instituciones">Instituciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Contacto</a>
@@ -292,7 +289,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <!--<div class="carousel-item">
                         <img src="{{ Storage::url('images/celulas.jpg') }}" alt="Third slide">
                         <div class="container">
                             <div class="carousel-caption text-right">
@@ -301,7 +298,7 @@
                                 <p><a class="btn btn-lg btn-danger" href="#contacto" role="button">contacto</a></p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -314,58 +311,157 @@
             </div>
         </header>
 
-        <section id="inicio">
+        <section>
             <article>
+                <div class="container-fluid bg-light text-center py-5">
+                    <h2>Sigue estos <a href="">pasos</a> para poder ingresar.</h2>
+                    <div class="row">
+                        <div class="col-md-4 offset-2">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <i class="far fa-user fa-8x"></i>
+                                        <h3>1.-registrate</h3>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <i class="fas fa-address-card fa-8x"></i>
+                                        <h3>2.-inscribete</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 m-0 p-0">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <i class="fas fa-envelope fa-8x"></i>
+                                        <h3>3.-confirmación</h3>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <i class="fas fa-user fa-8x"></i>
+                                        <h3>4.-ingresa</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article id="instituciones">
                 <div class="container-fluid main">
                     <div class="py-5 bg-light">
                         <div class="container">
                             <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="text-center">Instituciones que avalan el Diplomado.</h2>
+                                </div>
                                 <div class="col-md-4">
-                                    <div class="card mb-4 box-shadow">
-                                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16448a36915%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16448a36915%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.15%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+                                    <div class="card mb-4 box-shadow p-1">
+                                        <div style="height: 225px; width: 100%; display: block;">
+                                            <img class="card-img-top" alt="unam" src="{{ Storage::url('images/unam.png') }}">
+                                        </div>
                                         <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <h3><strong>UNAM</strong></h3>
+                                            <p class="text-"><em><small>Universidad Nacional Autónoma de México</small></em></p>
+                                            <p class="card-text">Es una universidad pública de investigación en México . Ocupa un lugar destacado en el ranking mundial basado en la extensa investigación e innovación de la universidad.</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    <a href="https://www.unam.mx/" type="button" class="btn btn-sm btn-outline-secondary">sitio</a>
+                                                    <a href="https://www.facebook.com/UNAM.MX.Oficial" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-facebook-square"></i></a>
+                                                    <a href="https://twitter.com/unam_mx" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-twitter-square"></i></a>
+                                                    <a href="https://www.instagram.com/unam_mx/" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-instagram"></i></a>
                                                 </div>
-                                                <small class="text-muted">9 mins</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="card mb-4 box-shadow">
-                                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16448a36916%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16448a36916%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.15%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                    <div class="card mb-4 box-shadow p-1">
+                                        <div style="height: 225px; width: 100%; display: block;">
+                                            <img class="card-img-top" alt="oms" src="{{ Storage::url('images/oms.png') }}">
+                                        </div>
                                         <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <h3><strong>OMS</strong></h3>
+                                            <p class="text-"><em><small>Organización Mundial de la Salud</small></em></p>
+                                            <p class="card-text">La OMS considera que todo país debe disponer de sangre y componentes seguros, accesibles a costos razonables y acordes con las demandas nacionales.</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    <a href="https://www.who.int/es" type="button" class="btn btn-sm btn-outline-secondary">sitio</a>
+                                                    <a href="https://www.facebook.com/WHO" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-facebook-square"></i></a>
+                                                    <a href="https://twitter.com/WHO" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-twitter-square"></i></a>
+                                                    <a href="https://www.instagram.com/who/" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-instagram"></i></a>
                                                 </div>
-                                                <small class="text-muted">9 mins</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="card mb-4 box-shadow">
-                                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16448a36919%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16448a36919%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.71875%22%20y%3D%22120.15%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                                    <div class="card mb-4 box-shadow p-1">
+                                        <div style="height: 225px; width: 100%; display: block;">
+                                            <img class="card-img-top" alt="oms" src="{{ Storage::url('images/logo-paho.png') }}" style="height: 225px; width: 100%; display: block;">
+                                        </div>
                                         <div class="card-body">
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                            <h3><strong>PAHO</strong></h3>
+                                            <p class="text-"><em><small>Organización Panamericana de la Salud</small></em></p>
+                                            <p class="card-text">Es una agencia de salud pública de caracter internacional que trabaja para mejorar la salud y el nivel de vida de todos los pueblos de las Américas.</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                                    <a href="https://www.paho.org/mex/" type="button" class="btn btn-sm btn-outline-secondary">sitio</a>
+                                                    <a href="https://www.facebook.com/PAHOWHO" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-facebook-square"></i></a>
+                                                    <a href="https://twitter.com/OPSOMSMexico/" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-twitter-square"></i></a>
+                                                    <a href="https://www.instagram.com/opspaho/" type="button" class="btn btn-sm btn-outline-secondary"><i class="fab fa-instagram"></i></a>
                                                 </div>
-                                                <small class="text-muted">9 mins</small>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article class="bg-light py-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <!-- About -->
+                            <section>
+                                <h2><span>Contenido del Diplomado</span></h2>
+                                <ul>
+                                    <li>Módulo Introductorio.</li>
+                                    <li>Módulo I Donación de Sangre Segura.</li>
+                                    <li>Módulo II Tamizaje de VIH y otros Agentes Infecciosos.</li>
+                                    <li>Módulo III Grupos Sanguíneos.</li>
+                                </ul>
+                                <p>
+                                    <small>
+                                        Cupo: de 20 a 40 como máximo. Costos: $ 1,500.00 (Mil quinientos pesos 00/100 M.N.).
+                                    </small>
+                                </p>
+
+                                <h2><span>Nuestras redes sociales</span></h2>
+                                <ul class="contact">
+                                    <li><a href="#"><i class="fab fa-facebook"></i><span class="label">Facebook</span></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i><span class="label">Twitter</span></a></li>
+                                    <li><a href="#"><i class="fas fa-at"></i><span class="label">Gmail</span></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin"></i><span class="label">LinkedIn</span></a></li>
+                                </ul>
+                            </section>
+                        </div>
+                        <div class="col-md-6">
+                            <section>
+                                <div class="container-fluid card">
+                                    <div style="height: 200px; width: 100%; display: block;">
+                                        <img class="card-img-top" alt="oms" src="{{ Storage::url('images/cnts.png') }}">
+                                    </div>
+                                    <div class="card-body py-0 m-0">
+                                        <h2>CNTS</h2>
+                                        <small>Centro Nacional de la Transfusión Sanguinea.</small>
+                                        <p>Es el encargado de gestionar el contenido de este diplomado.</p>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -406,7 +502,7 @@
                                     </div>  <!--  end .footer-widget-header -->
                                     <div>
                                         <p><i class="fas fa-envelope-open fa-2x"></i> email:<br>
-                                            <a href="#">cntscursos@gmail.com</a><br/><a href="#">helpme@donation.com</a></p>
+                                            <a href="#">cntscursos@gmail.com</a><br/></p>
                                         <p><i class="fas fa-location-arrow fa-2x"></i>dirección:<br>
                                             Othón de Mendizabal 195,Col. Zacatenco,<br/> CDMX. C.P. 07360</p>
                                         <p><i class="fas fa-phone fa-2x"></i> telefonos:<br>
