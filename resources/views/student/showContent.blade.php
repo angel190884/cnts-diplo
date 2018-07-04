@@ -85,9 +85,10 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Nombre: Profesor</li>
-                            <li>Contacto: Telefonos de contacto</li>
-                            <li>e-mail: <a href="mailto:example@example.com">mail de contacto</a></li>
+                            <li>Nombre: {{ $topic->subModule->module->teacher->fullName }}</li>
+                            <li>Teléfono: {{ $topic->subModule->module->teacher->telefono }}</li>
+                            <li>Cel: {{ $topic->subModule->module->teacher->celular }}</li>
+                            <li>e-mail: <a href="mailto:{{ $topic->subModule->module->teacher->email }}">{{ $topic->subModule->module->teacher->email }}</a></li>
                         </ul>
                     </div>
                 </div>
