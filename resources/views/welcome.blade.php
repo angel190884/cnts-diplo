@@ -216,6 +216,73 @@
                 width: 0px;
                 background: #FFFFFF;
             }
+
+            /**********************
+/***** Services *******
+/*********************/
+            section{
+                padding: 60px 0;
+            }
+            section .section-title{
+                text-align:center;
+                color:#FE3C47;
+                margin-bottom:50px;
+                text-transform:uppercase;
+            }
+            #what-we-do{
+                background:#ffffff;
+            }
+            #what-we-do .card{
+                padding: 1rem!important;
+                border: none;
+                margin-bottom:1rem;
+                -webkit-transition: .5s all ease;
+                -moz-transition: .5s all ease;
+                transition: .5s all ease;
+            }
+            #what-we-do .card:hover{
+                -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+                -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+                box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+            }
+            #what-we-do .card .card-block{
+                padding-left: 50px;
+                position: relative;
+            }
+            #what-we-do .card .before a{
+                color: #FE3C47 !important;
+                font-weight:700;
+                text-decoration:none;
+            }
+            #what-we-do .card .before a i{
+                display:none;
+
+            }
+            #what-we-do .card:hover .before a i{
+                display:inline-block;
+                font-weight:700;
+
+            }
+            #what-we-do .card .before{
+                position: absolute;
+                font-size: 39px;
+                color: #FE3C47;
+                left: 3;
+                -webkit-transition: -webkit-transform .2s ease-in-out;
+                transition:transform .2s ease-in-out;
+            }
+
+            #what-we-do .card:hover .before{
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+                -webkit-transition: .5s all ease;
+                -moz-transition: .5s all ease;
+                transition: .5s all ease;
+            }
+            #what-we-do .read-more{
+                color: #FE3C47;
+            }
+
         </style>
     </head>
     <body>
@@ -228,10 +295,13 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#inicio">Inicio <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#inicio">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#instituciones">Instituciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#what-we-do">Características</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contacto">Contacto</a>
@@ -274,7 +344,7 @@
                         <div class="container">
                             <div class="carousel-caption text-left">
                                 <h1>Diplomado "Sangre y Componentes Seguros"</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p></p>
                                 <p><a class="btn btn-lg btn-danger" href="#diplomado" role="button">Guia de Inscripción</a></p>
                             </div>
                         </div>
@@ -289,16 +359,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="carousel-item">
-                        <img src="{{ Storage::url('images/celulas.jpg') }}" alt="Third slide">
-                        <div class="container">
-                            <div class="carousel-caption text-right">
-                                <h1>Puedes contactarnos para cualquier duda a los telefonos del pie de pagina.</h1>
-                                <p><i class="fas fa-location-arrow fa-2x"></i>dirección: Othón de Mendizabal 195,Col. Zacatenco, CDMX. C.P. 07360</p>
-                                <p><a class="btn btn-lg btn-danger" href="#contacto" role="button">contacto</a></p>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -320,11 +380,15 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <i class="far fa-user fa-8x"></i>
+                                        <span style="color: red;">
+                                            <i class="far fa-user fa-8x"></i>
+                                        </span>
                                         <h3>1.-registrate</h3>
                                     </div>
                                     <div class="col-md-6">
-                                        <i class="fas fa-address-card fa-8x"></i>
+                                        <span style="color: red;">
+                                            <i class="fas fa-address-card fa-8x"></i>
+                                        </span>
                                         <h3>2.-inscribete</h3>
                                     </div>
                                 </div>
@@ -334,11 +398,15 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <i class="fas fa-envelope fa-8x"></i>
+                                        <span style="color: red;">
+                                            <i class="fas fa-envelope fa-8x"></i>
+                                        </span>
                                         <h3>3.-confirmación</h3>
                                     </div>
                                     <div class="col-md-6">
-                                        <i class="fas fa-user fa-8x"></i>
+                                        <span style="color: red;">
+                                            <i class="fas fa-user fa-8x"></i>
+                                        </span>
                                         <h3>4.-ingresa</h3>
                                     </div>
                                 </div>
@@ -414,6 +482,76 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <article id="what-we-do" class="bg-light px-5">
+                <div class="container-fluid px-5">
+                    <h2 class="section-title mb-2 h1">Que puedes hacer en el diplomado</h2>
+                    <p class="text-center text-muted h5">Acciones que podras realizar dentro del sistema del diplomado una vez que seas aceptado y lo estes cursando.</p>
+                    <div class="row mt-5">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="fas fa-cloud-upload-alt fa-2x before"></i>
+                                <div class="card-block">
+                                    <h3 class="card-title">Subir actividades</h3>
+                                    <p class="card-text">Podras subir tus actividades en formato PDF directamente sin tener que enviar todo atravez de emails.</p>
+                                    <a href="" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="before fas fa-comments fa-2x"></i>
+                                <div class="card-block block-2">
+                                    <h3 class="card-title">Foros</h3>
+                                    <p class="card-text">Tendremos foros para la discusion de los temas a tratar. Asi como de temas creados por el Profesor.</p>
+                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="before fas fa-user-circle fa-2x"></i>
+                                <div class="card-block block-3">
+                                    <h3 class="card-title">Perfil</h3>
+                                    <p class="card-text">Tendras un perfil, y la sensacion de que no estas a la distancia.</p>
+                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="before fas fa-file-pdf fa-2x"></i>
+                                <div class="card-block block-4">
+                                    <h3 class="card-title">Contenido disponible</h3>
+                                    <p class="card-text">Tendremos todo el contenido disponible para tu perfil, y asi puedas repasar algun tema para los examenes.</p>
+                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="before far fa-id-badge fa-2x"></i>
+                                <div class="card-block block-5">
+                                    <h3 class="card-title">Informacion de Contacto</h3>
+                                    <p class="card-text">Tendras a la mano información de tus profesores para poder contactarlos.</p>
+                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                            <div class="card">
+                                <i class="before far fa-star fa-2x"></i>
+                                <div class="card-block block-6">
+                                    <h3 class="card-title">Calificaciones</h3>
+                                    <p class="card-text">Podras en todo momento saber tu calificacion de las actividades y foros.</p>
+                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
