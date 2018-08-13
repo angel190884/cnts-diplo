@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,8 +34,10 @@
             /* width and heights */
             *[class].h150{ height:150px !important; }
             *[class].w320{ width:320px !important; }
-            *[class].w380{ width: 340px !important; }
+            *[class].w380{ width: 380px !important; }
         }
+
+        .indent { text-indent: 2em; margin: 0; padding: 0; text-align: justify}
 
     </style>
 </head>
@@ -59,17 +60,19 @@
 
                         <table>
                             <tr>
-                                <td><img src="{{ storage('') }}" height="20"></td>
+                                <td>
+                                    <img src="{{ $message->embed('storage/images/spacer.gif') }}" height="22">
+                                </td>
                             </tr>
                         </table>
 
                         <table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w380">
                             <tr>
-                                <td width="223" class="w380 textcenter"><img src="images/PROJEKTO-welcome-DESK_31.png" width="223" height="59"></td>
+                                <td width="640" class="w380 textcenter"><img src="{{ $message->embed('storage/images/cnts.png') }}" width="223" height="75" class="textcenter"></td>
                                 <td width="415" align="right" class="hide">
 
-                                    <span style="font-family: arial; font-size:12px; color:#0d133d">Comienza tus projectos, aprende con nuestro tutorial</span><br>
-                                    <span style="font-family: arial; font-size:12px; color:#0d133d"><a href="" style="color:#0d133d; text-decoration:underline;">Version online</a></span>
+                                    <span style="font-family: arial; font-size:12px; color:#0d133d">Othón de Mendizabal <br>#195,Col. Zacatenco, CDMX. C.P. 07360 </span><br>
+                                    <span style="font-family: arial; font-size:12px; color:#0d133d"><a href="mailto:cntscursos@gmail.com" style="color:#0d133d; text-decoration:underline;">cntscursos@gmail.com</a></span>
 
                                 </td>
                             </tr>
@@ -77,16 +80,52 @@
 
                         <table>
                             <tr>
-                                <td><img src="images/spacer.gif" height="5"></td>
+                                <td><img src="{{ $message->embed('storage/images/spacer.gif') }}" height="5"></td>
                             </tr>
                         </table>
 
+                        <table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w380">
+                            <tr>
+                                <td width="640" class="w380 textcenter" align="center" valign="top">
+                                    <span style="font-family: arial; font-size:18px; color:#1c1c1c;font-weight: bold">Diplomado Sangre y componentes Seguros</span><br>
+                                </td>
+                            </tr>
+                        </table>
 
+                        <table>
+                            <tr>
+                                <td><img src="{{ $message->embed('storage/images/spacer.gif') }}" height="20"></td>
+                            </tr>
+                        </table>
 
+                        <table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w380">
+                            <tr>
+                                <td width="640" class="w380 textcenter" align="center" valign="top">
+                                    @yield('content')
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td>
+                                    <img src="{{ $message->embed('storage/images/spacer.gif') }}" height="60">
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="640" border="0" align="center" cellpadding="0" cellspacing="0" class="w380">
+                            <tr>
+                                <td width="640" class="w380 textcenter" style="text-align: center">
+                                    <hr>
+                                    <span style="font-family: arial; font-size:12px; color:#0d133d">Othón de Mendizabal <br>#195,Col. Zacatenco, CDMX. C.P. 07360 </span><br>
+                                    <span style="font-family: arial; font-size:12px; color:#0d133d">Office: <b>(55) 63-92-22-50</b> Ext:  <b>51616</b> ó <b>51619</b>.</span><br>
+                                    <span style="font-family: arial; font-size:12px; color:#0d133d"><a href="mailto:cntscursos@gmail.com" style="color:#0d133d; text-decoration:underline;">cntscursos@gmail.com</a></span>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
             </table>
-            @yield('content')
+
         </td>
     </tr>
 </table>
