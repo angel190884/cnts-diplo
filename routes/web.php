@@ -85,3 +85,7 @@ Route::group(['middleware' => ['auth','permission:changeScoreActivity']], functi
 
     Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion');
     Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion');
+
+
+//ruta para ver los emails
+include('email.php');
