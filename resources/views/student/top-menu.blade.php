@@ -1,7 +1,7 @@
 @role('student')
 <li class="nav-item dropdown">
     <a class=" nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Contenido Curso
+        Módulos
     </a>
     <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
         @foreach (Auth::user()->course->modules as $module)
