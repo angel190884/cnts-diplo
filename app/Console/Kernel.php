@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('alert:time_over_forum')->everyMinute();
+        $schedule->command('alert:time_over_forum')->dailyAt('02:00');
     }
 
     /**
