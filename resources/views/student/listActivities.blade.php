@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div>
                             <table class="table table-sm table-bordered table-hover">
-                                <thead class="thead-dark">
+                                <thead class="thead-dark text-center">
                                 <tr>
                                     <th colspan="10">ACTIVIDADES</th>
                                 </tr>
@@ -41,8 +41,10 @@
 
                                             </td>
                                         @endif
-                                        @if($activity->pivot->score==5||$activity->pivot->score==0)
-                                            <td style="font-size: large; color:red">{{ $activity->pivot->score }}</td>
+                                        @if($activity->pivot->score==5)
+                                            <td style="font-size: large; color:#ff6166">{{ $activity->pivot->score }}</td>
+                                        @elseif($activity->pivot->score==0)
+                                            <td style="font-size: large; color:#ff6166"><i class="fab fa-product-hunt"></i></td>
                                         @else
                                             <td style="font-size: large; color:green">{{ $activity->pivot->score }}</td>
                                         @endif
