@@ -91,6 +91,7 @@ Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name(
 Route::get('faq-activities', function () {return view('faq.activities');})->name('faq-activities');
 Route::get('faq-forum', function () {return view('faq.forum');})->name('faq-forum');
 Route::get('faq-system', function () {return view('faq.system');})->name('faq-system');
+Route::get('faq-inscription', function () {return view('faq.inscription');})->name('faq-inscription');
 
 
 //ruta para ver los emails
