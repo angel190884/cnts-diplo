@@ -19,6 +19,9 @@
                 @include('student.top-menu')
                 @include('teacher.top-menu')
                 @include('admin.top-menu')
+                <li class="nav-item">
+                    <a class="nav-link text-info" href="{{ route('faq-activities') }}"><i class="fas fa-question-circle"></i></a>
+                </li>
             @endguest
         </ul>
 

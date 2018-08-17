@@ -83,8 +83,14 @@ Route::group(['middleware' => ['auth','permission:changeScoreActivity']], functi
 });
 
 
-    Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion');
-    Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion');
+Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion');
+Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion');
+
+
+
+Route::get('faq-activities', function () {return view('faq.activities');})->name('faq-activities');
+Route::get('faq-forum', function () {return view('faq.forum');})->name('faq-forum');
+Route::get('faq-system', function () {return view('faq.system');})->name('faq-system');
 
 
 //ruta para ver los emails
