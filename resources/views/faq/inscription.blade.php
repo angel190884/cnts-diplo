@@ -25,13 +25,13 @@
                 <strong class="text-info">Registrarse.- llenar los datos de registro.</strong>
             </p>
             <p class="card-text text-danger">#PASO 2
-                <strong class="text-info">Modificar Perfil en el boton <button class="btn-warning" disabled>modificar perfil</button> del menu inicio.</strong>
+                <strong class="text-info">Modificar Perfil en el boton <button class="btn-primary" disabled>Editar perfil</button> del menu inicio.</strong>
             </p>
             <p class="card-text text-danger">#PASO 3
-                <strong class="text-info">Sibir los 3 archivos PDF que se te solicitan.</strong>
+                <strong class="text-info">Sibir los 3 archivos PDF que se te solicitan y <button class="btn-success" disabled>ENVIAR SOLICITUD DE INSCRIPCIÓN</button>.</strong>
             </p>
             <p class="card-text text-danger">#PASO 4
-                <strong class="text-info">Inscribirte presionando este boton <button class="btn-success" disabled>ENVIAR SOLICITUD DE INSCRIPCIÓN</button>.</strong>
+                <strong class="text-info">Esperar respuesta por parte del <b>Centro Nacional de la Transfusión Sanguínea</b>.</strong>
             </p>
 
             <p>FAQS</p>
