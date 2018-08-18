@@ -5,7 +5,7 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Actividades</a>
+                    <a class="nav-link" href="{{ route('faq-activities') }}">Actividades</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('faq-forum') }}">Foro</a>
