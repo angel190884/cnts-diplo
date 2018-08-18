@@ -1,20 +1,21 @@
 <div class="jumbotron">
-    <h1>Bienvenido {{ Auth::user()->fullName }}</h1>
-    <p class="lead">
-        Para poder inscribirte al Diplomado a distancia <strong class="font-weight-bold">"Sangre y Componentes Seguros"</strong> deberas tener ciertos requisitos minimos para poder ser aceptado.
-    </p>
+    <h1 class="text-center">Bienvenido {{ Auth::user()->fullName }}</h1>
     <hr>
-    <div class=container-fluid>
-        <div class="row">
-            @if(!Auth::user()->course_id)
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <p>
-                        <a class="btn btn-block btn-warning" href="{{ route('profile.edit', Auth::user()->id) }}" role="button">
-                            Debes de llenar tu perfil en este boton para poder inscribirte
-                        </a>
+    <div class="alert alert-info text-center" role="alert">
+        <p>
+            Te has registrado al Sistema Web del Diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
+            deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>Centro Nacional de la Transfusón Sanguínea</b>.
+        </p>
 
-                    </p>
-                </div>
+        <p>
+            El <b class="text-primary">siguiente PASO</b> sera la Modificación de tu perfil y tus datos generales en el siguiente Botón.
+        </p>
+        <div class="container-fluid text-center pb-5">
+            @if(!Auth::user()->course_id)
+                <a class="btn btn-primary" href="{{ route('profile.edit', Auth::user()->id) }}" role="button">
+                    <i class="far fa-user fa-4x"></i>
+                    <p>Editar perfil</p>
+                </a>
             @else
                 @if(Auth::user()->file_voucher)
                     @if(!Auth::user()->file_paid_voucher)
@@ -64,4 +65,6 @@
             @endif
         </div>
     </div>
+
+
 </div>
