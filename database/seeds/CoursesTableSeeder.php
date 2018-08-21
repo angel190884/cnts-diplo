@@ -12,7 +12,7 @@ class CoursesTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 1; $i++) {
             factory(Course::class)->create([
                 'short_name' => 'diplo-gen-' . $i,
                 'generation' => $i

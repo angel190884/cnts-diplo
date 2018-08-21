@@ -524,7 +524,7 @@
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                                     <div class="container-fluid">
-                                        {{ Form::select('course', $courses, null, ['placeholder' => 'Selecciona...', 'class' => 'form-control']) }}
+                                        {{ Form::select('course', $courses, $courses, ['class' => 'form-control']) }}
                                     </div>
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
