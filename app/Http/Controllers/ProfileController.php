@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Mail\InscriptionRequestReceived;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Mail;
 
 class ProfileController extends Controller
 {
@@ -105,8 +107,11 @@ class ProfileController extends Controller
              */
             $user->date_inscription = Carbon::parse(now());
             $user->save();
-            return redirect(route('home'))->with('success','Te has inscrito, se te enviara un email con mas instrucciones');
+            if ($user){
+                Mail::to($user->email)->send(new InscriptionRequestReceived());
+            }
+            return redirect(route('home'))->with('success','Haz realizado con éxito la solicitud de inscripción al diplomado "SANGRE Y COMPONENTES SEGUROS" en breve se te enviara la respuesta de aceptación ó rechazo a tu solicitud.');
         }
-        return redirect(route('profile.edit',$user->id))->with('success','Datos actualizados correctamente. Recuerda que para poder inscribirte debes subir los tres archivos en PDF que se te indican al lado derecho de la pantalla');
+        return redirect(route('profile.edit',$user->id))->with('success','Datos actualizados correctamente. A continuación se te pedirán 3 pdfs necesarios para continuar con la solicitud.');
     }
 }
