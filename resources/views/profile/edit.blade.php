@@ -44,12 +44,12 @@
                     $user->telefono !=null &&
                     $user->titulo !=null &&
                     $user->cedula !=null &&
-                    $user->institucion !=null &&
-                    $user->file_titulo !=null &&
-                    $user->file_cedula !=null &&
-                    $user->file_carta !=null)
+                    $user->institucion !=null)
+                    <div class="row col-md-12 d-none">
                 @else
-                    <div class="row col-md-12">
+                    <div class="row col-md-12 d-block">
+
+                @endif
                         <div class="container-fluid">
                             <h4 class="mb-12">Datos Generales</h4>
                             <div class="row">
@@ -74,7 +74,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="email">Email</label>
-                                {!! Form::text('email',$user->email,['class' => 'form-control','type'=> "email",'placeholder' => 'you@example.com','id'=>'email']) !!}
+                                {!! Form::text('email',$user->email,['class' => 'form-control','type'=> "email",'placeholder' => 'you@example.com','id'=>'email','readonly']) !!}
                                 <div class="text-sm-left text-danger">
                                     @if ($errors->has('email'))
                                         {{ $errors->first('email') }}
@@ -376,8 +376,6 @@
                             </div>
                         </div>
                     </div>
-                @endif
-
                 @if($user->curp != null &&
                     $user->rfc !=null &&
                     $user->homoclave !=null &&
@@ -389,10 +387,7 @@
                     $user->telefono !=null &&
                     $user->titulo !=null &&
                     $user->cedula !=null &&
-                    $user->institucion !=null &&
-                    $user->file_titulo !=null &&
-                    $user->file_cedula !=null &&
-                    $user->file_carta !=null)
+                    $user->institucion !=null)
                     <div class="col-md-12 mb-12">
                         <h4 class="d-flex justify-content-between align-items-center mb-3">
                             <span class="text-muted">Archivos</span>
@@ -524,10 +519,7 @@
                     $user->telefono !=null &&
                     $user->titulo !=null &&
                     $user->cedula !=null &&
-                    $user->institucion !=null &&
-                    $user->file_titulo !=null &&
-                    $user->file_cedula !=null &&
-                    $user->file_carta !=null)
+                    $user->institucion !=null)
                         <div class="col-md-12 mb-12">
                             <ul class="list-group mb-3">
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
