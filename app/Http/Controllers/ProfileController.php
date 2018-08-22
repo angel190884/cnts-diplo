@@ -102,9 +102,6 @@ class ProfileController extends Controller
 
         if ($user->course != null)
         {
-            /*
-             * todo enviar mail al usuario que diga que que ya esta inscrito y el cnts revisara sus datos
-             */
             $user->date_inscription = Carbon::parse(now());
             $user->save();
             if ($user){
