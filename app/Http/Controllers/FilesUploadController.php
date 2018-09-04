@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Mail\FileVoucherUpload;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Mail;
 
 class FilesUploadController extends Controller
 {
@@ -122,6 +124,9 @@ class FilesUploadController extends Controller
             $user->file_voucher = $request->file('file_voucher')->store('public/vouchers');
         }
         $user->save();
+        if ($user){
+            Mail::to($user->email)->send(new FileVoucherUpload($user));
+        }
         session()->flash('success', 'Voucher subido y grabado en base de datos!!!');
         return redirect(route('authenticated.index'));
 

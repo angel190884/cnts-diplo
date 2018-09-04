@@ -100,6 +100,8 @@ class ProfileController extends Controller
 
         $user->save();
 
+
+
         if ($user->course != null)
         {
             $user->date_inscription = Carbon::parse(now());
