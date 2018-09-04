@@ -374,6 +374,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Actualizar Datos</button>
                         </div>
                     </div>
                 @if($user->curp != null &&
@@ -519,24 +520,27 @@
                     $user->telefono !=null &&
                     $user->titulo !=null &&
                     $user->cedula !=null &&
-                    $user->institucion !=null)
-                        <div class="col-md-12 mb-12">
-                            <ul class="list-group mb-3">
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div class="container-fluid">
-                                        {{ Form::select('course', $courses, $courses, ['class' => 'form-control']) }}
-                                    </div>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                                    <div class="container-fluid">
-                                        <button type="submit" class="btn btn-success btn-lg btn-block">ENVIAR SOLICITUD DE INSCRIPCIÓN</button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    $user->institucion !=null &&
+                    $user->file_titulo !=null &&
+                    $user->file_cedula !=null &&
+                    $user->file_carta !=null)
+                    <div class="col-md-12 mb-12 d-block">
                 @else
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Actualizar Datos</button>
+                    <div class="col-md-12 mb-12 d-none">
                 @endif
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div class="container-fluid">
+                                    {{ Form::select('course', $courses, $courses, ['class' => 'form-control']) }}
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div class="container-fluid">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">ENVIAR SOLICITUD DE INSCRIPCIÓN</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
             </div>
         {{ Form::close() }}
         <!-- Modal TITULO-->
