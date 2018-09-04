@@ -52,7 +52,9 @@ class UsersTableSeeder extends Seeder
         $user=factory(User::class)->create([
             'name' => 'name authenticated',
             'last_name' => 'lastname authenticated',
-            'email' => 'authenticated@authenticated.com',
+            //'email' => 'authenticated@authenticated.com',
+            'email' => 'angel_190884@hotmail.com',
+            'telefono' => '5534605542',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ]);
         $user->assignRole('authenticated');
