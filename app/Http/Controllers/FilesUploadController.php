@@ -121,6 +121,7 @@ class FilesUploadController extends Controller
 
         if ($request->hasFile('file_voucher'))
         {
+            //todo : revizar que el archivo no supere los 2MB y hacerlo para todos los upload
             $user->file_voucher = $request->file('file_voucher')->store('public/vouchers');
         }
         $user->save();
