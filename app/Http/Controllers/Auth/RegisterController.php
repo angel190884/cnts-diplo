@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ])->assignRole('authenticated');
         if ($createdUser){
-            Mail::to($createdUser->email)->send(new UserRegister($createdUser));
+            Mail::to($createdUser->email)->queue(new UserRegister($createdUser));
         }
         return $createdUser;
     }
