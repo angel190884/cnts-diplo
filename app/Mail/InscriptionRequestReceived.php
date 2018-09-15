@@ -28,6 +28,6 @@ class InscriptionRequestReceived extends Mailable
      */
     public function build()
     {
-        return $this->subject('Solicitud de inscripción recibida')->view('emails.inscriptionRequestReceived');
+        return $this->subject('Solicitud de inscripción recibida')->markdown('emails.inscriptionRequestReceived');
     }
 }
