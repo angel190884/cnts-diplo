@@ -107,7 +107,7 @@ class ProfileController extends Controller
             $user->date_inscription = Carbon::parse(now());
             $user->save();
             if ($user){
-                Mail::to($user->email)->send(new InscriptionRequestReceived());
+                Mail::to($user->email)->queue(new InscriptionRequestReceived());
             }
             return redirect(route('home'))->with('success','Haz realizado con éxito la solicitud de inscripción al diplomado "SANGRE Y COMPONENTES SEGUROS" en breve se te enviara la respuesta de aceptación ó rechazo a tu solicitud.');
         }
