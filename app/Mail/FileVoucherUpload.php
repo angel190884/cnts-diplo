@@ -32,6 +32,6 @@ class FileVoucherUpload extends Mailable
      */
     public function build()
     {
-        return $this->subject('Voucher de Pago')->view('emails.fileVoucherUpload')->attachFromStorage($this->user->file_voucher);
+        return $this->subject('Voucher de Pago')->markdown('emails.fileVoucherUpload')->attachFromStorage($this->user->file_voucher,'voucher.pdf');
     }
 }

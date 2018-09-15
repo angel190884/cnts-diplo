@@ -126,7 +126,7 @@ class FilesUploadController extends Controller
         }
         $user->save();
         if ($user){
-            Mail::to($user->email)->send(new FileVoucherUpload($user));
+            Mail::to($user->email)->queue(new FileVoucherUpload($user));
         }
         session()->flash('success', 'Voucher subido y grabado en base de datos!!!');
         return redirect(route('authenticated.index'));
