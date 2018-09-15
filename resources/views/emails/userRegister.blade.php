@@ -8,7 +8,7 @@ encuentres toda la información que necesites acerca de nuestro Diplomado **_"Sa
 
 Para continuar con el proceso de inscripción deberas ingresar con tu usuario y contraseña haciendo **click** en el boton que esta debajo.
 
-Y como **paso #2** deberas de llenar los datos que ahi se te solicitan.
+Y como **paso #2** deberás de llenar los datos que ahí se te solicitan.
 
 @component('mail::button', ['url' => 'https://diplomado-cnts.net/'])
     CNTS-Diplomado
