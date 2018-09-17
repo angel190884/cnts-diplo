@@ -1,7 +1,7 @@
 @component('mail::message')
 ![](https://diplomado-cnts.net/storage/images/cnts.png "cnts")
 
-#{{ ucwords($user->name) }}, felicidades has sido seleccionado...
+#{{ ucwords($user->name) }}, todos tus datos y archivos han sido autorizados...
 
 
 En nombre del **Centro Nacional de la Transfusión  Sanguínea**, te notificamos que todos tus documentos se encuentran

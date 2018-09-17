@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Mail\FileVoucherPaidUpload;
 use App\Mail\FileVoucherUpload;
 use App\User;
 use Illuminate\Http\Request;
@@ -153,6 +154,11 @@ class FilesUploadController extends Controller
             $user->file_paid_voucher = $request->file('file_paid_voucher')->store('public/paid_vouchers');
         }
         $user->save();
+
+        if ($user){
+            Mail::to($user->email)->queue(new FileVoucherPaidUpload($user));
+        }
+
         session()->flash('success', 'Voucher Pagado subido y grabado en base de datos!!!');
         return redirect(route('home'));
 
