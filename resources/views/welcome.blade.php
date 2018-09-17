@@ -266,7 +266,7 @@
                 position: absolute;
                 font-size: 39px;
                 color: #FE3C47;
-                left: 3;
+                left: 3px;
                 -webkit-transition: -webkit-transform .2s ease-in-out;
                 transition:transform .2s ease-in-out;
             }
@@ -287,7 +287,7 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <img lass="card-img-top" style="height: 75px; width: 75px; display: block;" src="{{ Storage::url('images/favicon.png') }}">
+                <img class="card-img-top" style="height: 75px; width: 75px; display: block;" src="{{ Storage::url('images/favicon.png') }}">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -373,43 +373,23 @@
         <section>
             <article>
                 <div class="container-fluid bg-light text-center py-5">
-                    <h2>Sigue estos <a href="">pasos</a> para poder ingresar.</h2>
+                    <h2>Sigue estos pasos para poder ingresar.</h2>
                     <div class="row">
-                        <div class="col-md-4 offset-2">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span style="color: red;">
-                                            <i class="far fa-user fa-8x"></i>
-                                        </span>
-                                        <h3>1.-registrate</h3>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span style="color: red;">
-                                            <i class="fas fa-address-card fa-8x"></i>
-                                        </span>
-                                        <h3>2.-inscribete</h3>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-2 offset-md-2 col-sm-3">
+                            <h3>1.-registrate</h3>
+                             <span style="color: red;"><i class="far fa-user fa-8x"></i></span>
                         </div>
-                        <div class="col-md-4 m-0 p-0">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <span style="color: red;">
-                                            <i class="fas fa-envelope fa-8x"></i>
-                                        </span>
-                                        <h3>3.-confirmación</h3>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <span style="color: red;">
-                                            <i class="fas fa-user fa-8x"></i>
-                                        </span>
-                                        <h3>4.-ingresa</h3>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-2 col-sm-3">
+                            <h3>2.-inscribete</h3>
+                            <span style="color: red;"><i class="fas fa-address-card fa-8x"></i></span>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <h3>3.-confirmación</h3>
+                            <span style="color: red;"><i class="fas fa-envelope fa-8x"></i></span>
+                        </div>
+                        <div class="col-md-2 col-sm-3">
+                            <h3>4.-ingresa</h3>
+                            <span style="color: red;"><i class="fas fa-user fa-8x"></i></span>
                         </div>
                     </div>
                 </div>
@@ -488,7 +468,7 @@
                 </div>
             </article>
             <article id="what-we-do" class="bg-light px-5">
-                <div class="container-fluid px-5">
+                <div class="container px-5">
                     <h2 class="section-title mb-2 h1">Que puedes hacer en el diplomado</h2>
                     <p class="text-center text-muted h5">Acciones que podras realizar dentro del sistema del diplomado una vez que seas aceptado y lo estes cursando.</p>
                     <div class="row mt-5">
@@ -498,7 +478,7 @@
                                 <div class="card-block">
                                     <h3 class="card-title">Subir actividades</h3>
                                     <p class="card-text">Podras subir tus actividades en formato PDF directamente sin tener que enviar todo atravez de emails.</p>
-                                    <a href="" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -508,7 +488,7 @@
                                 <div class="card-block block-2">
                                     <h3 class="card-title">Foros</h3>
                                     <p class="card-text">Tendremos foros para la discusion de los temas a tratar. Asi como de temas creados por el Profesor.</p>
-                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -517,8 +497,8 @@
                                 <i class="before fas fa-user-circle fa-2x"></i>
                                 <div class="card-block block-3">
                                     <h3 class="card-title">Perfil</h3>
-                                    <p class="card-text">Tendras un perfil, y la sensacion de que no estas a la distancia.</p>
-                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <p class="card-text">Tendras un perfil, y la sensacion de que no estas a la distancia, mucha interaccion con el Profesor.</p>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -529,8 +509,8 @@
                                 <i class="before fas fa-file-pdf fa-2x"></i>
                                 <div class="card-block block-4">
                                     <h3 class="card-title">Contenido disponible</h3>
-                                    <p class="card-text">Tendremos todo el contenido disponible para tu perfil, y asi puedas repasar algun tema para los examenes.</p>
-                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <p class="card-text">Tendremos el contenido disponible para tu perfil, y asi puedas repasar algun tema para los examenes.</p>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -540,7 +520,7 @@
                                 <div class="card-block block-5">
                                     <h3 class="card-title">Informacion de Contacto</h3>
                                     <p class="card-text">Tendras a la mano información de tus profesores para poder contactarlos.</p>
-                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -548,9 +528,9 @@
                             <div class="card">
                                 <i class="before far fa-star fa-2x"></i>
                                 <div class="card-block block-6">
-                                    <h3 class="card-title">Calificaciones</h3>
+                                    <h3 class="card-title">Calificaciones siempre visibles</h3>
                                     <p class="card-text">Podras en todo momento saber tu calificacion de las actividades y foros.</p>
-                                    <a href="" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
+                                    <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -579,10 +559,10 @@
 
                                 <h2><span>Nuestras redes sociales</span></h2>
                                 <ul class="contact">
-                                    <li><a href="#"><i class="fab fa-facebook"></i><span class="label">Facebook</span></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i><span class="label">Twitter</span></a></li>
-                                    <li><a href="#"><i class="fas fa-at"></i><span class="label">Gmail</span></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin"></i><span class="label">LinkedIn</span></a></li>
+                                    <li><a href="#"><i class="fab fa-facebook fa-2x"></i><span class="label">acebook</span></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter fa-2x"></i><span class="label">Twitter</span></a></li>
+                                    <li><a href="#"><i class="fas fa-at fa-2x"></i><span class="label">Gmail</span></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin fa-2x"></i><span class="label">LinkedIn</span></a></li>
                                 </ul>
                             </section>
                         </div>
