@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Course;
+use App\Mail\InscriptionSuccess;
 use App\Question;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use Mail;
+use PharIo\Manifest\Email;
 
 class AuthenticatedController extends Controller
 {
@@ -60,10 +63,10 @@ class AuthenticatedController extends Controller
                 }
             }
 
-            dump($user,$user->questions,$user->activities);
+            if ($user->syncRoles(['student'])){
+                Mail::to($user->email)->queue(new InscriptionSuccess($user));
+            }
 
-
-            $user->syncRoles(['student']);
             return redirect(route('authenticated.index'))->with('success', 'Se acepto al usuario correctamente');
         }
 

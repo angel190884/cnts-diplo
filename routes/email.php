@@ -17,3 +17,8 @@ Route::get('/file_voucher_paid_upload', function () {
     $user=\App\User::findOrFail(1);
     return new App\Mail\FileVoucherPaidUpload($user);
 });
+
+Route::get('/inscription_success', function () {
+    $user=\App\User::findOrFail(1);
+    return new App\Mail\InscriptionSuccess($user);
+});
