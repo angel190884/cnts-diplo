@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Course;
+use App\Mail\InscriptionRefused;
 use App\Mail\InscriptionSuccess;
 use App\Question;
 use App\User;
@@ -83,8 +84,9 @@ class AuthenticatedController extends Controller
 
         $user->active=false;
 
-        $user->save();
-
+        if ($user->save()){
+            Mail::to($user->email)->queue(new InscriptionRefused($user));
+        }
         return redirect(route('authenticated.index'))->with('El usuario a sido rechazado y dado de baja de la base de datos.');
     }
 }
