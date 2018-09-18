@@ -344,7 +344,7 @@
                             <div class="carousel-caption text-left">
                                 <h1>Diplomado "Sangre y Componentes Seguros"</h1>
                                 <p></p>
-                                <p><a class="btn btn-lg btn-danger" href="#diplomado" role="button">Guia de Inscripción</a></p>
+                                <p><a class="btn btn-lg btn-danger" href="#diplomado" role="button">Guía de Inscripción</a></p>
                             </div>
                         </div>
                     </div>
@@ -373,22 +373,23 @@
         <section>
             <article>
                 <div class="container-fluid bg-light text-center py-5">
-                    <h2>Sigue estos pasos para poder ingresar.</h2>
+                    <h2 class="section-title mb-2 h1">Inscribete</h2>
+                    <p class="text-center text-muted h5">Sigue estos pasos para poder inscribirte e ingresar al diplomado:</p>
                     <div class="row">
                         <div class="col-md-2 offset-md-2 col-sm-3">
-                            <h3>1.-registrate</h3>
+                            <h3>1.-Registrate</h3>
                              <span style="color: red;"><i class="far fa-user fa-8x"></i></span>
                         </div>
                         <div class="col-md-2 col-sm-3">
-                            <h3>2.-inscribete</h3>
+                            <h3>2.-Llena tus datos</h3>
                             <span style="color: red;"><i class="fas fa-address-card fa-8x"></i></span>
                         </div>
                         <div class="col-md-2 col-sm-3">
-                            <h3>3.-confirmación</h3>
+                            <h3>3.-Confirma</h3>
                             <span style="color: red;"><i class="fas fa-envelope fa-8x"></i></span>
                         </div>
                         <div class="col-md-2 col-sm-3">
-                            <h3>4.-ingresa</h3>
+                            <h3>4.-Ingresa</h3>
                             <span style="color: red;"><i class="fas fa-user fa-8x"></i></span>
                         </div>
                     </div>
@@ -400,7 +401,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h2 class="text-center">Instituciones que avalan el Diplomado.</h2>
+                                    <h2 class="section-title mb-2 h1">Instituciones que avalan el Diplomado</h2>
+                                    <p class="text-center text-muted h5"><hr></p>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card mb-4 box-shadow p-1">
