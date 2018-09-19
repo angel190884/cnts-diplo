@@ -2,8 +2,12 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\ForumEndingReminder;
+use App\Question;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Log;
+use Mail;
 
 class AlertTimeOverForum extends Command
 {
@@ -38,6 +42,17 @@ class AlertTimeOverForum extends Command
      */
     public function handle()
     {
-        Log::info('alert:time_over_forum');
+
+        $questions=Question::with('users')
+            ->where('end','like',Carbon::now()->addDay()->format('%Y-m-d%'))
+            ->get();
+
+        foreach ($questions as $question) {
+            $users=$question->users()->get(['email']);
+            foreach ($users as $user) {
+                Mail::to($user)->queue(new ForumEndingReminder($question,$user));
+                Log::info("alertSend:forumEndingReminder: data[$user]");
+            }
+        }
     }
 }
