@@ -96,3 +96,8 @@ Route::get('faq-inscription', function () {return view('faq.inscription');})->na
 
 //ruta para ver los emails
 include('email.php');
+
+//rutas para enlaces del footer
+Route::get('privacy', function () {return view('partials.privacy');})->name('privacy');
+Route::get('terms', function () {return view('partials.terms');})->name('terms');
+Route::get('support', function () {return view('partials.support');})->name('support');

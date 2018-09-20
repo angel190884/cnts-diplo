@@ -33,9 +33,9 @@
         <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">© 2018 ADX software SA de CV</p>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Privacy</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Support</a></li>
+                <li class="list-inline-item"><a href="{{ route('privacy') }}">Privacy</a></li>
+                <li class="list-inline-item"><a href="{{ route('terms') }}">Terms</a></li>
+                <li class="list-inline-item"><a href="{{ route('support') }}">Support</a></li>
             </ul>
         </footer>
     </div>
