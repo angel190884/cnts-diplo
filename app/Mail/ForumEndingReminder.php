@@ -13,12 +13,13 @@ class ForumEndingReminder extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $question;
-    public $user;
+    public $question,$user;
+
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Question $question
+     * @param User $user
      */
     public function __construct(Question $question, User $user)
     {

@@ -48,9 +48,9 @@ class AlertTimeOverForum extends Command
             ->get();
 
         foreach ($questions as $question) {
-            $users=$question->users()->get(['email']);
-            foreach ($users as $user) {
-                Mail::to($user)->queue(new ForumEndingReminder($question,$user));
+            $users=$question->users()->get();
+            foreach ($users as $user){
+                Mail::to($user->email)->queue(new ForumEndingReminder($question, $user));
                 Log::info("alertSend:forumEndingReminder: data[$user]");
             }
         }
