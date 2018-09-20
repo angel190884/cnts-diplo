@@ -121,7 +121,8 @@ return [
         'score' => 'calificación',
         'end'   => 'fin',
         'course' => 'curso',
-        'question' => 'pregunta'
+        'question' => 'pregunta',
+        'start' => 'inicio'
     ],
 
 ];

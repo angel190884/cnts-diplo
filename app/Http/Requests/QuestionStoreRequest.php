@@ -26,8 +26,8 @@ class QuestionStoreRequest extends FormRequest
         return [
             'question' => 'required',
             'course' => 'required',
-            'start' => 'required|date',
-            'end' => 'required|date'
+            'start' => 'required|date|after_or_equal:today',
+            'end' => 'required|after:start'
         ];
     }
 }
