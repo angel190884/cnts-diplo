@@ -20,7 +20,7 @@
                                     <th scope="col">Tema</th>
                                     <th scope="col">Actividad</th>
                                     <th scope="col">Enlace</th>
-                                    <th scope="col">Calificación</th>
+                                    <th scope="col">Calificación <a class="text-info" href="{{ route('faq-activities') }}"><i class="fas fa-question-circle"></i></a></th>
                                 </tr>
                                 </thead>
                                 <tbody class="text-center">
