@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->string('short_name');
             $table->boolean('active')->default(true);
+            $table->boolean('active_inscription')->default(false);
             $table->date('start');
             $table->date('end');
             $table->string('description');
