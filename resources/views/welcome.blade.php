@@ -561,10 +561,9 @@
 
                                 <h2><span>Nuestras redes sociales</span></h2>
                                 <ul class="contact">
-                                    <li><a href="#"><i class="fab fa-facebook fa-2x"></i><span class="label">acebook</span></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter fa-2x"></i><span class="label">Twitter</span></a></li>
-                                    <li><a href="#"><i class="fas fa-at fa-2x"></i><span class="label">Gmail</span></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin fa-2x"></i><span class="label">LinkedIn</span></a></li>
+                                    <li><button type="button" class="btn btn-brand btn-facebook"><i class="fab fa-facebook"></i><span>acebook</span></button></li><hr>
+                                    <li><button type="button" class="btn btn-brand btn-twitter"><i class="fab fa-twitter"></i><span>Twitter</span></button></li><hr>
+                                    <li><button type="button" class="btn btn-brand btn-google-plus"><i class="fas fa-at"></i><span>Google plus</span></button></li><hr>
                                 </ul>
                             </section>
                         </div>

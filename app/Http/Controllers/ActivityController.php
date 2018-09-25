@@ -56,6 +56,7 @@ class ActivityController extends Controller
         $activity = Activity::where('slug', '=', $slug)
             ->with('topic.subModule.module.course','users')
             ->firstOrFail();
+        //dd($activity->pivot->file);
         if (Auth::user()->hasAnyRole('teacher'))
         {
             return view('teacher.scoreActivity',compact('activity'));
