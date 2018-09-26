@@ -20,6 +20,7 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
+    "@coreui/coreui": "^2.0.10",
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
     "@fortawesome/fontawesome-free-regular": "^5.0.10",

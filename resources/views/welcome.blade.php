@@ -402,7 +402,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h2 class="section-title mb-2 h1">Instituciones que avalan el Diplomado</h2>
-                                    <p class="text-center text-muted h5"><hr></p>
+                                    <hr>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="card mb-4 box-shadow p-1">

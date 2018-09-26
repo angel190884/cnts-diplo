@@ -20,8 +20,8 @@ fontawesome.library.add(brands);
 import toastr from 'toastr'
 import moment from 'moment'
 import popper from 'popper.js'
+import coreui from '@coreui/coreui'
 
-importScripts('@coreui/coreui/dist/js/coreui.min.js');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
