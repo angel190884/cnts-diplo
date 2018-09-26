@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
@@ -13,7 +14,7 @@ class Activity extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps()->withPivot(['score','file_activity']);
+        return $this->belongsToMany('App\User')->withTimestamps()->withPivot(['score','file_activity','updated_at']);
     }
 
     public function scopeTeacher($query)
@@ -25,6 +26,4 @@ class Activity extends Model
             ->select('activities.*','topics.sub_module_id','sub_modules.module_id','modules.course_id','modules.teacher_id')
             ->where('modules.teacher_id','=',auth()->user()->id);
     }
-
-
 }
