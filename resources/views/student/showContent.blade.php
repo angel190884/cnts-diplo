@@ -98,9 +98,9 @@
                     </div>
                     <div class="card-body">
                         <ul>
-                            <li>Aide Velazquez</li>
-                            <li>Contacto: 55-55-55-55</li>
-                            <li>e-mail: <a href="mailto:aideevelazquez@salud.gob.mx">aideevelazquez@salud.gob.mx</a></li>
+                            <li>Office:  (55) 63-92-22-50</li>
+                            <li>Ext:  51616, 51619</li>
+                            <li>e-mail: <a href="mailto:cntscursos@gmail.com">cntscursos@gmail.com</a></li>
                         </ul>
                     </div>
                 </div>
