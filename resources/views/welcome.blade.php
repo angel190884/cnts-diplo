@@ -597,17 +597,49 @@
                                 <div class="sidebar-widget-wrapper">
                                     <div class="footer-widget-header clearfix">
                                         <h3>E-mail</h3>
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger alert-dismissible fade show bg-danger">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <p class="text-lg-left">
+                                                    ¡¡¡ Se han encontrado algunos errores favor de solucionarlos antes de continuar !!!
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                                </p>
+                                            </div>
+                                        @endif
+                                        @if(Session::has('successSendMessage'))
+                                            <div class="alert alert-success alert-dismissible fade show bg-spotify">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <p class="text-lg-left">
+                                                    {{ Session::get("successSendMessage") }}
+                                                </p>
+                                            </div>
+                                        @endif
                                     </div>
                                     <div class="footer-subscription">
-                                        <p>
-                                            <input class="form-control" required placeholder="Ingresa tu e-mail" name="email" type="email">
-                                        </p>
-                                        <p>
-                                            <textarea class="form-control" required placeholder="Mensaje" name="message" rows="5"></textarea>
-                                        </p>
-                                        <p>
-                                            <input class="btn btn-danger" value="Enviar dudas!" type="submit">
-                                        </p>
+                                        <form method="POST" action="{{ route('sendMessage') }}">
+                                            @csrf
+                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                            @if ($errors->has('email'))
+                                                <span class="invalid-feedback"><strong>{{ $errors->first('email') }}</strong></span>
+                                            @endif
+
+                                            <label for="message"></label><textarea id="message" type="text" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}" name="message" required rows="5"></textarea>
+                                            @if ($errors->has('message'))
+                                                <span class="invalid-feedback"><strong>{{ $errors->first('message') }}</strong></span>
+                                            @endif
+                                            <br>
+                                            <button type="submit" class="btn btn-danger">
+                                                Enviar Dudas!!!
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

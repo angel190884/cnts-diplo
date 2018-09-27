@@ -101,3 +101,6 @@ include('email.php');
 Route::get('privacy', function () {return view('partials.privacy');})->name('privacy');
 Route::get('terms', function () {return view('partials.terms');})->name('terms');
 Route::get('support', function () {return view('partials.support');})->name('support');
+
+//enviar dudas
+Route::post('sendMessage','EmailController@sendMessage')->name('sendMessage');
