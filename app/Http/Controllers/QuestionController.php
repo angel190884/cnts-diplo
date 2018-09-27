@@ -80,8 +80,11 @@ class QuestionController extends Controller
         $question->users()->attach($users);
 
         Log::info('el usario:' . auth()->user()->id . 'agrego la pregunta ' . $question->id);
+        /*
+         * todo: mandar mail a todos los estudiantes del diplomado queue
+         */
 
-        return Redirect::route('questions.index')->with('success','Se agrego correctamente la nueva pregunta');
+        return Redirect::route('questions.index')->with('success','Se agrego correctamente la nueva discusión');
         //dump($request);
     }
 

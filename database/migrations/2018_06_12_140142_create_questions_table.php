@@ -26,7 +26,7 @@ class CreateQuestionsTable extends Migration
             $table->string('slug')->unique();
             $table->dateTime('start');
             $table->dateTime('end');
-            $table->string('observations');
+            $table->string('observations')->nullable();
             $table->timestamps();
         });
     }

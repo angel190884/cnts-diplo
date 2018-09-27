@@ -31,7 +31,7 @@
                                                         <input name="question" class="form-control" placeholder="¿Escribe aquí tu pregunta? u opinion " required >
                                                     </div>
                                                     <div class="card-body">
-                                                                <textarea name="observations" class="form-control" placeholder="observaciones para los alumnos" rows="5">
+                                                                <textarea name="observations" class="form-control" placeholder="observaciones para los alumnos" rows="3">
 
                                                                 </textarea>
                                                     </div>

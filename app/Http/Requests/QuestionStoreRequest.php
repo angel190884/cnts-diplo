@@ -25,6 +25,7 @@ class QuestionStoreRequest extends FormRequest
     {
         return [
             'question' => 'required',
+            'observations' => 'nullable',
             'course' => 'required',
             'start' => 'required|date|after_or_equal:today',
             'end' => 'required|after:start'
