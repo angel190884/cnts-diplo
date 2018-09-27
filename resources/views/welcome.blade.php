@@ -376,19 +376,19 @@
                     <h2 class="section-title mb-2 h1">Inscribete</h2>
                     <p class="text-center text-muted h5">Sigue estos pasos para poder inscribirte e ingresar al diplomado:</p>
                     <div class="row">
-                        <div class="col-md-2 offset-md-2 col-sm-3">
+                        <div class="col-sm-12 col-md-2 offset-md-2 col-sm-3">
                             <h3>1.-Registrate</h3>
                              <span style="color: red;"><i class="far fa-user fa-8x"></i></span>
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-sm-12 col-md-2 col-sm-3">
                             <h3>2.-Llena tus datos</h3>
                             <span style="color: red;"><i class="fas fa-address-card fa-8x"></i></span>
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-sm-12 col-md-2 col-sm-3">
                             <h3>3.-Confirma</h3>
                             <span style="color: red;"><i class="fas fa-envelope fa-8x"></i></span>
                         </div>
-                        <div class="col-md-2 col-sm-3">
+                        <div class="col-sm-12 col-md-2 col-sm-3">
                             <h3>4.-Ingresa</h3>
                             <span style="color: red;"><i class="fas fa-user fa-8x"></i></span>
                         </div>
@@ -474,7 +474,7 @@
                     <h2 class="section-title mb-2 h1">Que puedes hacer en el diplomado</h2>
                     <p class="text-center text-muted h5">Acciones que podras realizar dentro del sistema del diplomado una vez que seas aceptado y lo estes cursando.</p>
                     <div class="row mt-5">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="fas fa-cloud-upload-alt fa-2x before"></i>
                                 <div class="card-block">
@@ -484,7 +484,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="before fas fa-comments fa-2x"></i>
                                 <div class="card-block block-2">
@@ -494,7 +494,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="before fas fa-user-circle fa-2x"></i>
                                 <div class="card-block block-3">
@@ -506,7 +506,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="before fas fa-file-pdf fa-2x"></i>
                                 <div class="card-block block-4">
@@ -516,7 +516,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="before far fa-id-badge fa-2x"></i>
                                 <div class="card-block block-5">
@@ -526,7 +526,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="before far fa-star fa-2x"></i>
                                 <div class="card-block block-6">
@@ -561,9 +561,10 @@
 
                                 <h2><span>Nuestras redes sociales</span></h2>
                                 <ul class="contact">
-                                    <li><button type="button" class="btn btn-brand btn-facebook"><i class="fab fa-facebook"></i><span>acebook</span></button></li><hr>
-                                    <li><button type="button" class="btn btn-brand btn-twitter"><i class="fab fa-twitter"></i><span>Twitter</span></button></li><hr>
-                                    <li><button type="button" class="btn btn-brand btn-google-plus"><i class="fas fa-at"></i><span>Google plus</span></button></li><hr>
+                                    <li><a href="https://www.facebook.com/cnts.cursos.5"><button type="button" class="btn btn-brand btn-facebook"><i class="fab fa-facebook"></i><span>acebook</span></button></a></li><hr>
+                                    <li><a href="https://twitter.com/cnts_cursos"><button type="button" class="btn btn-brand btn-twitter" href="https://twitter.com/cnts_cursos"><i class="fab fa-twitter"></i><span> Twitter</span></button></a></li><hr>
+                                    <li><a href="mailto:cntscursos@gmail.com?subject=Feedback"><button type="button" class="btn btn-brand btn-google-plus"><i class="fas fa-at"></i><span> Google plus</span></button></a></li><hr>
+                                    <li><a href="https://www.instagram.com/cnts_cursos/"><button type="button" class="btn btn-brand btn-instagram"><i class="fab fa-instagram"></i><span> Instagram</span></button></a></li><hr>
                                 </ul>
                             </section>
                         </div>
