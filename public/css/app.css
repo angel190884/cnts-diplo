@@ -10523,6 +10523,13 @@ a.text-dark:focus {
   border-radius: 6px 0 6px 6px;
 }
 
+.table-wrapper-scroll-y {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
 /*!
  * CoreUI - Open Source Dashboard UI Kit
  * @version v2.0.10
