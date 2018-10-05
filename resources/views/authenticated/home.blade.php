@@ -1,10 +1,18 @@
 <div class="jumbotron">
-    <h1 class="text-center">Bienvenido {{ Auth::user()->fullName }}</h1>
-    <hr>
-    <div class="alert alert-info text-center" role="alert">
+    <div class="text-center">
+        <img  class="img-fluid" src="{{ Storage::url("images/cnts.png") }}" alt="cnts" width="600">
+    </div>
+    <div class="text-center">
+        <h1 class="text-center"><b>Bienvenido {{ Auth::user()->fullName }}</b></h1>
+        <hr>
+    </div>
+    <div class="alert alert-info text-center col-sm-12 col-lg-8 offset-lg-2" role="alert">
+
         <p>
+            En nombre del <b>Centro Nacional de la Transfusión  Sanguínea</b>, te damos la más coordial bienvenida.
+
             Te has registrado al Sistema Web del Diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
-            deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>Centro Nacional de la Transfusón Sanguínea</b>.
+            deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>CNTS</b>.
         </p>
 
         <p>

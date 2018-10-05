@@ -15,19 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
 //Rutas god
-Route::group(['middleware' => ['role:god']], function () {
+Route::group(['middleware' => ['verified','role:god']], function () {
     Route::resource('users', 'UserController');             //Administrar usuarios
     Route::resource('roles', 'RoleController');             //Administrar roles
     Route::resource('permissions', 'PermissionController'); //Administrar permisos
 });
 
 //Rutas admin
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ['verified','role:admin']], function () {
     //rutas para administrar los courses
     Route::resource('courses', 'CourseController');
 
@@ -43,10 +43,10 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 
 //Rutas authenticated
-Route::resource('profile', 'ProfileController',['only' => ['show','edit','update']]);
+Route::resource('profile', 'ProfileController',['only' => ['show','edit','update']])->middleware('verified');
 
 //Rutas para subir archivos
-Route::group(['middleware' => ['auth','permission:editProfile']], function () {
+Route::group(['middleware' => ['verified','auth','permission:editProfile']], function () {
     Route::put('upload_file_img/{id}',          'FilesUploadController@uploadFileImg')->        name('u_img');
     Route::put('upload_file_title/{id}',        'FilesUploadController@uploadFileTitle')->      name('u_title');
     Route::put('upload_file_cedula/{id}',       'FilesUploadController@uploadFileCedula')->     name('u_cedula');
@@ -56,35 +56,35 @@ Route::group(['middleware' => ['auth','permission:editProfile']], function () {
 
 });
 
-Route::group(['middleware' => ['auth','role:teacher|student']], function () {
+Route::group(['middleware' => ['verified','auth','role:teacher|student']], function () {
     //rutas para mostrar el contenido de cada topic
     Route::get('content/{slug}',        'TopicController@show')->name('showContent');
     Route::get('activities',        'ActivityController@index')->name('activity.index');
 });
 
-Route::group(['middleware' => ['auth','role:student']], function () {
+Route::group(['middleware' => ['verified','auth','role:student']], function () {
     //rutas para mostrar activities
 
     Route::put('upload_activity/{id}',      'FilesUploadController@uploadFileActivity')->name('u_activity');
     Route::get('activity/{slug}',        'ActivityController@show')->name('show.activity');
 });
 
-Route::group(['middleware' => ['auth','permission:forumOfQuestions']], function () {
+Route::group(['middleware' => ['verified','auth','permission:forumOfQuestions']], function () {
     //rutas para mostrar preguntas
     Route::resource('questions', 'QuestionController');
 });
 
-Route::group(['middleware' => ['auth','permission:scoreActivity']], function (){
+Route::group(['middleware' => ['verified','auth','permission:scoreActivity']], function (){
     Route::get('scoresActivity/{slug}',        'ActivityController@scoreActivity')->name('scoreActivity');
 });
 
-Route::group(['middleware' => ['auth','permission:changeScoreActivity']], function (){
+Route::group(['middleware' => ['verified','auth','permission:changeScoreActivity']], function (){
     Route::post('editScoreActivity/{user}', 'ActivityController@changeScore')->name('changeScoreActivity');
 });
 
 
-Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion');
-Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion');
+Route::get('scoresQuestion/{slug}',        'QuestionController@scoreQuestion')->name('scoreQuestion')->middleware('verified');
+Route::post('editScoreQuestion/{user}', 'QuestionController@changeScore')->name('changeScoreQuestion')->middleware('verified');
 
 
 

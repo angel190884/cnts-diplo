@@ -10,5 +10,15 @@
     "Confirm Password": "Confirmar contraseña",
     "Reset Password": "Reestablecer contraseña",
     "Send Password Reset Link": "Enviar link para reestablecer contraseña",
-    "Logout": "Cerrar sesión"
+    "Logout": "Cerrar sesión",
+    "Verify Email Address":"Verifique su Email",
+    "Verify Your Email Address":"Verifique su dirección de correo electrónico",
+    "A fresh verification link has been sent to your email address.":"Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.",
+    "Before proceeding, please check your email for a verification link.":" Antes de continuar, compruebe su correo electrónico para ver un enlace de verificación.",
+    "If you did not receive the email":"Si no recibió el correo electrónico",
+    "click here to request another":"Haga clic aquí para solicitar otro.",
+    "Hello!":"Hola!",
+    "Please click the button below to verify your email address.":"Haga clic en el botón de abajo para verificar su dirección de correo electrónico.",
+    "If you did not create an account, no further action is required.":"Si no creó una cuenta, no se requiere ninguna acción adicional.",
+    "Regards":"Saludos"
 }
