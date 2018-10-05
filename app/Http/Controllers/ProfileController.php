@@ -93,24 +93,21 @@ class ProfileController extends Controller
         $user->doctorado = Input::get('doctorado');
         $user->doctorado_inst = Input::get('doctorado_inst');
 
-        $user->cargo = Input::get('v');
+        $user->cargo = Input::get('cargo');
         $user->trabajo_inst = Input::get('trabajo_inst');
 
         $user->course_id = Input::get('course');
 
         $user->save();
 
-
-
-        if ($user->course != null)
+        if ($user->course != null && $user->date_inscription == null)
         {
             $user->date_inscription = Carbon::parse(now());
-            $user->save();
-            if ($user){
+            if ($user->save()){
                 Mail::to($user->email)->queue(new InscriptionRequestReceived());
             }
-            return redirect(route('home'))->with('success','Haz realizado con éxito la solicitud de inscripción al diplomado "SANGRE Y COMPONENTES SEGUROS" en breve se te enviara la respuesta de aceptación ó rechazo a tu solicitud.');
+            return redirect()->route('profile.edit',$user->id)->with('success','Datos actualizados correctamente. A continuación se te pedirán 3 pdfs necesarios para continuar con la solicitud.');
         }
-        return redirect(route('profile.edit',$user->id))->with('success','Datos actualizados correctamente. A continuación se te pedirán 3 pdfs necesarios para continuar con la solicitud.');
+        return redirect()->route('home')->with('success','Haz realizado con éxito la solicitud de inscripción al diplomado "SANGRE Y COMPONENTES SEGUROS" en breve se te enviara la respuesta de aceptación ó rechazo a tu solicitud.');
     }
 }
