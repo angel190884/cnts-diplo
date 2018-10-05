@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Activity;
+use App\Course;
 use App\Module;
 use App\Question;
 use App\User;
@@ -43,6 +44,11 @@ class HomeController extends Controller
             $forums=$user->questions()->wherePivot('score','!=',0)->orderBy('question_user.updated_at','DESC')->get();
             //dd($forums);
             return view('home',compact('activities','forums'));
+        }
+        if ($user->hasRole('admin'))
+        {
+            $courses=Course::active()->with('users')->get();
+            return view('home',compact('courses'));
         }
         return view('home');
     }
