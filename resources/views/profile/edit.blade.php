@@ -558,9 +558,7 @@
                         <input  class="btn btn-secondary btn-block" type="file" name="file_titulo" accept="application/pdf" />
                     </div>
                     <div class="modal-footer">
-                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Subir</button>-->
-                        {{ Form::submit('Subir', array('class' => 'btn btn-primary btn-lg btn-block')) }}
+                        {{ Form::submit('Subir', ['class' => 'btn btn-primary btn-lg btn-block']) }}
                     </div>
                     {{ Form::close() }}
                 </div>
