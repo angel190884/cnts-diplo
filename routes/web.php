@@ -39,6 +39,9 @@ Route::group(['middleware' => ['verified','role:admin']], function () {
 
     //rutas para administrar los students
     Route::get('student_index','StudentController@index')->name('student.index');                       //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
+
+    //ver logs
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('logs');
 });
 
 

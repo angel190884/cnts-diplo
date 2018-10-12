@@ -51,4 +51,12 @@
         <a class="dropdown-item" href="#">Enviar Mail a maestro<sub><small class="bg-danger">pendiente</small></sub></a>
     </div>
 </li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Logs
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{route('logs')}}">Log</a>
+    </div>
+</li>
 @endrole
