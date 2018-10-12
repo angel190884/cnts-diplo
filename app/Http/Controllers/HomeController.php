@@ -48,7 +48,11 @@ class HomeController extends Controller
         if ($user->hasRole('admin'))
         {
             $courses=Course::active()->with('users')->get();
-            return view('home',compact('courses'));
+            $users=User::role('student')->active()->inscribed()->with('course')->get();
+            $authenticated=User::role('authenticated')->active()->inscribed()->get();
+            $forums=Question::all();
+            $activities=Activity::all();
+            return view('home',compact('courses','users','authenticated','forums','activities'));
         }
         return view('home');
     }

@@ -48,6 +48,11 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //SCOPE
+    public function scopeRegistered($query)
+    {
+        return $query->where('email_verified_at','!=',null);
+    }
+
     public function scopeActive($query)
     {
         return $query->where('active', 1);
