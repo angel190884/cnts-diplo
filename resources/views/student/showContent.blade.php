@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        @include('layouts.disqus')
+                        @include('partials.disqus')
                     </div>
                 </div>
             </div>

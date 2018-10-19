@@ -4,30 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <!-- Title -->
     <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            @include('layouts/top-menu')
+            @include('partials/top-menu')
         </nav>
         <main class="py-4">
-            @include('layouts.errors')
-            @include('layouts.messages')
+            @include('partials.errors')
+            @include('partials.messages')
             @yield('content')
         </main>
         <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -39,6 +33,8 @@
             </ul>
         </footer>
     </div>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script id="dsq-count-scr" src="//cnts-1.disqus.com/count.js" async></script>
 </body>
 </html>

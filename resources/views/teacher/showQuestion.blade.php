@@ -20,11 +20,11 @@
             </div>
             <div class="card-body">
                 @role('teacher')
-                    @include('layouts.disqusQuestions')
+                    @include('partials.disqusQuestions')
                 @endrole
                 @role('student')
                     @if($today < $question->end)
-                        @include('layouts.disqusQuestions')
+                        @include('partials.disqusQuestions')
                     @else
                         <p class="alert-danger">LO SENTIMOS EL ULTIMO DIA PARA COMENTAR FUE EL {{ strtoupper($question->formattedEnd) }}</p>
                     @endif
