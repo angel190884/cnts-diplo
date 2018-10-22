@@ -53,7 +53,7 @@ class HomeController extends Controller
 
             $forums=$user->forums()
                 ->wherePivot('score', '!=', 0)
-                ->orderBy('Forum_user.updated_at', 'DESC')
+                ->orderBy('forum_user.updated_at', 'DESC')
                 ->get();
 
             return view('home', compact('activities', 'forums'));
