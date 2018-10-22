@@ -5,7 +5,7 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Forum extends Model
 {
     public function __construct(array $attributes = [])
     {
@@ -16,15 +16,14 @@ class Question extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps()->withPivot(['score']);
+        return $this->belongsToMany('App\User')
+            ->withTimestamps()
+            ->withPivot(['score']);
     }
 
-    /*
-     * todo revizar si funciona funcion si no eliminar!
-     */
     public function teacher()
     {
-        return $this->belongsTo('App\User','teacher_id','id');
+        return $this->belongsTo('App\User', 'teacher_id', 'id');
     }
 
     public function course()
@@ -32,19 +31,16 @@ class Question extends Model
         return$this->belongsTo('App\Course');
     }
 
-    //SCOPE
     public function scopeCourseFilter($query, $courseId)
     {
-        if ($courseId)
-        {
+        if ($courseId) {
             return $query->where('course_id', '=', $courseId);
         }
     }
 
     public function scopeTeacherFilter($query, $teacherId)
     {
-        if ($teacherId)
-        {
+        if ($teacherId) {
             return $query->where('teacher_id', '=', $teacherId);
         }
     }
@@ -61,7 +57,7 @@ class Question extends Model
     }
     public function getFormattedEndAttribute()
     {
-        $dt=Carbon::parse($this->end,'America/Mexico_City');
+        $dt=Carbon::parse($this->end, 'America/Mexico_City');
         return $dt->formatLocalized('%A %d %B %Y');
     }
 }

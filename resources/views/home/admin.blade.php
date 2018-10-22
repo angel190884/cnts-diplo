@@ -160,14 +160,14 @@
                     <td>
                         <div class="clearfix">
                             <div class="float-left">
-                                <strong>{{ $user->questions->where('pivot.score','!=',NULL)->count() }}</strong>
+                                <strong>{{ $user->forums->where('pivot.score','!=',NULL)->count() }}</strong>
                             </div>
                             <div class="float-right">
-                                <small class="text-muted"> de {{$user->questions->count()}}</small>
+                                <small class="text-muted"> de {{$user->forums->count()}}</small>
                             </div>
                         </div>
                         <div class="progress progress-xs">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: {{$user->questions->where('pivot.score','!=',NULL)->count()}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="{{$user->questions->count()}}"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{$user->forums->where('pivot.score','!=',NULL)->count()}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="{{$user->forums->count()}}"></div>
                         </div>
                     </td>
                     <td>

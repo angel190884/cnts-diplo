@@ -17,10 +17,10 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-user"></i></div>
                                     </div>
-                                    {{ Form::text('full_name',$full_name, ['class' => 'form-control', 'placeholder' => 'Nombre', 'id' => 'grupoNombre']) }}
+                                    {{ Form::text('full_name',$fullName, ['class' => 'form-control', 'placeholder' => 'Nombre', 'id' => 'grupoNombre']) }}
                                 </div>
 
-                                <label class="sr-only" for="grupoEmail">Email</label>
+                                <label class="sr-only" for="grupoEmail"N>Email</label>
                                 <div class="input-group mb-2 mr-sm-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-at"></i></div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="card-footer">
                         {{ $users->appends([
-                                            'full_name' => $full_name,
+                                            'full_name' => $fullName,
                                             'email' => $email,
                                             'course' => $course
                                             ])->links() }}

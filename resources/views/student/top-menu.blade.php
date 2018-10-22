@@ -30,7 +30,7 @@
     <a class="nav-link" href="{{ route('activity.index') }}">Actividades</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="{{ route('questions.index') }}">Foro de Preguntas</a>
+    <a class="nav-link" href="{{ route('forums.index') }}">Foro de Preguntas</a>
 </li>
 <li class="nav-item">
     <a class="nav-link disabled" href="#">Examenes</a>

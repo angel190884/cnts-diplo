@@ -2,9 +2,9 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Question::class, function (Faker $faker) {
+$factory->define(App\Forum::class, function (Faker $faker) {
     return [
-        'question' => $faker->sentence,
+        'forum' => $faker->sentence,
         'start' => $faker->dateTime($max = 'now', $timezone = 'America/Mexico_City'),
         'end' =>$faker->dateTime($max = 'now', $timezone = 'America/Mexico_City'),
         'observations' => $faker->realText(200,2)

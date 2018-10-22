@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class QuestionStoreRequest extends FormRequest
+class ForumStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class QuestionStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'question' => 'required',
+            'forum' => 'required',
             'observations' => 'nullable',
             'course' => 'required',
             'start' => 'required|date|after_or_equal:today',

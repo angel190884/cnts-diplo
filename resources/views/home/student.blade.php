@@ -58,7 +58,7 @@
                 </div>
                 <div class="panel-footer panel-primary">
                     <p>Calificaciones de los foros en los que participaste aqui apareceran.</p>
-                    <a href="{{ route('questions.index') }}" class="btn btn-warning btn-lg" role="button"><i class="far fa-comment fa-3x"></i> <br/>Foros</a>
+                    <a href="{{ route('forums.index') }}" class="btn btn-warning btn-lg" role="button"><i class="far fa-comment fa-3x"></i> <br/>Foros</a>
                 </div>
             </div>
         </div>

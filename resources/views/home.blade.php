@@ -8,16 +8,16 @@
                 <div class="card-header">Panel Principal</div>
                 <div class="card-body">
                     @role('authenticated')
-                        @include('authenticated.home')
+                        @include('home.authenticated')
                     @endrole
                     @role('student')
-                        @include('student.home')
+                        @include('home.student')
                     @endrole
                     @role('teacher')
-                        @include('teacher.home')
+                        @include('home.teacher')
                     @endrole
                     @role('admin')
-                        @include('admin.home')
+                        @include('home.admin')
                     @endrole
 
                 </div>

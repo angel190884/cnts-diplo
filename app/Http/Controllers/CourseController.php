@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
 use Illuminate\Http\Request;
+use App\Course;
 
 class CourseController extends Controller
 {
@@ -17,7 +17,7 @@ class CourseController extends Controller
         /*
          * todo mostrar error de base de datos si no hay conexión
          */
-        $courses=Course::orderBy('start','DESC')->paginate(10);
+        $courses = Course::orderBy('start', 'DESC')->paginate(10);
         return view('admin.listOfCourses', compact('courses'));
     }
 
@@ -34,29 +34,32 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request proveniente del formulario
+     * 
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        return;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id Course id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id Course id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,8 +70,9 @@ class CourseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request proveniente del formulario
+     * @param int                      $id      course id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -79,7 +83,8 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id course id
+     * 
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

@@ -2,7 +2,7 @@
 
 namespace App\Mail;
 
-use App\Question;
+use App\Forum;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -13,17 +13,17 @@ class ForumEndingReminder extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $question,$user;
+    public $forum,$user;
 
     /**
      * Create a new message instance.
      *
-     * @param Question $question
+     * @param Forum $forum
      * @param User $user
      */
-    public function __construct(Question $question, User $user)
+    public function __construct(Forum $forum, User $user)
     {
-        $this->question=$question;
+        $this->forum=$forum;
         $this->user=$user;
     }
 
@@ -34,6 +34,7 @@ class ForumEndingReminder extends Mailable
      */
     public function build()
     {
-        return $this->subject('Recordatorio de participación en Foro')->markdown('emails.forumEndingReminder');
+        return $this->subject('Recordatorio de participación en Foro')
+            ->markdown('emails.forumEndingReminder');
     }
 }

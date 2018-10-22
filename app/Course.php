@@ -36,9 +36,9 @@ class Course extends Model
         return $this->hasMany('App\Module');
     }
 
-    public function questions()
+    public function forums()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasMany('App\Forums');
     }
 
     //SCOPE

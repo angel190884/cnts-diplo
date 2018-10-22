@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Mail;
+use Log;
 
 class RegisterController extends Controller
 {
@@ -54,8 +55,8 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+            'password' => 'required|string|min:6|confirmed']
+        );
     }
 
     /**
@@ -66,15 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $createdUser=User::create([
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'avatar' => 'avatars/no_user.png',
-            'password' => Hash::make($data['password']),
-        ])->assignRole('authenticated');
-        if ($createdUser){
+        $createdUser=User::create(
+            [
+                'name' => $data['name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'avatar' => 'avatars/no_user.png',
+                'password' => Hash::make($data['password']),
+            ]
+        )->assignRole('authenticated');
+        
+        if ($createdUser) {
             //Mail::to($createdUser->email)->queue(new UserRegister($createdUser));
+            Log::info("se registro el usuario con id:$createdUser->id");
         }
         return $createdUser;
     }

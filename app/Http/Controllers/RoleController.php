@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use Auth;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Illuminate\Http\Request;
 use Session;
+use Auth;
 
 class RoleController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -42,14 +47,17 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name'=>'required|unique:roles|max:10',
-            'permissions' =>'required',
+        $this->validate(
+            $request, 
+            [
+                'name'=>'required|unique:roles|max:10',
+                'permissions' =>'required',
             ]
         );
 
@@ -67,18 +75,19 @@ class RoleController extends Controller
             $role->givePermissionTo($p);
         }
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role'. $role->name.' added!');
+        return redirect()
+            ->route('roles.index')
+            ->with('flash_message', 'Role'. $role->name.' added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $idRole 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idRole)
     {
         return redirect('roles');
     }
@@ -86,12 +95,13 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $idRole 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idRole)
     {
-        $role = Role::findOrFail($id);
+        $role = Role::findOrFail($idRole);
         $permissions = Permission::all();
 
         return view('roles.edit', compact('role', 'permissions'));
@@ -100,17 +110,21 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request 
+     * @param int                      $idRole 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idRole)
     {
-        $role = Role::findOrFail($id);
-        $this->validate($request, [
-            'name'=>'required|max:10|unique:roles,name,'.$id,
-            'permissions' =>'required',
-        ]);
+        $role = Role::findOrFail($idRole);
+        $this->validate(
+            $request, 
+            [
+                'name'=>'required|max:10|unique:roles,name,' . $idRole,
+                'permissions' =>'required'
+            ]
+        );
 
         $input = $request->except(['permissions']);
         $permissions = $request['permissions'];
@@ -126,24 +140,25 @@ class RoleController extends Controller
             $role->givePermissionTo($p);  
         }
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role'. $role->name.' updated!');
+        return redirect()
+            ->route('roles.index')
+            ->with('flash_message', 'Role'. $role->name.' updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $idRole 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idRole)
     {
-        $role = Role::findOrFail($id);
+        $role = Role::findOrFail($idRole);
         $role->delete();
 
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-             'Role deleted!');
+        return redirect()
+            ->route('roles.index')
+            ->with('flash_message', 'Role deleted!');
     }
 }

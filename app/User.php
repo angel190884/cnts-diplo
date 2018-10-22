@@ -76,13 +76,13 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Relation user->questions()
+     * Relation user->forums()
      * 
      * @return Response
      */
-    public function questions()
+    public function forums()
     {
-        return $this->belongsToMany('App\Question')
+        return $this->belongsToMany('App\Forum')
             ->withTimestamps()
             ->withPivot(['score']);
     }

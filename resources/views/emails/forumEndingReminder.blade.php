@@ -1,12 +1,12 @@
 @component('mail::message')
 # Recordatorio de participación en Foro
 
-Estimad@ **{{ strtoupper($user->full_name) }}** te recordamos que el foro **"{{ $question->question }}"**
-concluye el **{{ date('d-m-Y', strtotime($question->end)) }}**, si ya participaste haz caso omiso de este email
+Estimad@ **{{ strtoupper($user->full_name) }}** te recordamos que el foro **"{{ $forum->forum }}"**
+concluye el **{{ date('d-m-Y', strtotime($forum->end)) }}**, si ya participaste haz caso omiso de este email
 de lo contrario te recomendamos que participes, ya que es parte fundamental para el profesor del diplomado.
 
 
-@component('mail::button', ['url' => 'questions/' . $question->slug])
+@component('mail::button', ['url' => 'forums/' . $forum->slug])
 Ir a Foro
 @endcomponent
 

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Module;
 use Illuminate\Http\Request;
+use App\Module;
 
 class ModuleController extends Controller
 {
@@ -39,7 +39,8 @@ class ModuleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request proveniente del formulario
+     * 
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +51,8 @@ class ModuleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Module  $modules
+     * @param \App\Module $modules 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show(Module $modules)
@@ -61,7 +63,8 @@ class ModuleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Module  $modules
+     * @param \App\Module $modules 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function edit(Module $modules)
@@ -72,8 +75,9 @@ class ModuleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Module  $modules
+     * @param \Illuminate\Http\Request $request 
+     * @param \App\Module              $modules 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Module $modules)
@@ -84,7 +88,8 @@ class ModuleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Module  $modules
+     * @param \App\Module $modules 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function destroy(Module $modules)

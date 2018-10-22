@@ -13,7 +13,7 @@
                         <b>3 archivos</b> que se te piden. El <b>"CENTRO NACIONAL DE LA TRANSFUSIÓN SANGUÍNEA"</b> revisará
                         los datos proporcionados y al terminar se te informara via e-mail la situación de tu solicitud
                         al diplomado, donde se indicaran los pasos a seguir, cualquier duda o aclaración nos ponemos
-                        a tus ordenes en los suiguientes teléfonos (55)63-92-22-50 Ext. 51616 ó 51619 con horario de
+                        a tus ordenes en los siguientes teléfonos (55)63-92-22-50 Ext. 51616 ó 51619 con horario de
                         atención de 9:00 a 18:00 hrs.
                 </p>
                 <p><b>PASO #1.-</b>Llenar todos los <b>datos generales</b> que se te piden y pulsar el boton <b>"Actualizar datos"</b></p>

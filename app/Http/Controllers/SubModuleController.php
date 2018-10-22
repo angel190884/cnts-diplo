@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\SubModule;
 use Illuminate\Http\Request;
+use App\SubModule;
 
 class SubModuleController extends Controller
 {

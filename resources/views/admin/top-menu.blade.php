@@ -8,7 +8,6 @@
         <a class="dropdown-item" href="#">Editar fechas<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="#">Copiar<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="#">Foro de preguntas<sub><small class="bg-danger">pendiente</small></sub></a>
-        <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="{{ route('student.index') }}">Alumnos</a>
         <a class="dropdown-item" href="#">Usuarios registrados<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="#">Emisión de diplomas<sub><small class="bg-danger">pendiente</small></sub></a>

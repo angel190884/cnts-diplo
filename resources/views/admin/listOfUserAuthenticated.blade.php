@@ -17,7 +17,7 @@
                                         <div class="input-group-prepend">
                                             <div class="input-group-text"><i class="fas fa-user"></i></div>
                                         </div>
-                                        {{ Form::text('full_name',$full_name, ['class' => 'form-control', 'placeholder' => 'Nombre', 'id' => 'grupoNombre']) }}
+                                        {{ Form::text('full_name',$fullName, ['class' => 'form-control', 'placeholder' => 'Nombre', 'id' => 'grupoNombre']) }}
                                     </div>
 
                                     <label class="sr-only" for="grupoEmail">Email</label>
@@ -40,7 +40,7 @@
                                             <div class="input-group-text"><i class="fas fa-money-bill-alt"></i></div>
                                         </div>
                                         <div class="form-control">
-                                            {{ Form::checkbox('voucher_send', $voucher_send, $voucher_send) }}
+                                            {{ Form::checkbox('voucher_send', $voucherSend, $voucherSend) }}
                                         </div>
 
                                     </div>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="card-footer">
                         {{ $users->appends([
-                                            'full_name' => $full_name,
+                                            'full_name' => $fullName,
                                             'email' => $email,
                                             'course' => $course
                                             ])->links() }}

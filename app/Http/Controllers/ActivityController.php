@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Activity;
 use App\Course;
 use App\Topic;
 use App\User;
 use Auth;
-use Illuminate\Http\Request;
 use Log;
 
 class ActivityController extends Controller

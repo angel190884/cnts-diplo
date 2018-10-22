@@ -20,7 +20,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'edit_roles&permissions']);
         Permission::create(['name' => 'inscription']);
         Permission::create(['name' => 'editProfile']);
-        Permission::create(['name' => 'forumOfQuestions']);
+        Permission::create(['name' => 'forums']);
         Permission::create(['name' => 'scoreActivity']);
         Permission::create(['name' => 'changeScoreActivity']);
 
@@ -34,10 +34,10 @@ class RolesAndPermissionsSeeder extends Seeder
             $role->givePermissionTo(['inscription','editProfile','scoreActivity']);
 
         $role = Role::create(['name' => 'teacher']);
-            $role->givePermissionTo(['forumOfQuestions','scoreActivity','changeScoreActivity']);
+            $role->givePermissionTo(['forums','scoreActivity','changeScoreActivity']);
 
         $role = Role::create(['name' => 'student']);
-            $role->givePermissionTo(['forumOfQuestions']);
+            $role->givePermissionTo(['forums']);
 
         $role = Role::create(['name' => 'authenticated']);
             $role->givePermissionTo(['inscription','editProfile']);

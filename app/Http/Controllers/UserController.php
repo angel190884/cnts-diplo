@@ -44,11 +44,14 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name'=>'required|max:120',
-            'email'=>'required|email|unique:users',
-            'password'=>'required|min:6|confirmed'
-        ]);
+        $this->validate(
+            $request, 
+            [
+                'name'=>'required|max:120',
+                'email'=>'required|email|unique:users',
+                'password'=>'required|min:6|confirmed'
+            ]
+        );
 
         $user = User::create($request->only('email', 'name', bcrypt('password')));
 
@@ -57,20 +60,21 @@ class UserController extends Controller
         if (isset($roles)) {
 
             foreach ($roles as $role) {
-            $role_r = Role::where('id', '=', $role)->firstOrFail();            
-            $user->assignRole($role_r);
+                $roleR = Role::where('id', '=', $role)->firstOrFail();            
+                $user->assignRole($roleR);
             }
         }        
 
-        return redirect()->route('users.index')
-            ->with('flash_message',
-             'User successfully added.');
+        return redirect()
+            ->route('users.index')
+            ->with('flash_message', 'User successfully added.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -81,12 +85,13 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $idUser 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idUser)
     {
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($idUser);
         $roles = Role::get();
 
         return view('users.edit', compact('user', 'roles'));
@@ -95,38 +100,44 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request 
+     * @param int                      $idUser 
+     * 
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idUser)
     {
-        $user = User::findOrFail($id);
-        $this->validate($request, [
-            'name'=>'required|max:120',
-            'email'=>'required|email|unique:users,email,'.$id,
-            'password'=>'required|min:6|confirmed'
-        ]);
+        $user = User::findOrFail($idUser);
+        $this->validate(
+            $request,
+            [
+                'name'=>'required|max:120',
+                'email'=>'required|email|unique:users,email,'.$id,
+                'password'=>'required|min:6|confirmed'
+            ]
+        );
 
         $input = $request->only(['name', 'email', 'password']);
         $roles = $request['roles'];
         $user->fill($input)->save();
 
-        if (isset($roles)) {        
-            $user->roles()->sync($roles);            
-        }        
-        else {
-            $user->roles()->detach();
+        if (isset($roles)) {
+            $user->roles()->sync($roles);
+            return redirect()
+                ->route('users.index')
+                ->with('flash_message', 'User successfully edited.');
         }
-        return redirect()->route('users.index')
-            ->with('flash_message',
-             'User successfully edited.');
+        $user->roles()->detach();
+        return redirect()
+            ->route('users.index')
+            ->with('flash_message', 'User successfully edited.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -134,8 +145,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')
-            ->with('flash_message',
-             'User successfully deleted.');
+        return redirect()
+            ->route('users.index')
+            ->with('flash_message', 'User successfully deleted.');
     }
 }

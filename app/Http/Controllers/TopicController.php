@@ -54,18 +54,18 @@ class TopicController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Topic  $topic
+     * @param \App\Topic $slug 
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
         $topic = Topic::where('slug', '=', $slug)->firstOrFail();
 
-        if (auth()->user()->hasAnyRole(['student','teacher']))
-        {
-            return view('student.showContent',compact('topic'));
+        if (auth()->user()->hasAnyRole(['student', 'teacher'])) {
+            return view('student.showContent', compact('topic'));
         }
-        Log::error('un usuario quiso ver una url que no le corresponde | '.'user:'. Auth::user()->id);
+        error('un usuario quiso ver una url que no le corresponde | '.'user:'. auth()->user()->id);
         return abort(403, 'Unauthorized action.');
     }
 

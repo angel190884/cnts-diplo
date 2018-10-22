@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Course;
 use App\User;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -18,9 +18,14 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
-        $full_name=$request->get('full_name');
+        $fullName=$request->get('full_name');
         $email=$request->get('email');
         $course=$request->get('course');
 
@@ -28,15 +33,15 @@ class StudentController extends Controller
             ->role('student')
             ->active()
             ->inscribed()
-            ->fullName($full_name)
+            ->fullName($fullName)
             ->email($email)
             ->courseFilter($course)
-            ->orderBy('name','ASC')
+            ->orderBy('name', 'ASC')
             ->paginate(10);
 
-        $courses=Course::active()->pluck('short_name', 'id');
+        $courses = Course::active()->pluck('short_name', 'id');
 
-        return view('admin.studentsList',compact('users', 'courses', 'full_name','email','course'));
+        return view('admin.studentsList', compact('users', 'courses', 'fullName', 'email', 'course'));
     }
 
     public function viewContent()

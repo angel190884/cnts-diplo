@@ -7,19 +7,17 @@
         <hr>
     </div>
     <div class="alert alert-info text-center col-sm-12 col-lg-8 offset-lg-2" role="alert">
-
-        <p>
-            En nombre del <b>Centro Nacional de la Transfusión  Sanguínea</b>, te damos la más coordial bienvenida.
-
-            Te has registrado al Sistema Web del Diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
-            deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>CNTS</b>.
-        </p>
-
-        <p>
-            El <b class="text-primary">siguiente PASO</b> sera la Modificación de tu perfil y tus datos generales en el siguiente Botón.
-        </p>
         <div class="container-fluid text-center pb-5">
             @if(!Auth::user()->course_id)
+                <p>
+                    En nombre del <b>Centro Nacional de la Transfusión  Sanguínea</b>, te damos la más coordial bienvenida.
+        
+                    Te has registrado al Sistema Web del Diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
+                    deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>CNTS</b>.
+                </p>
+                <p>
+                    El <b class="text-primary">siguiente PASO</b> sera la Modificación de tu perfil y tus datos generales en el siguiente Botón.
+                </p>
                 <a class="btn btn-primary" href="{{ route('profile.edit', Auth::user()->id) }}" role="button">
                     <i class="far fa-user fa-4x"></i>
                     <p>Editar perfil</p>
@@ -27,10 +25,13 @@
             @else
                 @if(Auth::user()->file_voucher)
                     @if(!Auth::user()->file_paid_voucher)
+                        <p>
+                            El <b class="text-primary">siguiente PASO:</b> Subir el pago escaneado en formato PDF legible y sin dobleces para su correcta lectura y pronta respuesta.
+                        </p>
                         <div>
                             <a href="#" style="font-size:3em; color:dodgerblue" data-toggle="modal" data-target="#modalPaidVoucher">
                                 <i class="fas fa-upload"></i>
-                                Subir pdf del voucher sellado por el banco
+                                Voucher sellado por el banco(PDF)
                             </a>
                         </div>
                         <!-- Modal PaidVoucher-->
@@ -58,14 +59,14 @@
                         </div>
                     @else
                         <div class="alert alert-success alert-dismissible fade show">
-                            <p class="text-lg-left">
+                            <p class="text-lg-center">
                                 <a>Haz cumplido con los requisitos, en breve se te enviara un <strong>e-mail</strong> para poder ingresar al diplomado!!!</a>
                             </p>
                         </div>
                     @endif
                 @else
                     <div class="alert alert-success alert-dismissible fade show">
-                        <p class="text-lg-left">
+                        <p class="text-lg-center">
                             <a>Tienes una solicitud de ingreso activa espera instrucciones por email!!!</a>
                         </p>
                     </div>

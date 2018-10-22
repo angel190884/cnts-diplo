@@ -8,7 +8,7 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 text-left">
-                                Calificaciones de Foro de Preguntas: ( <strong>{{ $question->question }}</strong> )
+                                Calificaciones de Foro de Preguntas: ( <strong>{{ $forum->forum }}</strong> )
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                                 </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                @foreach ($question->users as $user)
+                                @foreach ($forum->users as $user)
                                     <tr>
                                         <td class="text-left">
                                             <img src="{{ Storage::url($user->avatar) }}" class="img-fluid img-thumbnail rounded" width="75">
@@ -57,8 +57,8 @@
                                             <!-- Modal -->
                                             <div class="modal fade" id="{{ $user->remember_token }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    {{Form::model($user,['route' => ['changeScoreQuestion',$user->id]])}}
-                                                    {{Form::hidden('question_id', $user->pivot->question_id)}}
+                                                    {{Form::model($user,['route' => ['changeScoreForum',$user->id]])}}
+                                                    {{Form::hidden('forum_id', $user->pivot->forum_id)}}
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="{{ $user->remember_token }}Label">{{ $user->full_name }}</h5>

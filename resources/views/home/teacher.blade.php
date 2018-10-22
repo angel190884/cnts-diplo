@@ -25,7 +25,7 @@
             <div class="brand-card-body">
                 <div>
                     <div class="text-value">20</div>
-                    <div class="text-uppercase text-muted small"><a href="{{ route('questions.index') }}">foros</a></div>
+                    <div class="text-uppercase text-muted small"><a href="{{ route('forums.index') }}">foros</a></div>
                 </div>
             </div>
         </div>
@@ -81,18 +81,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($questions as $question)
+                    @foreach($forums as $forum)
                         <tr>
                             <td class="text-center">
                                 <i class="fas fa-comments"></i>
                             </td>
                             <td>
-                                <div><a href="{{ route('questions.show',$question->slug)}}">{{ ucwords(strtolower($question->question)) }}</a></div>
-                                <div class="small text-muted"><span>{{ strtoupper($question->formattedStart) }}</span> | {{ strtoupper($question->formattedEnd) }}</div>
+                                <div><a href="{{ route('forums.show',$forum->slug)}}">{{ ucwords(strtolower($forum->forum)) }}</a></div>
+                                <div class="small text-muted"><span>{{ strtoupper($forum->formattedStart) }}</span> | {{ strtoupper($forum->formattedEnd) }}</div>
                             </td>
                             <td class="text-center">
-                                <a href="{{ route('scoreQuestion',$question->slug) }}"><i class="fas fa-sort-numeric-up"></i></a>
-                                | {{ $question->users()->count() }} | {{ $question->users()->where('score','!=',0)->count() }}
+                                <a href="{{ route('scoreForum',$forum->slug) }}"><i class="fas fa-sort-numeric-up"></i></a>
+                                | {{ $forum->users()->count() }} | {{ $forum->users()->where('score','!=',0)->count() }}
                             </td>
                         </tr>
                     @endforeach
