@@ -28,17 +28,22 @@ class Course extends Model
     //RELACIONES
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->hasMany(User::class);
     }
 
     public function modules()
     {
-        return $this->hasMany('App\Module');
+        return $this->hasMany(Module::class);
     }
 
     public function forums()
     {
-        return $this->hasMany('App\Forums');
+        return $this->hasMany(Forum::class);
+    }
+
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
     }
 
     //SCOPE
