@@ -42,6 +42,10 @@ Route::group(
 
         //ver logs
         Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->name('logs');
+
+        //quiz
+        Route::resource('quizzes', 'QuizController');
+        Route::resource('questions', 'QuestionController');
     }
 );
 

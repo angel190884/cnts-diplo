@@ -20,9 +20,9 @@ class CreateQuizzesTable extends Migration
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses');
-            $table->unsignedInteger('max_number_questions');
+            $table->unsignedInteger('number_questions');
             $table->unsignedInteger('min_score');
-            $table->boolean('visible')->default(true);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

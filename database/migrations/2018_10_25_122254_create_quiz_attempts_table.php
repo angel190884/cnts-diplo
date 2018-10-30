@@ -22,7 +22,7 @@ class CreateQuizAttemptsTable extends Migration
                 ->on('quizzes');
             $table->unsignedInteger('attempt');
             $table->unsignedInteger('score');
-            $table->boolean('visible')->default(true);
+            $table->boolean('active')->default(true);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')

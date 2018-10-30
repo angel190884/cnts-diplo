@@ -23,7 +23,7 @@ class QuizAttemptTableSeeder extends Seeder
                         'quiz_id' => $quiz->id,
                         'attempt' => 1,
                         'score'   => $faker->randomDigitNotNull,
-                        'visible' => 1,
+                        'active' => 1,
                         'user_id' => $user->id
                     ]);
                 }

@@ -31,7 +31,7 @@
         <a class="dropdown-item" href="#">Examanes<sub><small class="bg-danger">pendiente</small></sub></a>
     </div>
 </li>
-<li class="nav-item dropdown">
+<!--<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Convocatorias
     </a>
@@ -48,6 +48,14 @@
         <a class="dropdown-item" href="#">Listar<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="#">Enviar Mail a usuario<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="#">Enviar Mail a maestro<sub><small class="bg-danger">pendiente</small></sub></a>
+    </div>
+</li>-->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Examenes
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{{route('quizzes.index')}}">Examenes</a>
     </div>
 </li>
 <li class="nav-item dropdown">

@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->foreign('quiz_id')
                 ->references('id')
                 ->on('quizzes');
-            $table->boolean('visible')->default(true);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
