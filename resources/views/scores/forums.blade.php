@@ -23,7 +23,7 @@
                                             @if($user->hasRole('student'))
                                                 <td>{{ $user->fullName }}</td>
                                                 @foreach($user->forums as $forum)
-                                                    @if($forum->pivot->score > 6)
+                                                    @if($forum->pivot->score >= 6)
                                                         <td bgcolor="#90ee90">
                                                             <ACRONYM title="{{ $forum->forum }}">
                                                                 {{ $forum->pivot->score }}
