@@ -64,11 +64,11 @@
                                         <td class="align-middle text-info text-lg-center">
                                             @if($user->pivot->file_activity)
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#{{ $user->remember_token }}">
+                                                <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#A{{ $user->id }}">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="{{$user->remember_token}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="A{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             {{Form::model($user,['route' => ['changeScoreActivity',$user->id]])}}
                                                             {{Form::hidden('activity_id', $user->pivot->activity_id)}}

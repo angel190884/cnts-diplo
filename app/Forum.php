@@ -30,7 +30,7 @@ class Forum extends Model
     {
         return$this->belongsTo('App\Course');
     }
-
+    
     public function scopeCourseFilter($query, $courseId)
     {
         if ($courseId) {

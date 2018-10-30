@@ -46,6 +46,10 @@ Route::group(
         //quiz
         Route::resource('quizzes', 'QuizController');
         Route::resource('questions', 'QuestionController');
+
+        //calificaciones
+        Route::get('scores.forums', 'ScoresController@forums')->name('scores.forums');
+        Route::get('scores.activities', 'ScoresController@activities')->name('scores.activities');
     }
 );
 

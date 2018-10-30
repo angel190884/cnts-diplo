@@ -9,6 +9,7 @@ use App\Question;
 use App\Course;
 use App\Quiz;
 use App\User;
+use Log;
 
 
 class QuizController extends Controller
@@ -58,7 +59,10 @@ class QuizController extends Controller
         $quiz->number_questions = $number_questions;
         $quiz->min_score = $min_score;
 
-        $quiz->save();
+        if ($quiz->save()){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID creó un examen con id $quiz->id");
+        }
 
         return redirect(route('quizzes.index'))->with('success', "El examen fue creado Satisfactoriamente.");
     }

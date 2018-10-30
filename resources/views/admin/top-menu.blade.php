@@ -5,12 +5,11 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ route('courses.index') }}">Listar</a>
-        <a class="dropdown-item" href="#">Editar fechas<sub><small class="bg-danger">pendiente</small></sub></a>
+        <!--<a class="dropdown-item" href="#">Editar fechas<sub><small class="bg-danger">pendiente</small></sub></a>-->
         <a class="dropdown-item" href="#">Copiar<sub><small class="bg-danger">pendiente</small></sub></a>
-        <a class="dropdown-item" href="#">Foro de preguntas<sub><small class="bg-danger">pendiente</small></sub></a>
         <a class="dropdown-item" href="{{ route('student.index') }}">Alumnos</a>
-        <a class="dropdown-item" href="#">Usuarios registrados<sub><small class="bg-danger">pendiente</small></sub></a>
-        <a class="dropdown-item" href="#">Emisión de diplomas<sub><small class="bg-danger">pendiente</small></sub></a>
+        <!--<a class="dropdown-item" href="#">Usuarios registrados<sub><small class="bg-danger">pendiente</small></sub></a>
+        <a class="dropdown-item" href="#">Emisión de diplomas<sub><small class="bg-danger">pendiente</small></sub></a>-->
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -26,8 +25,8 @@
         Calificaciones
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Foros<sub><small class="bg-danger">pendiente</small></sub></a>
-        <a class="dropdown-item" href="#">Actividades<sub><small class="bg-danger">pendiente</small></sub></a>
+        <a class="dropdown-item" href="{{ route('scores.forums') }}">Foros</a>
+        <a class="dropdown-item" href="{{ route('scores.activities') }}">Actividades</a>
         <a class="dropdown-item" href="#">Examanes<sub><small class="bg-danger">pendiente</small></sub></a>
     </div>
 </li>

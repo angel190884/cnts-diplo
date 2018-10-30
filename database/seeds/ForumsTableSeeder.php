@@ -36,7 +36,7 @@ class ForumsTableSeeder extends Seeder
             );
         }
 
-        for ($i=0;$i <= 100;$i++) {
+        for ($i=0;$i <= 10;$i++) {
             $forum = $faker->realText(rand(15, 20), 2);
             factory(Forum::class)->create(
                 [

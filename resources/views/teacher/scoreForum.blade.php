@@ -51,17 +51,17 @@
                                         </td>
                                         <td class="align-middle text-info text-lg-center">
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#{{ $user->remember_token }}">
+                                            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#A{{ $user->id }}">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <!-- Modal -->
-                                            <div class="modal fade" id="{{ $user->remember_token }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal fade" id="A{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     {{Form::model($user,['route' => ['changeScoreForum',$user->id]])}}
                                                     {{Form::hidden('forum_id', $user->pivot->forum_id)}}
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="{{ $user->remember_token }}Label">{{ $user->full_name }}</h5>
+                                                            <h5 class="modal-title" id="{{ $user->id }}Label">{{ $user->full_name }}</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>

@@ -73,12 +73,11 @@ class ActivityController extends Controller
 
         if ($user->activities()->updateExistingPivot($request->post('activity_id'), ['score' => $request->post('score')]))
         {
-            Log::info("el usurio ". auth()->user()->id . "cambio calificación a user $user->id");
+            Log::info("el usuario: ". auth()->user()->id . " cambio calificación de actividad  al user $user->id | calif: " . $request->post('score'));
             return back();
         }else{
-            Log::info("el usuario ". auth()->user()->id . "quizo cambiar calificación a user $user->id pero no se concreto la operación");
+            Log::info("el usuario ". auth()->user()->id . " quizo cambiar calificación de actividad a user $user->id pero no se concreto la operación");
             return back();
         }
-        //dump($user->activities()->findOfFail($request->post('activity_id')));
     }
 }
