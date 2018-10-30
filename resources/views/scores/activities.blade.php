@@ -23,7 +23,7 @@
                                             @if($user->hasRole('student'))
                                                 <td>{{ $user->fullName }}</td>
                                                 @foreach($user->activities as $activity)
-                                                    @if($activity->pivot->score > 6)
+                                                    @if($activity->pivot->score >= 6)
                                                         <td bgcolor="#90ee90">
                                                             <abbr title="{{ $activity->number_activity . '.-' .$activity->name }}">
                                                                 {{ $activity->pivot->score }}

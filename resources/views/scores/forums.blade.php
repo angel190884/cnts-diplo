@@ -25,15 +25,15 @@
                                                 @foreach($user->forums as $forum)
                                                     @if($forum->pivot->score >= 6)
                                                         <td bgcolor="#90ee90">
-                                                            <ACRONYM title="{{ $forum->forum }}">
+                                                            <abbr title="{{ $forum->forum }}">
                                                                 {{ $forum->pivot->score }}
-                                                            </ACRONYM>
+                                                            </abbr>
                                                         </td>
                                                     @else
                                                         <td bgcolor="#f08080">
-                                                            <ACRONYM title="{{ $forum->forum }}">
+                                                            <abbr title="{{ $forum->forum }}">
                                                                 {{ $forum->pivot->score }}
-                                                            </ACRONYM>
+                                                            </abbr>
                                                         </td>
                                                     @endif
                                                 @endforeach
