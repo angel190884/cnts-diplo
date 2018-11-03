@@ -9,14 +9,12 @@
                 <div class="card">
                     <div class="card-header">Panel Principal - Crear Examen.</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('quizzes.store') }}">
-                            @csrf
-
+                        {{ Form::model($quiz, ['route' => ['quizzes.update', $quiz->id],'method' => 'PUT'])}}
                             <div class="form-group row">
                                 <label for="title" class="col-sm-4 col-form-label text-md-right">Título del Examen</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus>
+                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ $quiz->title }}" required autofocus>
 
                                     @if ($errors->has('title'))
                                         <span class="invalid-feedback">
@@ -33,11 +31,14 @@
                                             type="select"
                                             class="form-control{{ $errors->has('course_id') ? ' is-invalid' : '' }}"
                                             name="course_id"
-                                            value="{{ old('title') }}"
                                             required
                                             autofocus>
                                         @foreach($courses as $course)
-                                            <option value="{{ $course->id }}">{{ $course->short_name }}</option>
+                                            @if($course->id == $quiz->course_id)
+                                                <option value="{{ $course->id }}" selected>{{ $course->short_name }}</option>
+                                            @else
+                                                <option value="{{ $course->id }}">{{ $course->short_name }}</option>
+                                            @endif
                                         @endforeach
                                     </select>
 
@@ -56,10 +57,13 @@
                                             type="select"
                                             class="form-control{{ $errors->has('number_questions') ? ' is-invalid' : '' }}"
                                             name="number_questions"
-                                            value="{{ old('number_questions') }}"
                                             required>
                                         @for($i=10;$i <= 30;$i++)
-                                            <option value="{{ $i }}">{{ $i }}</option>
+                                            @if($i == $quiz->number_questions)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @else
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endif
                                         @endfor
                                     </select>
 
@@ -78,10 +82,13 @@
                                             type="select"
                                             class="form-control{{ $errors->has('min_score') ? ' is-invalid' : '' }}"
                                             name="min_score"
-                                            value="{{ old('min_score') }}"
                                             required>
                                         @for($i=6;$i <= 10;$i++)
-                                            <option value="{{ $i }}">{{ $i }}</option>
+                                            @if($i == $quiz->min_score)
+                                                <option value="{{ $i }}" selected>{{ $i }}</option>
+                                            @else
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endif
                                         @endfor
                                     </select>
 
@@ -95,12 +102,12 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Crear
+                                        Actualizar
                                     </button>
                                     {!! link_to(URL::previous(), 'Cancel', ['class' => 'btn btn-outline-danger']) !!}
                                 </div>
                             </div>
-                        </form>
+                        {!! Form::close() !!}
                     </div>
                     <div class="card-footer">
                         Los examenes solo los puede crear un Administrador del sistema.

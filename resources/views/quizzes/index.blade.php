@@ -35,7 +35,9 @@
                                         <tr>
                                             <th>Título</th>
                                             <th>Diplomado</th>
-                                            <th><a href="{{ route('quizzes.create') }}" class="btn btn-success">Nuevo Examen</a></th>
+                                            <th>
+                                                <a href="{{ route('quizzes.create') }}" class="btn btn-success">Nuevo Examen</a>
+                                            </th>
                                         </tr>
                                     </thead>
 
@@ -46,14 +48,13 @@
                                                 <td>{{ $quiz->title }}</td>
                                                 <td>{{ $quiz->course->short_name }}</td>
                                                 <td>
-                                                    <a href="{{ route('quizzes.show',[$quiz->id]) }}" class="btn btn-sm btn-outline-primary">detalles</a>
-                                                    <a href="{{ route('quizzes.edit',[$quiz->id]) }}" class="btn btn-sm btn-outline-info">editar</a>
-                                                    <a href="{{ route('questions.index',[$quiz->id]) }}" class="btn btn-sm btn-outline-secondary">preguntas</a>
+                                                    <a href="{{ route('quizzes.edit',$quiz) }}" class="btn btn-sm btn-outline-info">editar</a>
+                                                    <a href="{{ route('questions.index',$quiz) }}" class="btn btn-sm btn-outline-secondary">preguntas</a>
                                                     {!! Form::open(array(
                                                         'style' => 'display: inline-block;',
                                                         'method' => 'DELETE',
                                                         'onsubmit' => "return confirm('¿Estas seguro de querer borrar el examen?');",
-                                                        'route' => ['quizzes.destroy', $quiz->id])) !!}
+                                                        'route' => ['quizzes.destroy', $quiz])) !!}
                                                     {!! Form::submit('borrar', array('class' => 'btn btn-sm btn-danger')) !!}
                                                     {!! Form::close() !!}
                                                 </td>
@@ -68,6 +69,9 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        Los examenes solo pueden ser creados por un administrador del sistema.
                     </div>
                 </div>
             </div>

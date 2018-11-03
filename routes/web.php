@@ -45,7 +45,19 @@ Route::group(
 
         //quiz
         Route::resource('quizzes', 'QuizController');
-        Route::resource('questions', 'QuestionController');
+
+        //questions
+        Route::get('questions/{quiz}', 'QuestionController@index')->name('questions.index');
+        Route::get('questions/create/{quiz}', 'QuestionController@create')->name('questions.create');
+        Route::resource('questions', 'QuestionController')->except('index', 'create', 'show');
+
+        //question Options
+        Route::get('questionOptions/{question}', 'QuestionOptionController@index')->name('questionOptions.index');
+        Route::get('questionOptions/create/{question}', 'QuestionOptionController@create')->name('questionOptions.create');
+        Route::resource('questionOptions', 'QuestionOptionController')->except('index', 'create', 'show');
+
+        //answers
+        Route::resource('answers', 'AnswerController');
 
         //calificaciones
         Route::get('scores.forums', 'ScoresController@forums')->name('scores.forums');

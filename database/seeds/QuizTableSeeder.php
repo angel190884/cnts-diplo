@@ -16,10 +16,11 @@ class QuizTableSeeder extends Seeder
         $courses = Course::all();
         
         foreach ($courses as $course) {
-            for ($i=1; $i <= 4; $i++) { 
+            for ($i=1; $i <= 4; $i++) {
                 factory(Quiz::class)->create([
                     'title' => "examen $i",
-                    'course_id' => $course->id
+                    'course_id' => $course->id,
+                    'active' => $course->active
                 ]);
             }
         }

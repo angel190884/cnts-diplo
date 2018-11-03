@@ -19,7 +19,8 @@ class QuestionTableSeeder extends Seeder
             for ($i=1; $i <= 20; $i++) { 
                 factory(Question::class)->create([
                     'question' => "pregunta  $i",
-                    'quiz_id' => $quiz->id
+                    'quiz_id' => $quiz->id,
+                    'active' => $quiz->active
                 ]);
             }
         }

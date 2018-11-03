@@ -21,7 +21,7 @@ class QuizController extends Controller
      */
     public function index()
     {
-        $questions = Question::count();
+        $questions = Question::active()->count();
         $users = User::role('student')->count();
         $quizzes = Quiz::active()->with('course')->orderBy('created_at','DESC')->get();
         $average = QuizAttempt::avg('score');
@@ -47,10 +47,10 @@ class QuizController extends Controller
      */
     public function store(QuizStoreRequest $request)
     {
-        $title = $request['title'];
-        $course_id = $request['course_id'];
-        $number_questions= $request['number_questions'];
-        $min_score= $request['min_score'];
+        $title = $request->get('title');
+        $course_id = $request->get('course_id');
+        $number_questions= $request->get('number_questions');
+        $min_score= $request->get('min_score');
 
         $quiz = new Quiz();
 
@@ -86,7 +86,8 @@ class QuizController extends Controller
      */
     public function edit(Quiz $quiz)
     {
-        //
+        $courses = Course::active()->get();
+        return view('quizzes.edit',compact('courses','quiz'));
     }
 
     /**
@@ -96,9 +97,24 @@ class QuizController extends Controller
      * @param  \App\Quiz  $quiz
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Quiz $quiz)
+    public function update(QuizStoreRequest $request, Quiz $quiz)
     {
-        //
+        $title = $request['title'];
+        $course_id = $request['course_id'];
+        $number_questions= $request['number_questions'];
+        $min_score= $request['min_score'];
+
+        $quiz->title = $title;
+        $quiz->course_id = $course_id;
+        $quiz->number_questions = $number_questions;
+        $quiz->min_score = $min_score;
+
+        if ($quiz->save()){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID actualizó un examen con id $quiz->id $quiz");
+        }
+
+        return redirect(route('quizzes.index'))->with('success', "El examen fue actualizado Satisfactoriamente.");
     }
 
     /**
