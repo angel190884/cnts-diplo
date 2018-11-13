@@ -32,7 +32,11 @@
                                                     @if($quiz->end < \Carbon\Carbon::now())
                                                         <a href="#" class="btn btn-sm btn-outline-danger disabled">Tiempo agotado</a>
                                                     @else
-                                                        <a href="#" class="btn btn-sm btn-outline-info">Contestar</a>
+                                                        @if($quiz->pivot->score != 0)
+                                                            <a href="#" class="btn btn-sm btn-outline-success disabled">¡Contestado!</a>
+                                                        @else
+                                                            <a href="#" class="btn btn-sm btn-outline-info">Contestar</a>
+                                                        @endif
                                                     @endif
                                                 </td>
                                             </tr>
