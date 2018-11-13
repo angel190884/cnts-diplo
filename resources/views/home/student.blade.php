@@ -76,15 +76,22 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row" colspan="4" class="bg-danger">en contruccion!!!</th>
-                        </tr>
+                        @foreach($quizzes as $quiz)
+                            @if($quiz->end > \Carbon\Carbon::now())
+                                <tr>
+                                    <th scope="row">{{ $quiz->id }}</th>
+                                    <td>{{ $quiz->title }}</td>
+                                    <td>{{ $quiz->end }}</td>
+                                    <td>{{ $quiz->pivot->score }}</td>
+                                </tr>
+                            @endif
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="panel-footer panel-primary">
                     <p>Los examenes apareceran en esta tabla y por tiempo limitado asi que te recomendamos estar pendiente.</p>
-                    <a href="#" class="btn btn-danger btn-lg disabled" role="button"><i class="far fa-edit fa-3x"></i> <br/>Examenes</a>
+                    <a href="{{ route('quizzes.indexStudent')}}" class="btn btn-danger btn-lg" role="button"><i class="far fa-edit fa-3x"></i> <br/>Examenes</a>
                 </div>
             </div>
         </div>

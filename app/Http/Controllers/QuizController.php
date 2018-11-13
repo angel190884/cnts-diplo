@@ -15,10 +15,10 @@ use Log;
 class QuizController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ * Display a listing of the resource.
+ *
+ * @return \Illuminate\Http\Response
+ */
     public function index()
     {
         $questions = Question::active()->count();
@@ -26,6 +26,16 @@ class QuizController extends Controller
         $quizzes = Quiz::active()->with('course')->orderBy('created_at','DESC')->get();
         $average = QuizAttempt::avg('score');
         return view('quizzes.index', compact('questions', 'users', 'quizzes', 'average'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexStudent()
+    {
+        return view('quizzes.indexStudent');
     }
 
     /**
@@ -51,6 +61,7 @@ class QuizController extends Controller
         $course_id = $request->get('course_id');
         $number_questions= $request->get('number_questions');
         $min_score= $request->get('min_score');
+        $end = $request->get('end');
 
         $quiz = new Quiz();
 
@@ -58,6 +69,7 @@ class QuizController extends Controller
         $quiz->course_id = $course_id;
         $quiz->number_questions = $number_questions;
         $quiz->min_score = $min_score;
+        $quiz->end = $end;
 
         if ($quiz->save()){
             $userID=auth()->user()->id;
@@ -101,13 +113,15 @@ class QuizController extends Controller
     {
         $title = $request['title'];
         $course_id = $request['course_id'];
-        $number_questions= $request['number_questions'];
-        $min_score= $request['min_score'];
+        $number_questions = $request['number_questions'];
+        $min_score = $request['min_score'];
+        $end = $request['end'];
 
         $quiz->title = $title;
         $quiz->course_id = $course_id;
         $quiz->number_questions = $number_questions;
         $quiz->min_score = $min_score;
+        $quiz->end = $end;
 
         if ($quiz->save()){
             $userID=auth()->user()->id;

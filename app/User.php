@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Relation user->course()
      * 
-     * @return Response
+     * @return mixed
      */
     public function course()
     {
@@ -66,7 +66,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Relation user->activities()
      * 
-     * @return Response
+     * @return mixed
      */
     public function activities()
     {
@@ -78,13 +78,25 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Relation user->forums()
      * 
-     * @return Response
+     * @return mixed
      */
     public function forums()
     {
-        return $this->belongsToMany('App\Forum')
+        return $this->belongsToMany(Forum::class)
             ->withTimestamps()
             ->withPivot(['score']);
+    }
+
+    /**
+     * Relation user->quizzes()
+     * @param
+     * @return mixed
+     */
+    public function quizzes()
+    {
+        return $this->belongsToMany(Quiz::class, 'quiz_attempts')
+            ->withTimestamps()
+            ->withPivot(['attempt','score']);
     }
 
     /*

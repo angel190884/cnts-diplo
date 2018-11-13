@@ -20,6 +20,7 @@ class CreateQuizzesTable extends Migration
             $table->foreign('course_id')
                 ->references('id')
                 ->on('courses');
+            $table->dateTime('end');
             $table->unsignedInteger('number_questions');
             $table->unsignedInteger('min_score');
             $table->boolean('active')->default(true);

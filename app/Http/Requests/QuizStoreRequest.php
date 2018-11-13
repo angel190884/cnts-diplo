@@ -26,7 +26,8 @@ class QuizStoreRequest extends FormRequest
         return [
             'title'=>'required|max:254',
             'course_id' => 'required',
-            'number_questions' => 'required|integer'
+            'number_questions' => 'required|integer',
+            'end' => 'required|date'
         ];
     }
 }

@@ -83,7 +83,7 @@
                     <div class="text-value">{{ $forums->count() }}</div>
                     <small class="text-muted text-uppercase font-weight-bold">Foros</small>
                     <div class="progress progress-xs mt-3 mb-0">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: {{ $forums->count() }}%" aria-valuenow="{{ $forums->count() }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     <div class="text-value">{{ $activities->count() }}</div>
                     <small class="text-muted text-uppercase font-weight-bold">Actividades</small>
                     <div class="progress progress-xs mt-3 mb-0">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ $activities->count() }}%" aria-valuenow="{{ $activities->count() }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -104,10 +104,10 @@
                     <div class="h1 text-muted text-right mb-4">
                         <i class="fas fa-question"></i>
                     </div>
-                    <div class="text-value">1238<sub class="bg-danger">pendiente</sub></div>
+                    <div class="text-value">{{ $quizzes->count() }}</div>
                     <small class="text-muted text-uppercase font-weight-bold">Examenes</small>
                     <div class="progress progress-xs mt-3 mb-0">
-                        <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $quizzes->count() }}%" aria-valuenow="{{ $quizzes->count() }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
             </div>
@@ -172,15 +172,15 @@
                     </td>
                     <td>
                         <div class="clearfix">
-                            <div class="float-left bg-danger">
-                                <strong>Pendiente</strong>
+                            <div class="float-left">
+                                <strong>{{ $user->quizzes->where('pivot.score','!=',NULL)->count() }}</strong>
                             </div>
                             <div class="float-right">
-                                <small class="text-muted">Jun 11, 2015 - Jul 10, 2015</small>
+                                <small class="text-muted"> de {{ $quizzes->count() }}</small>
                             </div>
                         </div>
                         <div class="progress progress-xs">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ $user->quizzes->where('pivot.score','!=',NULL)->count() }}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="{{ $user->quizzes->count() }}"></div>
                         </div>
                     </td>
                 </tr>

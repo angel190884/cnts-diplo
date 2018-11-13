@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Quiz;
 use function Couchbase\defaultDecoder;
 use Illuminate\Http\Request;
 use App\Activity;
@@ -46,17 +47,22 @@ class HomeController extends Controller
         }
 
         if ($user->hasRole('student')) {
-            $activities= $user->activities()
+            $activities = $user->activities()
                 ->wherePivot('score', '!=', 0)
                 ->orderBy('activity_user.updated_at', 'DESC')
                 ->get();
 
-            $forums=$user->forums()
+            $forums = $user->forums()
                 ->wherePivot('score', '!=', 0)
                 ->orderBy('forum_user.updated_at', 'DESC')
                 ->get();
 
-            return view('home', compact('activities', 'forums'));
+            $quizzes = $user->quizzes()
+                ->wherePivot('score', '!=', 0)
+                ->orderBy('quiz_attempts.updated_at', 'DESC')
+                ->get();
+
+            return view('home', compact('activities', 'forums', 'quizzes'));
         }
         if ($user->hasRole('admin')) {
             $courses=Course::active()
@@ -77,8 +83,11 @@ class HomeController extends Controller
             $forums=Forum::all();
             
             $activities=Activity::all();
+
+            $quizzes=Quiz::active()
+                ->get();
             
-            return view('home', compact('courses', 'users', 'authenticated', 'forums', 'activities'));
+            return view('home', compact('courses', 'users', 'authenticated', 'forums', 'activities', 'quizzes'));
         }
         return view('home');
     }

@@ -101,6 +101,8 @@ Route::group(
 
         Route::put('upload_activity/{id}', 'FilesUploadController@uploadFileActivity')->name('u_activity');
         Route::get('activity/{slug}', 'ActivityController@show')->name('show.activity');
+
+        Route::get('quizzes.indexStudent', 'QuizController@indexStudent')->name('quizzes.indexStudent');
     }
 );
 

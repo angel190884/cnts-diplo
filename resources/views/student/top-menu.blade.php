@@ -33,6 +33,6 @@
     <a class="nav-link" href="{{ route('forums.index') }}">Foro de Preguntas</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link disabled" href="#">Examenes</a>
+    <a class="nav-link" href="{{ route('quizzes.indexStudent')}}">Examenes</a>
 </li>
 @endrole

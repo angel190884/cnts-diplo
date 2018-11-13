@@ -92,6 +92,19 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="min_score" class="col-sm-4 col-form-label text-md-right">Fecha Finalización</label>
+
+                                <div class="col-md-6">
+                                    {!! Form::date('end', \Carbon\Carbon::now()->addDays(7),['class' => 'form-control', 'required']) !!}
+
+                                    @if ($errors->has('end'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('end') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
