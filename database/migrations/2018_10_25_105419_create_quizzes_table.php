@@ -24,6 +24,8 @@ class CreateQuizzesTable extends Migration
             $table->unsignedInteger('number_questions');
             $table->unsignedInteger('min_score');
             $table->boolean('active')->default(true);
+            $table->boolean('published')->default(false);
+            $table->unsignedInteger('hours')->default(2);
             $table->timestamps();
         });
     }

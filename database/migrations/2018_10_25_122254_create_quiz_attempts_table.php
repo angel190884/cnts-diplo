@@ -15,7 +15,7 @@ class CreateQuizAttemptsTable extends Migration
     {
         Schema::create('quiz_attempts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('alternative');
+            $table->string('alternative')->nullable();
             $table->unsignedInteger('quiz_id');
             $table->foreign('quiz_id')
                 ->references('id')
