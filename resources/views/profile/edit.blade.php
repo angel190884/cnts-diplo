@@ -10,18 +10,17 @@
                 </h3>
                 <p>
                     <i class="fas fa-info-circle"></i> Favor de leer y llenar tus <b>datos generales</b> así como los
-                        <b>3 archivos</b> que se te piden. El <b>"CENTRO NACIONAL DE LA TRANSFUSIÓN SANGUÍNEA"</b> revisará
-                        los datos proporcionados y al terminar se te informara via e-mail la situación de tu solicitud
-                        al diplomado, donde se indicaran los pasos a seguir, cualquier duda o aclaración nos ponemos
-                        a tus ordenes en los siguientes teléfonos (55)63-92-22-50 Ext. 51616 ó 51619 con horario de
-                        atención de 9:00 a 18:00 hrs.
+                        <b>3 archivos</b> que se te piden, el <b>"Centro Nacional de la Transfusión Sanguínea"</b> revisará
+                        los datos proporcionados y al terminar se te informará vía email la situación de tu solicitud
+                        al diplomado, donde se indicaran los pasos a seguir, cualquier duda favor de comunicarte a los
+                        teléfonos (55)63-92-22-50 Ext. 51648, 51691, 51696 con horario de atención de 9:00 a 17:00 hrs.
                 </p>
-                <p><b>PASO #1.-</b>Llenar todos los <b>datos generales</b> que se te piden y pulsar el boton <b>"Actualizar datos"</b></p>
-                <p><b>PASO #2.-</b>Subir los <b>3 pdf's</b> que se te piden y pulsar el boton <b>"Enviar solicitud de inscripción"</b></p>
+                <p><b>PASO #1.-</b>Llenar todos los <b>datos generales</b> que se te piden y pulsar el botón <b>"Actualizar datos"</b></p>
+                <p><b>PASO #2.-</b>Subir los <b>3 Pdf's</b> que se te piden y pulsar el botón <b>"Enviar solicitud de inscripción"</b></p>
             </div>
             <div>
                 <img class="d-block mx-auto" src="{{ Storage::url($user->avatar) }}" alt="" width="100" height="100">
-                <p><i class="fas fa-camera"></i><small>cambiar ímagen de perfil <a style="font-size:1em; color:cadetblue" href="#" class="btn-link" data-toggle="modal" data-target="#modalImg">aqui</a></small></p>
+                <p><i class="fas fa-camera"></i><small>cambiar imagen de perfil <a style="font-size:1em; color:cadetblue" href="#" class="btn-link" data-toggle="modal" data-target="#modalImg">aquí</a></small></p>
                 <div class="text-sm-left text-danger">
                     @if ($errors->has('avatar'))
                         {{ $errors->first('avatar') }}
@@ -142,8 +141,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label for="municipio">Municipio <span class="text-muted">(Automático)</span></label>
-                                    {!! Form::text('municipio',$user->municipio,['class' => 'form-control','placeholder' => 'Delegación/Municipio','id'=>'municipio']) !!}
+                                    <label for="municipio">Municipio <span class="text-muted"></span></label>
+                                    {!! Form::text('municipio',$user->municipio,['class' => 'form-control','placeholder' => 'Alcaldía/Municipio','id'=>'municipio']) !!}
                                     <div class="text-sm-left text-danger">
                                         @if ($errors->has('municipio'))
                                             {{ $errors->first('municipio') }}
@@ -152,7 +151,7 @@
                                 </div>
 
                                 <div class="col-md-6 mb-3">
-                                    <label for="entidad">Entidad <span class="text-muted">(Automático)</span></label>
+                                    <label for="entidad">Entidad <span class="text-muted"></span></label>
                                     {!! Form::text('entidad',$user->entidad,['class' => 'form-control','placeholder' => 'entidad federativa','id'=>'entidad']) !!}
                                     <div class="text-sm-left text-danger">
                                         @if ($errors->has('entidad'))
@@ -279,10 +278,10 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="sr-only" for="maestria">Maestria</label>
+                                    <label class="sr-only" for="maestria">Maestría</label>
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <div class="input-group-text">Maestria</div>
+                                            <div class="input-group-text">Maestría</div>
                                         </div>
                                         {!! Form::text('maestria',$user->maestria,['class' => 'form-control','placeholder' => 'maestria','id'=>'maestria']) !!}
                                     </div>
@@ -549,7 +548,7 @@
                 <div class="modal-content">
                     {{ Form::model($user, ['route' => ['u_title', $user->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tituloLabel">Subir PDF Titulo Profesional</h5>
+                        <h5 class="modal-title" id="tituloLabel">Subir PDF titulo profesional</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -570,7 +569,7 @@
                 <div class="modal-content">
                     {{ Form::model($user, ['route' => ['u_cedula', $user->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
                     <div class="modal-header">
-                        <h5 class="modal-cedula" id="cedulaLabel">Subir PDF Cédula Profesional</h5>
+                        <h5 class="modal-cedula" id="cedulaLabel">Subir PDF cédula profesional</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -591,7 +590,7 @@
                 <div class="modal-content">
                     {{ Form::model($user, ['route' => ['u_carta', $user->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
                     <div class="modal-header">
-                        <h5 class="modal-carta" id="cartaLabel">Subir PDF Carta de Motivos</h5>
+                        <h5 class="modal-carta" id="cartaLabel">Subir PDF carta de motivos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -612,7 +611,7 @@
                 <div class="modal-content">
                     {{ Form::model($user, ['route' => ['u_img', $user->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
                     <div class="modal-header">
-                        <h5 class="modal-img" id="imgLabel">Cambiar Imagen de Perfil</h5>
+                        <h5 class="modal-img" id="imgLabel">Cambiar imagen de perfil</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

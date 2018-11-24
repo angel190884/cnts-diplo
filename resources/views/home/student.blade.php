@@ -26,7 +26,7 @@
                     </table>
                 </div>
                 <div class="panel-footer panel-primary">
-                    <p>Las ultimas calificaciones de tus tareas apareceran aqui</p>
+                    <p>Las ultimas calificaciones de tus tareas aparecerán aquí</p>
                     <a href="{{ route('activity.index') }}" class="btn btn-primary btn-lg" role="button"><i class="fas fa-clipboard fa-3x"></i> <br/>Actividades</a>
                 </div>
             </div>
@@ -57,14 +57,14 @@
                     </table>
                 </div>
                 <div class="panel-footer panel-primary">
-                    <p>Calificaciones de los foros en los que participaste aqui apareceran.</p>
+                    <p>Calificaciones de los foros en los que participaste aquí aparecerán.</p>
                     <a href="{{ route('forums.index') }}" class="btn btn-warning btn-lg" role="button"><i class="far fa-comment fa-3x"></i> <br/>Foros</a>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4">
             <div class="panel panel-primary event-primary text-center border border-light">
-                <div class="panel-heading text-center"><h2><a href="#">Examenes</a></h2></div>
+                <div class="panel-heading text-center"><h2><a href="#">Exámenes</a></h2></div>
                 <div class="panel-body nopadding">
                     <table class="table table-sm table-hover">
                         <thead>
@@ -90,8 +90,8 @@
                     </table>
                 </div>
                 <div class="panel-footer panel-primary">
-                    <p>Los examenes apareceran en esta tabla y por tiempo limitado asi que te recomendamos estar pendiente.</p>
-                    <a href="{{ route('quizzes.indexStudent')}}" class="btn btn-danger btn-lg" role="button"><i class="far fa-edit fa-3x"></i> <br/>Examenes</a>
+                    <p>Los exámenes aparecerán en esta tabla y por tiempo limitado asi que te recomendamos estar pendiente.</p>
+                    <a href="{{ route('quizzes.indexStudent')}}" class="btn btn-danger btn-lg" role="button"><i class="far fa-edit fa-3x"></i> <br/>Exámenes</a>
                 </div>
             </div>
         </div>

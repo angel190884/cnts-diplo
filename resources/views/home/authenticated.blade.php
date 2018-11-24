@@ -10,13 +10,13 @@
         <div class="container-fluid text-center pb-5">
             @if(!Auth::user()->course_id)
                 <p>
-                    En nombre del <b>Centro Nacional de la Transfusión  Sanguínea</b>, te damos la más coordial bienvenida.
+                    En nombre del <b>Centro Nacional de la Transfusión  Sanguínea</b>, te damos la más cordial bienvenida.
         
-                    Te has registrado al Sistema Web del Diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
-                    deberas cumplir con ciertos requisitos minimos para poder continuar con el diplomado y ser aceptado por el <b>CNTS</b>.
+                    Te has registrado al sistema web del diplomado a distancia <b class="font-weight-bold">"Sangre y Componentes Seguros"</b>
+                    deberás cumplir con ciertos requisitos mínimos para poder continuar con el diplomado y ser aceptado por el <b>CNTS</b>.
                 </p>
                 <p>
-                    El <b class="text-primary">siguiente PASO</b> sera la Modificación de tu perfil y tus datos generales en el siguiente Botón.
+                    El <b class="text-primary">siguiente PASO</b> sera la modificación de tu perfil y tus datos generales en el siguiente botón.
                 </p>
                 <a class="btn btn-primary" href="{{ route('profile.edit', Auth::user()->id) }}" role="button">
                     <i class="far fa-user fa-4x"></i>
@@ -60,7 +60,7 @@
                     @else
                         <div class="alert alert-success alert-dismissible fade show">
                             <p class="text-lg-center">
-                                <a>Haz cumplido con los requisitos, en breve se te enviara un <strong>e-mail</strong> para poder ingresar al diplomado!!!</a>
+                                <a>Haz cumplido con los requisitos, en breve se te enviara un <strong>email</strong> para poder ingresar al diplomado!!!</a>
                             </p>
                         </div>
                     @endif

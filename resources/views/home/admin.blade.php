@@ -105,7 +105,7 @@
                         <i class="fas fa-question"></i>
                     </div>
                     <div class="text-value">{{ $quizzes->count() }}</div>
-                    <small class="text-muted text-uppercase font-weight-bold">Examenes</small>
+                    <small class="text-muted text-uppercase font-weight-bold">Exámenes</small>
                     <div class="progress progress-xs mt-3 mb-0">
                         <div class="progress-bar bg-warning" role="progressbar" style="width: {{ $quizzes->count() }}%" aria-valuenow="{{ $quizzes->count() }}" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
