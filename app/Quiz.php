@@ -40,9 +40,22 @@ class Quiz extends Model
         return $query->where('active', 1);
     }
 
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
+
     public function getFormattedEndAttribute()
     {
         $dt=Carbon::parse($this->end, 'America/Mexico_City');
         return $dt->formatLocalized('%A %d %B %Y');
+    }
+    public function getCorrectDateAttribute()
+    {
+
+        if ($this->end < Carbon::today()){
+            return false;
+        }
+        return true;
     }
 }
