@@ -50,6 +50,12 @@
                                                 <td>
                                                     <a href="{{ route('quizzes.edit',$quiz) }}" class="btn btn-sm btn-outline-info">editar</a>
                                                     <a href="{{ route('questions.index',$quiz) }}" class="btn btn-sm btn-outline-secondary">preguntas</a>
+                                                    @if($quiz->published == 1)
+                                                        <a href="{{ route('quizzes.disable',$quiz) }}" class="btn btn-sm btn-outline-danger">Quitar publicación</a>
+                                                    @else
+                                                        <a href="{{ route('quizzes.publish',$quiz) }}" class="btn btn-sm btn-outline-secondary">publicar</a>
+                                                    @endif
+
                                                     {!! Form::open(array(
                                                         'style' => 'display: inline-block;',
                                                         'method' => 'DELETE',

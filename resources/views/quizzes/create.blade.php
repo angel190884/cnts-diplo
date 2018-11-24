@@ -96,7 +96,7 @@
                                 <label for="min_score" class="col-sm-4 col-form-label text-md-right">Fecha Finalización</label>
 
                                 <div class="col-md-6">
-                                    {!! Form::date('end', \Carbon\Carbon::now()->addDays(7),['class' => 'form-control', 'required']) !!}
+                                    {!! Form::date('end', \Carbon\Carbon::today()->addDays(7),['class' => 'form-control', 'required']) !!}
 
                                     @if ($errors->has('end'))
                                         <span class="invalid-feedback">

@@ -45,6 +45,8 @@ Route::group(
 
         //quiz
         Route::resource('quizzes', 'QuizController');
+        Route::get('quizzes/publish/{quiz}', 'QuizController@publish')->name('quizzes.publish');
+        Route::get('quizzes/disable/{quiz}', 'QuizController@disable')->name('quizzes.disable');
 
         //questions
         Route::get('questions/{quiz}', 'QuestionController@index')->name('questions.index');
@@ -103,6 +105,8 @@ Route::group(
         Route::get('activity/{slug}', 'ActivityController@show')->name('show.activity');
 
         Route::get('quizzes.indexStudent', 'QuizController@indexStudent')->name('quizzes.indexStudent');
+
+        Route::get('quizzes/answer/{quiz}', 'QuizController@answer')->name('quizzes.answer');
     }
 );
 

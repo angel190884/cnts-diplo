@@ -9,6 +9,7 @@ use App\Question;
 use App\Course;
 use App\Quiz;
 use App\User;
+use Illuminate\View\View;
 use Log;
 
 
@@ -35,7 +36,10 @@ class QuizController extends Controller
      */
     public function indexStudent()
     {
-        return view('quizzes.indexStudent');
+        $quizzes = Quiz::active()->published()->get();
+        $quizzesAttach = auth()->user()->quizzes()->get();
+        $quizzesPending =$quizzes->diff($quizzesAttach);
+        return view('quizzes.indexStudent', compact('quizzesAttach','quizzesPending'));
     }
 
     /**
@@ -62,6 +66,7 @@ class QuizController extends Controller
         $number_questions= $request->get('number_questions');
         $min_score= $request->get('min_score');
         $end = $request->get('end');
+
 
         $quiz = new Quiz();
 
@@ -139,6 +144,62 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
-        //
+        $quiz->active = false;
+        $quiz->published = false;
+        if ($quiz->save()){
+            $userID=auth()->user()->id;
+            Log::warning("el usuario $userID eliminó un examen con id $quiz->id $quiz");
+        }
+        return redirect(route('quizzes.index'))->with('success', "El examen fue eliminado correctamente.");
+    }
+
+    /**
+     * Publish the quiz
+     *
+     * @param \App\Quiz $quiz
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function publish(Quiz $quiz)
+    {
+        $quiz->published = true;
+        if ($quiz->save()){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID publicó un examen con id $quiz->id $quiz");
+        }
+        return redirect(route('quizzes.index'))->with('success', "El examen fue publicado correctamente.");
+    }
+
+    /**
+     * Disable the quiz
+     *
+     * @param \App\Quiz $quiz
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function disable(Quiz $quiz)
+    {
+        $quiz->published = false;
+        if ($quiz->save()){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID quito publicación de un examen con id $quiz->id $quiz");
+        }
+        return redirect(route('quizzes.index'))->with('success', "El examen fue deshabilitado correctamente.");
+    }
+
+    /**
+     * Contestar Examen
+     *
+     * @param \App\Quiz $quiz
+     * @return View
+     */
+    public function answer(Quiz $quiz)
+    {
+        return view('quizzes.answer', compact('quiz'));
+    }
+    public function start(Quiz $quiz)
+    {
+
+        return view('quizzes.answer', compact('quiz'));
     }
 }
