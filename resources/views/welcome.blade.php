@@ -353,7 +353,7 @@
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>Requisitos para poder inscribirte en el Diplomado</h1>
-                                <p>Para poder ingresar deberas cumplir con algunos requisitos minimos para que seas considerado en la inscripción.</p>
+                                <p>Para poder ingresar deberás cumplir con algunos requisitos mínimos para que seas considerado en la inscripción.</p>
                                 <p><a class="btn btn-lg btn-danger" href="#requisitos" role="button">Requisitos</a></p>
                             </div>
                         </div>
@@ -412,7 +412,7 @@
                                         <div class="card-body">
                                             <h3><strong>UNAM</strong></h3>
                                             <p class="text-"><em><small>Universidad Nacional Autónoma de México</small></em></p>
-                                            <p class="card-text">Es una universidad pública de investigación en México . Ocupa un lugar destacado en el ranking mundial basado en la extensa investigación e innovación de la universidad.</p>
+                                            <p class="card-text">Es una universidad pública de investigación en México. Ocupa un lugar destacado en el ranking mundial basado en la extensa investigación e innovación de la universidad.</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
                                                     <a href="https://www.unam.mx/" type="button" class="btn btn-sm btn-outline-secondary">sitio</a>
@@ -452,7 +452,7 @@
                                         <div class="card-body">
                                             <h3><strong>PAHO</strong></h3>
                                             <p class="text-"><em><small>Organización Panamericana de la Salud</small></em></p>
-                                            <p class="card-text">Es una agencia de salud pública de caracter internacional que trabaja para mejorar la salud y el nivel de vida de todos los pueblos de las Américas.</p>
+                                            <p class="card-text">Es una agencia de salud pública de carácter internacional que trabaja para mejorar la salud y el nivel de vida de todos los pueblos de las Américas.</p>
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="btn-group">
                                                     <a href="https://www.paho.org/mex/" type="button" class="btn btn-sm btn-outline-secondary">sitio</a>
@@ -472,14 +472,14 @@
             <article id="what-we-do" class="bg-light px-5">
                 <div class="container px-5">
                     <h2 class="section-title mb-2 h1">Que puedes hacer en el diplomado</h2>
-                    <p class="text-center text-muted h5">Acciones que podras realizar dentro del sistema del diplomado una vez que seas aceptado y lo estes cursando.</p>
+                    <p class="text-center text-muted h5">Acciones que podrás realizar dentro del sistema del diplomado una vez que seas aceptado y lo estes cursando.</p>
                     <div class="row mt-5">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
                             <div class="card">
                                 <i class="fas fa-cloud-upload-alt fa-2x before"></i>
                                 <div class="card-block">
                                     <h3 class="card-title">Subir actividades</h3>
-                                    <p class="card-text">Podras subir tus actividades en formato PDF directamente sin tener que enviar todo atravez de emails.</p>
+                                    <p class="card-text">Podrás subir tus actividades en formato PDF directamente sin tener que enviar todo por emails.</p>
                                     <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
@@ -499,7 +499,7 @@
                                 <i class="before fas fa-user-circle fa-2x"></i>
                                 <div class="card-block block-3">
                                     <h3 class="card-title">Perfil</h3>
-                                    <p class="card-text">Tendras un perfil, y la sensacion de que no estas a la distancia, mucha interaccion con el Profesor.</p>
+                                    <p class="card-text">Tendrás un perfil, y la sensación de que no estas a la distancia, mucha interacción con el Profesor.</p>
                                     <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
@@ -511,7 +511,7 @@
                                 <i class="before fas fa-file-pdf fa-2x"></i>
                                 <div class="card-block block-4">
                                     <h3 class="card-title">Contenido disponible</h3>
-                                    <p class="card-text">Tendremos el contenido disponible para tu perfil, y asi puedas repasar algun tema para los examenes.</p>
+                                    <p class="card-text">Tendremos el contenido disponible para tu perfil, y asi puedas repasar algún tema para los exámenes.</p>
                                     <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
@@ -520,8 +520,8 @@
                             <div class="card">
                                 <i class="before far fa-id-badge fa-2x"></i>
                                 <div class="card-block block-5">
-                                    <h3 class="card-title">Informacion de Contacto</h3>
-                                    <p class="card-text">Tendras a la mano información de tus profesores para poder contactarlos.</p>
+                                    <h3 class="card-title">Información de Contacto</h3>
+                                    <p class="card-text">Tendrás a la mano información de tus profesores para poder contactarlos.</p>
                                     <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
@@ -531,7 +531,7 @@
                                 <i class="before far fa-star fa-2x"></i>
                                 <div class="card-block block-6">
                                     <h3 class="card-title">Calificaciones siempre visibles</h3>
-                                    <p class="card-text">Podras en todo momento saber tu calificacion de las actividades y foros.</p>
+                                    <p class="card-text">Podras en todo momento saber tu calificación de las actividades y foros.</p>
                                     <a href="{{ route('login') }}" title="Leer más" class="read-more" >Leer más<i class="fa fa-angle-double-right ml-2"></i></a>
                                 </div>
                             </div>
@@ -558,14 +558,6 @@
                                         Cupo: de 20 a 40 como máximo. Costos: $ por definir (Mil quinientos pesos 00/100 M.N.).
                                     </small>
                                 </p>
-
-                                <h2><span>Nuestras redes sociales</span></h2>
-                                <ul class="contact">
-                                    <li><a href="https://www.facebook.com/cnts.cursos.5"><button type="button" class="btn btn-brand btn-facebook"><i class="fab fa-facebook"></i><span>acebook</span></button></a></li><hr>
-                                    <li><a href="https://twitter.com/cnts_cursos"><button type="button" class="btn btn-brand btn-twitter" href="https://twitter.com/cnts_cursos"><i class="fab fa-twitter"></i><span> Twitter</span></button></a></li><hr>
-                                    <li><a href="mailto:cntscursos@gmail.com?subject=Feedback"><button type="button" class="btn btn-brand btn-google-plus"><i class="fas fa-at"></i><span> Google plus</span></button></a></li><hr>
-                                    <li><a href="https://www.instagram.com/cnts_cursos/"><button type="button" class="btn btn-brand btn-instagram"><i class="fab fa-instagram"></i><span> Instagram</span></button></a></li><hr>
-                                </ul>
                             </section>
                         </div>
                         <div class="col-md-6">
@@ -576,7 +568,7 @@
                                     </div>
                                     <div class="card-body py-0 m-0">
                                         <h2>CNTS</h2>
-                                        <small>Centro Nacional de la Transfusión Sanguinea.</small>
+                                        <small>Centro Nacional de la Transfusión Sanguínea.</small>
                                         <p>Es el encargado de gestionar el contenido de este diplomado.</p>
                                     </div>
                                 </div>
@@ -603,7 +595,7 @@
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                                 <p class="text-lg-left">
-                                                    ¡¡¡ Se han encontrado algunos errores favor de solucionarlos antes de continuar !!!
+                                                    ¡¡¡ Se han encontrado algunos errores favor de solucionarlos antes de poder continuar !!!
                                                 <ul>
                                                     @foreach ($errors->all() as $error)
                                                         <li>{{ $error }}</li>
@@ -657,7 +649,7 @@
                                         <p><i class="fas fa-location-arrow fa-2x"></i>dirección:<br>
                                             Othón de Mendizabal 195,Col. Zacatenco,<br/> CDMX. C.P. 07360</p>
                                         <p><i class="fas fa-phone fa-2x"></i> telefonos:<br>
-                                            Office:&nbsp; (55) 63-92-22-50<br/>Ext:&nbsp; 51616, 51619 </p>
+                                            Office:&nbsp; (55) 63-92-22-50<br/>Ext:&nbsp; 51648, 51691, 51696 </p>
                                     </div>
                                 </div> <!-- end .footer-widget-wrapper  -->
                             </div> <!--  end .footer-widget  -->
