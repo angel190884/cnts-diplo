@@ -5,12 +5,12 @@
 
 Hemos recibido tu comprobante y procederemos a verificarlo con las instancias correspondientes.
 
-Se te notificara por esta via si tu pago procede o no para ser aceptado en el **_Diplomado "Sangre y componentes Seguros"_**:
+Se te notificara por esta vía si tu pago procede o no para ser aceptado en el diplomado **_"Sangre y componentes Seguros"_**:
 
 
-Cualquier duda o aclaración sobre tu pago, porfavor comunicate a los teléfonos:
+Cualquier duda o aclaración sobre tu pago, por favor comunícate a los teléfonos:
 
-**(55)63-92-22-50** Ext:  **51616** ó **51619**.
+**(55)63-92-22-50** Ext:  **51648** ó **51691** ó **51696**.
 
 Atte,<br>
 {{ "La administración del ". config('app.name') }}

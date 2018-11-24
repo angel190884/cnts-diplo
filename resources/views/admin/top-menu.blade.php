@@ -17,7 +17,7 @@
         Inscripciones
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{ route('authenticated.index') }}">Revizar documentación</a>
+        <a class="dropdown-item" href="{{ route('authenticated.index') }}">Revisar documentación</a>
     </div>
 </li>
 <li class="nav-item dropdown">
@@ -27,7 +27,7 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ route('scores.forums') }}">Foros</a>
         <a class="dropdown-item" href="{{ route('scores.activities') }}">Actividades</a>
-        <a class="dropdown-item" href="#">Examanes<sub><small class="bg-danger">pendiente</small></sub></a>
+        <a class="dropdown-item" href="#">Exámanes<sub><small class="bg-danger">pendiente</small></sub></a>
     </div>
 </li>
 <!--<li class="nav-item dropdown">
@@ -51,10 +51,10 @@
 </li>-->
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Examenes
+        Exámenes
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="{{route('quizzes.index')}}">Examenes</a>
+        <a class="dropdown-item" href="{{route('quizzes.index')}}">Exámenes</a>
     </div>
 </li>
 <li class="nav-item dropdown">
