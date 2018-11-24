@@ -54,8 +54,8 @@
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        Estas son todas las actividades
+                    <div class="card-footer align-content-center">
+                        <p style="font-size: large; color:#ff6166"><i class="fab fa-product-hunt "></i> Pendientes de calificar</p>
                     </div>
                 </div>
             </div>

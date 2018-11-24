@@ -15,6 +15,7 @@
                     </div>
                     <div class="card-body">
                         <div>
+                            <p class="alert-warning">Debes calificar al alumno para que no afecte su promedio ya que sí no seleccionas ninguna calificación contará como "np" y "5" contaría como calificación reprobatoria.</p>
                             <table class="table table-sm table-bordered table-hover text-center">
                                 <thead class="thead-dark">
                                 <tr>
@@ -86,8 +87,6 @@
                                                                         ['placeholder' => 'Selecciona una Calificación',
                                                                          'class' => 'form-control'])}}
                                                                     <br>
-                                                                    <br>
-                                                                    <p class="alert-warning">Debes calificar al alumno para que no afecte su promedio ya que si no seleccionas ninguna calificación contara como "cero" puntos y no como una calificación minima de 5.</p>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
