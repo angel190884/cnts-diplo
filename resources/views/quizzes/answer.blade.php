@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Examenes')
+@section('title', 'Exámenes')
 
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+                <div id="app">
+                    <quiz-component v-bind:quiz="{{ json_encode($quiz) }}"></quiz-component>
+                </div>
+                <!--<div class="card">
                     <div class="card-header">
                         Panel Principal -
                         <span class="alert-danger">
@@ -21,6 +24,7 @@
                             <b>Responde todas las preguntas</b>.- Recuerda que no vas a poder avanzar si no has contestado todas las preguntas.
                         </p>
                     </div>
+
                     <div class="card-body">
                         <section class="jumbotron text-center">
                             <div class="container">
@@ -35,7 +39,7 @@
                     <div class="card-footer">
                         <a class="btn btn-success btn-block font-4xl align-content-center">Enviar Respuestas</a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

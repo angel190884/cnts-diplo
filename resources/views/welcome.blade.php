@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Centro Nacional de Transfusión Sanguinea - Cursos, Diplomados">
         <meta name="author" content="adx software">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" href="{{{ Storage::url('images/favicon.png') }}}" />
         <title>Diplomado CNTS</title>
 
@@ -15,6 +16,9 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body id="body">
+        <div id="app">
+
+        </div>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <img class="card-img-top" style="height: 75px; width: 75px; display: block;" src="{{ Storage::url('images/favicon.png') }}">

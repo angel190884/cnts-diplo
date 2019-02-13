@@ -33,6 +33,9 @@
     "perfect-scrollbar": "^1.4.0",
     "popper.js": "^1.14.4",
     "toastr": "^2.1.4",
-    "vue-button-spinner": "^2.2.1"
+    "vue-button-spinner": "^2.2.1",
+    "survey-vue": "^1.0.61",
+    "surveyjs-editor": "^1.0.61",
+    "surveyjs-widgets": "^1.0.61"
   }
 }

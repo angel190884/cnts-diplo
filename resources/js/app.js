@@ -22,7 +22,6 @@ import moment from 'moment'
 import popper from 'popper.js'
 import coreui from '@coreui/coreui'
 
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -31,6 +30,7 @@ import coreui from '@coreui/coreui'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('inscription', require('./components/Inscription.vue'));
+Vue.component('quiz-component', require('./components/QuizComponent.vue'));
 
 const app = new Vue({
     el: '#app'

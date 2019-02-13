@@ -104,10 +104,10 @@ class QuizTableSeeder extends Seeder
             }
 
         }
-        $quiz->users()->attach($course->users()->get(),[
+        /**$quiz->users()->attach($course->users()->get(),[
             'attempt' => 1,
-            'score' => '0',
+            'score' => 0,
             'alternative' => $faker->sentence
-        ]);
+        ]);**/
     }
 }
