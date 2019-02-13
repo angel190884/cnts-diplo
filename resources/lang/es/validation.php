@@ -88,6 +88,7 @@ return [
     'unique'               => 'El valor del campo :attribute ya está en uso.',
     'uploaded'             => 'El campo :attribute falló al subir.',
     'url'                  => 'El formato del campo :attribute es inválido.',
+    'recaptcha'=>'Please ensure that you are a human!',
 
     /*
     |--------------------------------------------------------------------------

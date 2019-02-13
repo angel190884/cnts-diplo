@@ -20,7 +20,8 @@ class EmailController extends Controller
     {
         $this->validate(
             $request, [
-                'email' => 'required|email', 'message' => 'required'
+                'email' => 'required|email', 'message' => 'required',
+                'g-recaptcha-response' => 'required | recaptcha'
             ]
         );
         Mail::to('cntscursos@gmail.com')

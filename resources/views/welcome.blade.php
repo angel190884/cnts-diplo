@@ -14,6 +14,7 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body id="body">
         <div id="app">
@@ -361,6 +362,8 @@
                                             @if ($errors->has('message'))
                                                 <span class="invalid-feedback"><strong>{{ $errors->first('message') }}</strong></span>
                                             @endif
+                                            <br>
+                                            <div class="g-recaptcha" data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}"> </div>
                                             <br>
                                             <button type="submit" class="btn btn-danger">
                                                 Enviar Dudas!!!
