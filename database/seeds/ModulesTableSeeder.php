@@ -21,6 +21,7 @@ class ModulesTableSeeder extends Seeder
             foreach ($teachers as $teacher) {
                 $i++;
                 factory(Module::class)->create([
+                    'name'  => "MODULO $i",
                     'order_module' => $i,
                     'course_id' => $course->id,
                     'teacher_id' => $teacher->id

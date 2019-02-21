@@ -31,9 +31,33 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('admin');
 
         $user=factory(User::class)->create([
-            'name' => 'name teacher',
-            'last_name' => 'lastname teacher',
-            'email' => 'teacher@teacher.com',
+            'name' => 'Israel Alejandro',
+            'last_name' => 'Néquiz Martinez',
+            'email' => 'drnequiz@gmail.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        ]);
+        $user->assignRole('teacher');
+
+        $user=factory(User::class)->create([
+            'name' => 'Gloria',
+            'last_name' => 'Estrada García',
+            'email' => 'gloriaestradagdiplom@gmail.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        ]);
+        $user->assignRole('teacher');
+
+        $user=factory(User::class)->create([
+            'name' => 'José Luis',
+            'last_name' => 'Salazar Bailón',
+            'email' => 'serviciosocial.cnts@gmail.com',
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        ]);
+        $user->assignRole('teacher');
+
+        $user=factory(User::class)->create([
+            'name' => 'Francisco Julian',
+            'last_name' => 'Hernández Alvarado',
+            'email' => 'f.j.h.a.2016@gmail.com',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ]);
         $user->assignRole('teacher');
