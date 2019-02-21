@@ -84,10 +84,10 @@ class UsersTableSeeder extends Seeder
         $user->assignRole('authenticated');
 
 
-        for ($i = 0; $i < 3; ++$i) {
+        /*for ($i = 0; $i < 3; ++$i) {
             $user=factory(User::class)->create();
             $user->assignRole('teacher');
-        }
+        }*/
 
         for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
