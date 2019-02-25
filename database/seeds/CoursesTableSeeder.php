@@ -18,12 +18,12 @@ class CoursesTableSeeder extends Seeder
                 'generation' => $i
             ]);
         }
-        for ($i = 4; $i <= 6; $i++) {
+        /*for ($i = 4; $i <= 6; $i++) {
             factory(Course::class)->create([
                 'short_name' => 'diplo-gen-' . $i,
                 'generation' => $i,
                 'active' => false,
             ]);
-        }
+        }*/
     }
 }

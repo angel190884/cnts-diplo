@@ -95,12 +95,12 @@ class UsersTableSeeder extends Seeder
             ]);
             $user->assignRole('authenticated');
         }
-        for ($i = 0; $i < 10; ++$i) {
+        /*for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '2'
             ]);
             $user->assignRole('authenticated');
-        }
+        }*/
         for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '1',
@@ -109,13 +109,13 @@ class UsersTableSeeder extends Seeder
             ]);
             $user->assignRole('student');
         }
-        for ($i = 0; $i < 10; ++$i) {
+        /*for ($i = 0; $i < 10; ++$i) {
             $user=factory(User::class)->create([
                 'course_id' => '2',
                 'file_voucher' => 'vouchers/test.pdf',
                 'file_paid_voucher' => 'paid_vouchers/test.pdf'
             ]);
             $user->assignRole('student');
-        }
+        }*/
     }
 }
