@@ -79,7 +79,7 @@
                             <div class="carousel-caption text-left">
                                 <h1>Diplomado "Sangre y Componentes Seguros"</h1>
                                 <p></p>
-                                <p><a class="btn btn-lg btn-danger" href="pdfs/guia_inscripcion.pdf" role="button" target="_blank>Guía de Inscripción</a></p>
+                                <p><a class="btn btn-lg btn-danger" href="{{ Storage::url('pdfs/guia_inscripcion.pdf') }}" role="button" target="_blank">Guía de Inscripción</a></p>
                             </div>
                         </div>
                     </div>
