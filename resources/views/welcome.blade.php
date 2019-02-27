@@ -79,11 +79,11 @@
                             <div class="carousel-caption text-left">
                                 <h1>Diplomado "Sangre y Componentes Seguros"</h1>
                                 <p></p>
-                                <p><a class="btn btn-lg btn-danger" href="#diplomado" role="button">Guía de Inscripción</a></p>
+                                <p><a class="btn btn-lg btn-danger" href="pdfs/guia_inscripcion.pdf" role="button" target="_blank>Guía de Inscripción</a></p>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    <!--<div class="carousel-item">
                         <img src="{{ Storage::url('images/home_1_slider_2.jpg') }}" alt="Second slide">
                         <div class="container">
                             <div class="carousel-caption">
@@ -92,7 +92,7 @@
                                 <p><a class="btn btn-lg btn-danger" href="#requisitos" role="button">Requisitos</a></p>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
