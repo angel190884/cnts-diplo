@@ -290,7 +290,7 @@
                                 </ul>
                                 <p>
                                     <small>
-                                        Cupo: de 20 a 40 como máximo. Costos: $ por definir (Mil quinientos pesos 00/100 M.N.).
+                                        Cupo: de 20 a 40 como máximo. Costos: $1500.00 (Mil quinientos pesos 00/100 M.N.).
                                     </small>
                                 </p>
                             </section>
@@ -386,7 +386,7 @@
                                         <p><i class="fas fa-location-arrow fa-2x"></i>dirección:<br>
                                             Othón de Mendizabal 195,Col. Zacatenco,<br/> CDMX. C.P. 07360</p>
                                         <p><i class="fas fa-phone fa-2x"></i> telefonos:<br>
-                                            Office:&nbsp; (55) 63-92-22-50<br/>Ext:&nbsp; 51648, 51691, 51696 </p>
+                                            Office:&nbsp; (55) 63-92-22-50<br/>Ext:&nbsp; 51691, 51693, 51694 </p>
                                     </div>
                                 </div> <!-- end .footer-widget-wrapper  -->
                             </div> <!--  end .footer-widget  -->

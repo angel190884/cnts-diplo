@@ -13,7 +13,7 @@
                         <b>3 archivos</b> que se te piden, el <b>"Centro Nacional de la Transfusión Sanguínea"</b> revisará
                         los datos proporcionados y al terminar se te informará vía email la situación de tu solicitud
                         al diplomado, donde se indicaran los pasos a seguir, cualquier duda favor de comunicarte a los
-                        teléfonos (55)63-92-22-50 Ext. 51648, 51691, 51696 con horario de atención de 9:00 a 17:00 hrs.
+                        teléfonos (55)63-92-22-50 Ext. 51691, 51693, 51694 con horario de atención de 9:00 a 17:00 hrs.
                 </p>
                 <p><b>PASO #1.-</b>Llenar todos los <b>datos generales</b> que se te piden y pulsar el botón <b>"Actualizar datos"</b></p>
                 <p><b>PASO #2.-</b>Subir los <b>3 Pdf's</b> que se te piden y pulsar el botón <b>"Enviar solicitud de inscripción"</b></p>
@@ -467,7 +467,7 @@
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                                     <div>
-                                        <h6 class="my-0"><strong>carta de Motivos</strong></h6>
+                                        <h6 class="my-0"><strong>carta de Motivos y Curriculum Vitae</strong></h6>
                                         @if($user->file_carta != null)
                                             <small class="text-muted"><p>cambiar <a href="#" class="btn-link" data-toggle="modal" data-target="#modalCarta">aquí</a></p></small>
                                             <div class="text-sm-left text-danger">
