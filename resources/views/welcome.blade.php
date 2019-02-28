@@ -22,7 +22,7 @@
         </div>
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <img class="card-img-top" style="height: 75px; width: 75px; display: block;" src="{{ Storage::url('images/favicon.png') }}">
+                <img class="card-img-top" style="height: 35px; width: 75px; display: block;" src="{{ Storage::url('images/logo.png') }}">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -299,7 +299,7 @@
                             <section>
                                 <div class="container-fluid card">
                                     <div style="height: 200px; width: 100%; display: block;">
-                                        <img class="card-img-top" alt="oms" src="{{ Storage::url('images/cnts.png') }}">
+                                        <img class="card-img-top" alt="oms" src="{{ Storage::url('images/logo.png') }}">
                                     </div>
                                     <div class="card-body py-0 m-0">
                                         <h2>CNTS</h2>
