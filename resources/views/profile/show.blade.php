@@ -26,19 +26,33 @@
                         <tr>
                             <td class="text-muted align-middle">PDF's</td>
                             <th>
-                                <a href="{{ Storage::url($user->file_titulo) }}" target="_blank" style="font-size:2em; color:darkred">
-                                    <i class="fas fa-file-pdf"></i>
-                                </a>Título
+                                @if($user->file_titulo)
+                                    <a href="{{ Storage::url($user->file_titulo) }}" target="_blank" style="font-size:2em; color:darkred">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>Título
+                                @else
+                                    ---
+                                @endif
                             </th>
                             <th colspan="2">
-                                <a href="{{ Storage::url($user->file_cedula) }}" target="_blank" style="font-size:2em; color:darkred">
-                                    <i class="fas fa-file-pdf"></i>
-                                </a>Cédula
+                                @if($user->file_cedula)
+                                    <a href="{{ Storage::url($user->file_cedula) }}" target="_blank" style="font-size:2em; color:darkred">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>Cédula
+                                @else
+                                    ---
+                                @endif
+
                             </th>
                             <th colspan="2">
-                                <a href="{{ Storage::url($user->file_carta) }}" target="_blank" style="font-size:2em; color:darkred">
-                                    <i class="fas fa-file-pdf"></i>
-                                </a>Carta de Motivos
+                                @if($user->file_carta)
+                                    <a href="{{ Storage::url($user->file_carta) }}" target="_blank" style="font-size:2em; color:darkred">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </a>Carta de Motivos y CV
+                                @else
+                                    ---
+                                @endif
+
                             </th>
                         </tr>
                         <tr>
