@@ -17,10 +17,10 @@ class CreateForumsTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('teacher_id');
-            $table->foreign('teacher_id')->references('id')->on('users');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedInteger('course_id');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
 
             $table->string('forum');
             $table->string('slug')->unique();

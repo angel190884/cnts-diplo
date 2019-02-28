@@ -20,7 +20,7 @@ class CreateTopicsTable extends Migration
             $table->unsignedTinyInteger('order_topic');
             $table->string('slug')->unique();
             $table->unsignedInteger('sub_module_id');
-            $table->foreign('sub_module_id')->references('id')->on('sub_modules');
+            $table->foreign('sub_module_id')->references('id')->on('sub_modules')->onDelete('cascade');
             $table->string('file_topic')->default('content/test.pdf');
             $table->timestamps();
         });

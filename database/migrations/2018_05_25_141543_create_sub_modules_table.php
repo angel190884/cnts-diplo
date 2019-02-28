@@ -18,7 +18,7 @@ class CreateSubModulesTable extends Migration
             $table->string('name');
             $table->unsignedTinyInteger('order_submodule');
             $table->unsignedInteger('module_id');
-            $table->foreign('module_id')->references('id')->on('modules');
+            $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
             $table->timestamps();
         });
     }

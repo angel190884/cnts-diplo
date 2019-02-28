@@ -19,15 +19,15 @@ class CreateAnswersTable extends Migration
             $table->unsignedInteger('question_id');
             $table->foreign('question_id')
                 ->references('id')
-                ->on('questions');
+                ->on('questions')->onDelete('cascade');
             $table->unsignedInteger('answer_id');
             $table->foreign('answer_id')
                 ->references('id')
-                ->on('question_options');
+                ->on('question_options')->onDelete('cascade');
             $table->unsignedInteger('quiz_attempt_id');
             $table->foreign('quiz_attempt_id')
                 ->references('id')
-                ->on('quiz_attempts');
+                ->on('quiz_attempts')->onDelete('cascade');
             $table->timestamps();
         });
     }

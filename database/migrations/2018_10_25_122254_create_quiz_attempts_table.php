@@ -19,14 +19,14 @@ class CreateQuizAttemptsTable extends Migration
             $table->unsignedInteger('quiz_id');
             $table->foreign('quiz_id')
                 ->references('id')
-                ->on('quizzes');
+                ->on('quizzes')->onDelete('cascade');
             $table->unsignedInteger('attempt');
             $table->unsignedInteger('score');
             $table->boolean('active')->default(true);
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users') ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class RelationUserCourse extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedInteger('course_id')->nullable()->after('password');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
         });
     }
 

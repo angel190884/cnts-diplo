@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('topic_id');
-            $table->foreign('topic_id')->references('id')->on('topics');
+            $table->foreign('topic_id')->references('id')->on('topics')->onDelete('cascade');
 
             $table->unsignedInteger('number_activity');
             $table->string('name');

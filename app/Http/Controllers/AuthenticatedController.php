@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use App\Mail\InscriptionRefused;
 use App\Mail\InscriptionSuccess;
 use Illuminate\Http\Request;
+use Log;
 use PharIo\Manifest\Email;
 use App\Activity;
 use App\Course;
@@ -110,9 +111,16 @@ class AuthenticatedController extends Controller
         $user->text_refuse = Input::get('text_refuse');
         $user->active=false;
 
-        if ($user->save()) {
-            Mail::to($user->email)->queue(new InscriptionRefused($user));
-        }
-        return redirect(route('authenticated.index'))->with('El usuario a sido rechazado y dado de baja de la base de datos.');
+        $user->save();
+        Mail::to($user->email)->send(new InscriptionRefused($user));
+
+        $userActive = auth()->user();
+
+        Log::info("delete user $user for $userActive");
+
+        $user->forceDelete();
+
+        session()->flash('success', 'El usuario a sido rechazado y dado de baja de la base de datos.');
+        return redirect(route('authenticated.index'));
     }
 }

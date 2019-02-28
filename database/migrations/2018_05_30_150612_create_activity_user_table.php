@@ -17,9 +17,9 @@ class CreateActivityUserTable extends Migration
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('activity_id');
-            $table->foreign('activity_id')->references('id')->on('activities');
+            $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
 
             $table->string('file_activity')->nullable();
             $table->unsignedSmallInteger('score')->default(0);

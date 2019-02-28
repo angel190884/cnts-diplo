@@ -20,7 +20,7 @@ class CreateQuestionsTable extends Migration
             $table->unsignedInteger('quiz_id');
             $table->foreign('quiz_id')
                 ->references('id')
-                ->on('quizzes');
+                ->on('quizzes')->onDelete('cascade');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
