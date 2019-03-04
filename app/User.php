@@ -61,6 +61,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        setlocale(LC_TIME, 'es_MX.utf8');
+        Carbon::setUtf8(false);
+    }
+    
     /**
      * Relation user->course()
      * 
@@ -196,9 +203,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getDateInscriptionFormatBasicAttribute()
     {
-        $dateTime=new Carbon();
-        $dateTime->parse($this->date_inscription);
-        return $dateTime->format('d-m-Y  -- h:m');
+        //$dateTime=new Carbon();
+        //$dateTime->parse($this->date_inscription);
+        //return $dateTime->format('d-m-Y  -- h:m');
+        $dt=Carbon::parse($this->date_inscription, 'America/Mexico_City');
+        return $dt->formatLocalized('%A %d %B %Y');
     }
 
     /**
