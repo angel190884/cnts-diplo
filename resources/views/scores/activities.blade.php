@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Calificaciones de Foros</h1>
+                        <h1>Calificaciones de Actividades</h1>
                     </div>
                     <div class="card-body">
                         <table class="table table-sm table-bordered table-hover">
