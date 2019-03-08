@@ -36,6 +36,7 @@ Route::group(
         Route::get('authenticated', 'AuthenticatedController@index')->name('authenticated.index');                   //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado
         Route::get('acceptStudent/{user}', 'AuthenticatedController@acceptStudent')->name('accept.student');         //ruta para aceptar un usuario como Estudiante
         Route::get('refuseStudent/{user}', 'AuthenticatedController@refuseStudent')->name('refuse.student');         //ruta para rechazar un usuario como Estudiante
+        Route::get('sendEmailStudent/{user}', 'AuthenticatedController@sendEmailStudent')->name('sendEmail.student');         //ruta para rechazar un usuario como Estudiante
 
         //rutas para administrar los students
         Route::get('student_index', 'StudentController@index')->name('student.index');                       //Ruta para listar todos los usuarios authenticated y con registro de solicitud a un diplomado

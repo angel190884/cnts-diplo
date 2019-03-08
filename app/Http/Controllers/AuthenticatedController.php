@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMessage;
+use App\Mail\SendMessageUser;
 use Illuminate\Support\Facades\Input;
 use App\Mail\InscriptionRefused;
 use App\Mail\InscriptionSuccess;
@@ -122,5 +124,26 @@ class AuthenticatedController extends Controller
 
         session()->flash('success', 'El usuario a sido rechazado y dado de baja de la base de datos.');
         return redirect(route('authenticated.index'));
+    }
+
+    /**
+     * Funcion envia un email a user
+     *
+     * @param User    $user    Usuario por aceptar.
+     * @param Request $request proveniente del formulario.
+     *
+     * @return route
+     */
+    public function sendEmailStudent(User $user, Request $request)
+    {
+        Mail::to($user->email)->queue(new SendMessageUser($user,$request->message));
+
+        $userActive = auth()->user();
+
+        Log::info("send email $user con el texto $request->message for $userActive");
+
+        session()->flash('success', 'El email ha sido enviado con éxito!!!');
+
+        return redirect(route('profile.show',$user));
     }
 }

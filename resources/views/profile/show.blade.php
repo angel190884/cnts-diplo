@@ -138,10 +138,11 @@
                     </a>
                     @include('profile.modals.modalRefuseUserAuthenticated')
                 @endif
-                @if($user->hasRole('student'))
-                    <a  class="btn btn-warning" href="#" data-toggle="modal" data-target="#modalSendEmail">
+                @if($user->hasRole(['student','authenticated']))
+                    <a  class="btn btn-outline-warning text-black-50" href="#" data-toggle="modal" data-target="#modalSendEmail">
                         <i class="fas fa-envelope"></i> Enviar e-mail
                     </a>
+                    @include('profile.modals.modalSendEmailAuthenticatedStudent')
                 @endif
             </div>
         </div>
