@@ -290,7 +290,7 @@
                                 </ul>
                                 <p>
                                     <small>
-                                        Cupo: de 20 a 40 como máximo. Costos: $1500.00 (Mil quinientos pesos 00/100 M.N.).
+                                        Cupo: de 20 a 35 como máximo. Costos: $1500.00 (Mil quinientos pesos 00/100 M.N.).
                                     </small>
                                 </p>
                             </section>
