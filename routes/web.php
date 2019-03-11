@@ -65,6 +65,9 @@ Route::group(
         //calificaciones
         Route::get('scores.forums', 'ScoresController@forums')->name('scores.forums');
         Route::get('scores.activities', 'ScoresController@activities')->name('scores.activities');
+
+        //activate inscription
+        Route::post('course/activate/{course}', 'CourseController@activate')->name('course.activate');
     }
 );
 

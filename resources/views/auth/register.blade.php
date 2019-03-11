@@ -77,9 +77,16 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                                @if(\App\Course::activeInscription()->count() > 0)
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Register') }}
+                                    </button>
+                                @else
+                                    <button type="button" class="btn btn-danger">
+                                        Las fechas de inscripción no son correctas espera la nueva convocatoria!!!
+                                    </button>
+                                @endif
+
                             </div>
                         </div>
                     </form>

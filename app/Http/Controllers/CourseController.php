@@ -91,4 +91,22 @@ class CourseController extends Controller
     {
         //
     }
+
+    public function activate(Course $course, Request $request)
+    {
+
+        $course->active_inscription = $request->activate;
+
+        if ($course->save()){
+            if ($request->activate == 0){
+                info('el usario: ' . auth()->user()->id . ' desactivo inscripción al curso ' . $course->id);
+            }else{
+                info('el usario: ' . auth()->user()->id . ' activo la inscripción al curso ' . $course->id);
+            }
+        }
+
+        return redirect()->route('courses.index')->with('success','Los cambios en el diplomado han sido guardados exitosamente!!!');
+    }
+
+
 }

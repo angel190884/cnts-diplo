@@ -13,7 +13,7 @@ class Course extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'short_name', 'active', 'start', 'end', 'description', 'generation'
+        'name', 'short_name', 'active', 'start', 'end', 'description', 'generation','active_inscription'
     ];
 
     /**
@@ -50,6 +50,11 @@ class Course extends Model
     public function scopeActive($query)
     {
         return $query->where('active', 1);
+    }
+
+    public function scopeActiveInscription($query)
+    {
+        return $query->where('active_inscription', 1);
     }
 
     //getters
