@@ -19,10 +19,10 @@
                                         <th scope="col">Creado</th>
                                         <th scope="col"><i class="far fa-calendar-alt"></i> inicio</th>
                                         <th scope="col"><i class="far fa-calendar-alt"></i> fin</th>
-
+                                        <th scope="col"><i class="fas fa-check-circle"></i> inscripción</th>
                                         <th scope="col"><i class="fas fa-users"></i></th>
-                                        <th scope="col"><i class="fas fa-check-circle"></i></th>
-                                        
+
+
                                         <th scope="col"><i class="fas fa-trash"></i></th>
                                     </tr>
                                 </thead>
@@ -34,8 +34,6 @@
                                         <td>{{ $course->createdAtFormatBasic }}</td>
                                         <td>{{ $course->startFormatBasic }}</td>
                                         <td>{{ $course->endFormatBasic }}</td>
-
-                                        <td><a href="{{ route('student.index',['course' => $course->id]) }}"><i class="fas fa-users"></i></a></td>
                                         <td>
                                             @if($course->active_inscription)
                                                 <i class="fas fa-check-circle text-success" data-toggle="modal" data-target="#deactivateModal"></i>
@@ -91,7 +89,7 @@
                                                 </div>
                                             @endif
                                         </td>
-
+                                        <td><a href="{{ route('student.index',['course' => $course->id]) }}"><i class="fas fa-users"></i></a></td>
                                         <td><i class="fas fa-trash"></i></td>
                                     </tr>
                                 @endforeach
