@@ -35,8 +35,8 @@ class QuizController extends Controller
      */
     public function indexStudent()
     {
-        $quizzes = Quiz::active()->published()->get();
-        $quizzesAttach = auth()->user()->quizzes()->get();
+        $quizzes = Quiz::active()->published()->orderBy('end','desc')->get();
+        $quizzesAttach = auth()->user()->quizzes()->orderBy('end','desc')->get();
         $quizzesPending =$quizzes->diff($quizzesAttach);
 
         //dd($quizzes,$quizzesAttach,$quizzesPending);

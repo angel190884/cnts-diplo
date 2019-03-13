@@ -53,9 +53,9 @@ class Quiz extends Model
     public function getCorrectDateAttribute()
     {
 
-        if ($this->end < Carbon::today()){
-            return false;
+        if ($this->end < Carbon::today() ){
+            return true;
         }
-        return true;
+        return false;
     }
 }

@@ -27,14 +27,18 @@
                                             <td>{{ $quiz->title }}</td>
                                             <td>{{ $quiz->course->short_name }}</td>
                                             <td>{{ $quiz->formattedEnd }}</td>
-                                            @if($quiz->correctData)
-                                                <td class="table-danger">
-                                                    <a href="#" class="btn btn-sm btn-outline-danger disabled">Tiempo agotado</a>
+                                            @if($quiz->correctDate)
+                                                <td class="table-warning">
+                                                    <div class="alert alert-danger text-center" role="alert">
+                                                        Tiempo agotado
+                                                    </div>
                                                 </td>
                                             @else
                                                 <td class="table-secondary">
-                                                    <div class="alert alert-warning" role="alert">
-                                                        Al iniciar tú examen solo dispondrás del tiempo previsto para contestarlo, por favor solo da click si dispones de tiempo <a href="{{ route('quizzes.answer',$quiz) }}" class="btn btn-danger">Contestar examen</a>.
+                                                    <div class="alert alert-warning text-center" role="alert">
+                                                        <p>Al iniciar tú examen solo dispondrás del tiempo previsto para
+                                                            contestarlo, por favor solo da click si dispones de tiempo.</p>
+                                                        <a href="{{ route('quizzes.answer',$quiz) }}" class="btn btn-info">Contestar examen</a>.
                                                     </div>
                                                 </td>
                                             @endif
