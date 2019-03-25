@@ -20,7 +20,7 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 //Rutas god
 Route::group(
     ['middleware' => ['verified','role:god']], function () {
-        Route::resource('users', 'UserController');             //Administrar usuarios
+
         Route::resource('roles', 'RoleController');             //Administrar roles
         Route::resource('permissions', 'PermissionController'); //Administrar permisos
     }
@@ -30,6 +30,7 @@ Route::group(
 Route::group(
     ['middleware' => ['verified','role:admin']], function () {
         //rutas para administrar los courses
+        Route::resource('users', 'UserController');             //Administrar usuarios
         Route::resource('courses', 'CourseController');
 
         //rutas para administrar los Authenticated

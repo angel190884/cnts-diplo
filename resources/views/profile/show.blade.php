@@ -143,6 +143,10 @@
                         <i class="fas fa-envelope"></i> Enviar e-mail
                     </a>
                     @include('profile.modals.modalSendEmailAuthenticatedStudent')
+                    <a  class="btn btn-danger" href="#" data-toggle="modal" data-target="#modalRemoveStudent">
+                        <i class="fas fa-user-minus"></i> Eliminar
+                    </a>
+                    @include('profile.modals.modalRemoveStudent')
                 @endif
             </div>
         </div>
