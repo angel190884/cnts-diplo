@@ -66,6 +66,7 @@ Route::group(
         //calificaciones
         Route::get('scores.forums', 'ScoresController@forums')->name('scores.forums');
         Route::get('scores.activities', 'ScoresController@activities')->name('scores.activities');
+        Route::get('scores.quizzes', 'ScoresController@quizzes')->name('scores.quizzes');
 
         //activate inscription
         Route::post('course/activate/{course}', 'CourseController@activate')->name('course.activate');
@@ -112,6 +113,8 @@ Route::group(
         Route::get('quizzes.indexStudent', 'QuizController@indexStudent')->name('quizzes.indexStudent');
 
         Route::get('quizzes/answer/{quiz}', 'QuizController@answer')->name('quizzes.answer');
+
+        Route::post('quizzes/qualify/{quiz}', 'QuizController@qualify')->name('quizzes.qualify');
     }
 );
 

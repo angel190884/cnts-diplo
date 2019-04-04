@@ -113,6 +113,11 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        if (Question::destroy($question->id)){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID eliminó la pregunta $question->id del examen $question->quiz_id | $question");
+        }
+
+        return redirect()->back()->with('success','la pregunta de elimino correctamente');
     }
 }

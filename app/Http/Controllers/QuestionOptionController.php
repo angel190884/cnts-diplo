@@ -104,6 +104,11 @@ class QuestionOptionController extends Controller
      */
     public function destroy(QuestionOption $questionOption)
     {
-        //
+        if (QuestionOption::destroy($questionOption->id)){
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID eliminó la respuesta $questionOption->id de la pregunta $questionOption->question_id | $questionOption");
+        }
+
+        return redirect()->back()->with('success','la pregunta de elimino correctamente');
     }
 }

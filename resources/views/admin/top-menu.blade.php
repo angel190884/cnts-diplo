@@ -27,7 +27,7 @@
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="{{ route('scores.forums') }}">Foros</a>
         <a class="dropdown-item" href="{{ route('scores.activities') }}">Actividades</a>
-        <a class="dropdown-item" href="#">Exámanes<sub><small class="bg-danger">pendiente</small></sub></a>
+        <a class="dropdown-item" href="{{ route('scores.quizzes') }}">Exámanes</a>
     </div>
 </li>
 <!--<li class="nav-item dropdown">

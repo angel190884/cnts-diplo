@@ -6,6 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'alternative', 'question_id', 'answer_id', 'quiz_attempt_id','id'
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+
+    ];
+
+
     public function question()
     {
         return $this->belongsTo(Question::class);

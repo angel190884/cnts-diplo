@@ -20,4 +20,10 @@ class QuizAttempt extends Model
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+
 }

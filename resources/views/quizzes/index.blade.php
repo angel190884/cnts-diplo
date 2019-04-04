@@ -56,13 +56,15 @@
                                                         <a href="{{ route('quizzes.publish',$quiz) }}" class="btn btn-sm btn-outline-secondary">publicar</a>
                                                     @endif
 
-                                                    {!! Form::open(array(
+                                                    @if(!$quiz->published)
+                                                        {!! Form::open(array(
                                                         'style' => 'display: inline-block;',
                                                         'method' => 'DELETE',
                                                         'onsubmit' => "return confirm('¿Estas seguro de querer borrar el examen?');",
                                                         'route' => ['quizzes.destroy', $quiz])) !!}
-                                                    {!! Form::submit('borrar', array('class' => 'btn btn-sm btn-danger')) !!}
-                                                    {!! Form::close() !!}
+                                                        {!! Form::submit('borrar', array('class' => 'btn btn-sm btn-danger')) !!}
+                                                        {!! Form::close() !!}
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

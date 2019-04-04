@@ -45,7 +45,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3">No existen Exámenes para contestar</td>
+                                            <td colspan="4" class="text-danger">No existen Exámenes para contestar</td>
                                         </tr>
                                     @endforelse
 
@@ -72,7 +72,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="3">No existen Exámenes para contestar</td>
+                                            <td colspan="4" class="text-danger">No existen Exámenes para contestar</td>
                                         </tr>
                                     @endforelse
 

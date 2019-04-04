@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Answer;
 use App\Http\Requests\QuizStoreRequest;
+use App\Mail\InscriptionRequestReceived;
+use App\Mail\QuizPublished;
+use App\QuestionOption;
 use Illuminate\Http\Request;
 use App\QuizAttempt;
 use App\Question;
@@ -11,6 +15,7 @@ use App\Quiz;
 use App\User;
 use Illuminate\View\View;
 use Log;
+use Mail;
 
 class QuizController extends Controller
 {
@@ -24,7 +29,7 @@ class QuizController extends Controller
         $questions = Question::active()->count();
         $users = User::role('student')->count();
         $quizzes = Quiz::active()->with('course')->orderBy('created_at', 'DESC')->get();
-        $average = QuizAttempt::avg('score');
+        $average = QuizAttempt::active()->avg('score');
         return view('quizzes.index', compact('questions', 'users', 'quizzes', 'average'));
     }
 
@@ -81,6 +86,25 @@ class QuizController extends Controller
             /**
              * Todo: Attach usuarios del curso
              */
+            /*$course = Course::findOrFail($quiz->course_id);
+            $users = User::role('student')
+                ->active()
+                ->inscribed()
+                ->courseFilter($course->id)
+                ->orderBy('name', 'ASC')
+                ->get();
+
+            foreach ($users as $user){
+                $quiz->users()->attach($user,[
+                    'attempt' => 1,
+                    'score' => 0,
+                    'active' => 1
+                ]);
+            }
+            dd($course,$users,$quiz->users()->get());
+            $course->users()->attach();
+            */
+
             $userID = auth()->user()->id;
             Log::info("el usuario $userID creó un examen con id $quiz->id");
         }
@@ -148,6 +172,10 @@ class QuizController extends Controller
      */
     public function destroy(Quiz $quiz)
     {
+        //dd($quiz->questions()->get());
+        foreach ($quiz->users()->get() as $attempt){
+            $quiz->users()->updateExistingPivot($attempt->id, ['active' => false]);
+        }
         $quiz->active = false;
         $quiz->published = false;
         if ($quiz->save()) {
@@ -170,6 +198,12 @@ class QuizController extends Controller
         if ($quiz->save()) {
             $userID=auth()->user()->id;
             Log::info("el usuario $userID publicó un examen con id $quiz->id $quiz");
+            $users = $quiz->course->users()->active()->role('student')->get();
+            //dd($users);
+            foreach ($users as $user){
+                Mail::to($user)->queue(new QuizPublished());
+            }
+
         }
         return redirect(route('quizzes.index'))->with('success', "El examen fue publicado correctamente.");
     }
@@ -192,30 +226,16 @@ class QuizController extends Controller
     }
 
     /**
-     * Contestar Examen
+     * Answer quiz
      *
-     * @return View
+     * @param \App\Quiz $quiz Quiz
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function answer()
+    public function answer(Quiz $quiz)
     {
-        $quiz = (object) [
-            'title' => "American History",
-            'showProgressBar' => "bottom",
-            'showTimerPanel' => "top",
-            'maxTimeToFinishPage' => 10,
-            'maxTimeToFinish' => 25,
-            'firstPageIsStarted' => true,
-            'startSurveyText' => "Start Quiz",
-            'pages' => [
-                (object) [
-                    'questions' => (object) [
-                        'type' => "html",
-                        'html' => "You are about to start quiz by history. <br/>You have 10 seconds for every page and 25 seconds for the whole survey of 3 questions.<br/>Please click on <b>'Start Quiz'</b> button when you are ready."
-                    ]
-                ]
-            ]
-        ];
-        return view('quizzes.answer', compact('quiz'));
+        $questions = Question::where('quiz_id',$quiz->id)->with('options')->get();
+        return view('quizzes.answer', compact('quiz','questions'));
     }
     
     /**
@@ -228,5 +248,61 @@ class QuizController extends Controller
     public function start(Quiz $quiz)
     {
         return view('quizzes.answer', compact('quiz'));
+    }
+
+    /**
+     * Califica el examen
+     *
+     * @param \App\Quiz $quiz Quiz
+     *
+     * @return view
+     */
+    public function qualify(Quiz $quiz, Request $request)
+    {
+        $user = auth()->user();
+        //dd($request->except('_token'));
+
+        if ($user->quizzes()->where('quiz_id',$quiz->id)->count() > 0){
+            $attempt = $user->quizzes()->where('quiz_id',$quiz->id)->count() + 1;
+        }else{
+            $attempt = 1;
+        }
+
+
+        $user->quizzes()->attach($quiz->id,[
+            'attempt' => $attempt,
+            'score' => 0,
+        ]);
+        //dd($quizAttempt);
+        $quizAttempt=QuizAttempt::where('quiz_id',$quiz->id)
+            ->where('user_id',auth()->user()->id)
+            ->orderBy('created_at','desc')
+            ->first();
+        //dd($quizAttempt);
+        //dd(auth()->user()->quizzes()->get());
+
+        foreach ($request->except('_token') as $key => $answer) {
+            Answer::create([
+                'alternative' => '---',
+                'question_id' => $key,
+                'answer_id' => $answer,
+                'quiz_attempt_id' => $quizAttempt->id
+            ]);
+            //dump(QuestionOption::findOrFail($answer)->correct);
+            if(QuestionOption::findOrFail($answer)->correct == true){
+                $quizAttempt->score += 1;
+                $quizAttempt->save();
+            }
+        }
+
+        $result= Answer::where('quiz_attempt_id',$quizAttempt->id)
+            ->with('question','answer')->get();
+        //todo : calificar examen
+        //dd($result);
+        //dd($quiz,$request);
+
+
+
+        return redirect(route('quizzes.indexStudent'))->with('success','Hemos calificado tu examen correctamente!!!');
     }
 }
