@@ -42,17 +42,18 @@
                             <div class="row">
                                 <div class="col-md-12 col-lg-12">
                                     @foreach($topic->activities as $activity)
+
                                         <p>
                                             <strong>Actividad # {{ $activity->number_activity }}</strong>.- {{ $activity->description }}
 
                                             @role('student')
-                                            @if($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity)
-                                                <a href="{{ Storage::url($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity) }}" title="ver pdf subido anteriormente" target="_blank"><i class="fas fa-eye"></i>Ver</a>
-                                            @else
-                                                <a href="#" title="subir PDF" data-toggle="modal" data-target="#modalActivity"><i class="fas fa-upload"></i>Subir</a>
-                                            @endif
+                                                @if($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity)
+                                                    <a href="{{ Storage::url($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity) }}" title="ver pdf subido anteriormente" target="_blank"><i class="fas fa-eye"></i>Ver</a>
+                                                @else
+                                                    <a href="#" title="subir PDF" data-toggle="modal" data-target="{{ "#modalActivity-" . $activity->id }}"><i class="fas fa-upload"></i>Subir</a>
+                                                @endif
                                             @endrole
-                                            <div class="modal fade" id="modalActivity" tabindex="-1" role="dialog" aria-labelledby="ImgLabel" aria-hidden="true">
+                                            <div class="modal fade" id="{{ "modalActivity-" . $activity->id }}" tabindex="-1" role="dialog" aria-labelledby="ImgLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
                                                     <div class="modal-content">
                                                         {{ Form::model($activity, ['route' => ['u_activity', $activity->id],'method' => 'PUT', 'class' => 'needs-validation', 'novalidate'=>'', 'enctype'=>'multipart/form-data'])}}
@@ -63,6 +64,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
+                                                            {{ $activity->id }}
                                                             <input  class="btn btn-secondary btn-block" type="file" name="file_activity" accept="application/pdf" />
                                                         </div>
                                                         <div class="modal-footer">

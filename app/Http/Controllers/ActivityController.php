@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Faker\Generator as Faker;
 use Illuminate\Http\Request;
 use App\Activity;
 use App\Course;
@@ -9,6 +10,7 @@ use App\Topic;
 use App\User;
 use Auth;
 use Log;
+use Redirect;
 
 class ActivityController extends Controller
 {
@@ -32,7 +34,7 @@ class ActivityController extends Controller
         }
         if ($user->hasRole('student'))
         {
-            $activities=auth()->user()->activities()->with('topic.subModule.module.course')->get();
+            $activities=auth()->user()->activities()->with('topic.subModule.module.course')->orderBy('number_activity')->get();
             return view('student.listActivities',compact('activities'));
         }
         Log::error('un usuario quiso ver una url que no le corresponde | '.'user:'. Auth::user()->id);
@@ -80,4 +82,38 @@ class ActivityController extends Controller
             return back();
         }
     }
+
+    public function showFormActivity(){
+        $topics=Topic::all();
+        return view('admin.showFormActivity',compact('topics'));
+    }
+
+    public function createActivity(Request $request, Faker $faker){
+        //dd($request);
+
+        $activity = new Activity;
+        $activity->name =               request('name');
+        $slug=$faker->randomNumber(8, false) . ' ' . $activity->name;
+        $activity->slug             = str_slug($slug, '-');
+        $activity->number_activity =    request('number_activity');
+        $activity->topic_id =           request('topic_id');
+        $activity->description =        request('description');
+
+        $activity->save();
+
+        $users = User::courseFilter(request('course_id'))
+            ->role('student')
+            ->get();
+
+        $activity->users()->attach($users);
+
+        info('el usario:' . auth()->user()->id . 'agrego la actividad ' . $activity->id);
+
+        /*
+         * TODO: mandar mail a todos los estudiantes del diplomado queue
+         */
+
+        return Redirect::route('activity.create')->with('success', 'Se agrego correctamente la nueva actividad  al diplomado');
+    }
+
 }

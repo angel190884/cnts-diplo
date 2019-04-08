@@ -70,6 +70,10 @@ Route::group(
 
         //activate inscription
         Route::post('course/activate/{course}', 'CourseController@activate')->name('course.activate');
+
+        // create activity
+        Route::get('formCreateActivity', 'ActivityController@showFormActivity')->name('activity.create');
+        Route::post('createActivity', 'ActivityController@createActivity')->name('activity.store');
     }
 );
 

@@ -231,7 +231,7 @@ class FilesUploadController extends Controller
     public function uploadFileActivity(Request $request, $id)
     {
         /*
-         * TODO : Verificar que solo los student puedan hacer esta accion
+         * TODO : Verificar que solo los student puedan hacer esta acción
          */
         $this->validate(
             $request,
@@ -247,7 +247,12 @@ class FilesUploadController extends Controller
         }
 
         if ($request->hasFile('file_activity')) {
-            $activity->users()->updateExistingPivot(auth()->user()->id, ['file_activity' => $request->file('file_activity')->store('public/activities')]);
+            //$activity->users()
+            //    ->updateExistingPivot(auth()->user()->id, ['file_activity' => $request->file('file_activity')
+            //    ->store('public/activities')]);
+            auth()->user()->activities()
+                ->updateExistingPivot($activity->id, ['file_activity' => $request->file('file_activity')
+                ->store('public/activities')]);
         }
 
         session()->flash('success', 'Actividad grabada en base de datos!!!');
