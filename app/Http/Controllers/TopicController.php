@@ -106,7 +106,7 @@ class TopicController extends Controller
 
     public function slugsTopics(Faker $faker)
     {
-        $topics = Topic::where('slug','#')->get();
+        $topics = Topic::where('slug', 'LIKE','%#%')->get();
 
         foreach ($topics as $topic){
             $slug=$faker->randomNumber(8, false) . ' ' . $topic->name;
