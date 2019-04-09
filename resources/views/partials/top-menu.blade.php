@@ -49,6 +49,9 @@
                         <a class="dropdown-item" href="{{ route('users.index')  }}">
                             Roles & Permissions
                         </a>
+                        <a class="dropdown-item" href="{{ route('activity.create')  }}">
+                            Agregar Actividad
+                        </a>    
                         @endcan
                     </div>
                 </li>
