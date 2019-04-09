@@ -24,7 +24,7 @@
             </div>
             <div class="brand-card-body">
                 <div>
-                    <div class="text-value">20</div>
+                    <div class="text-value">{{ $forums->total() }}</div>
                     <div class="text-uppercase text-muted small"><a href="{{ route('forums.index') }}">foros</a></div>
                 </div>
             </div>
