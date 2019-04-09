@@ -23,6 +23,13 @@ Route::group(
 
         Route::resource('roles', 'RoleController');             //Administrar roles
         Route::resource('permissions', 'PermissionController'); //Administrar permisos
+
+        // create activity
+        Route::get('formCreateActivity', 'ActivityController@showFormActivity')->name('activity.create');
+        Route::post('createActivity', 'ActivityController@createActivity')->name('activity.store');
+
+        // poner slug a topics
+        Route::get('slug-topics','TopicController@slugsTopics')->name('topic.slug');
     }
 );
 
@@ -70,10 +77,6 @@ Route::group(
 
         //activate inscription
         Route::post('course/activate/{course}', 'CourseController@activate')->name('course.activate');
-
-        // create activity
-        Route::get('formCreateActivity', 'ActivityController@showFormActivity')->name('activity.create');
-        Route::post('createActivity', 'ActivityController@createActivity')->name('activity.store');
     }
 );
 

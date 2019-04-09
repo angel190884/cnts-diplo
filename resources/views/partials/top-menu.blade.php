@@ -51,7 +51,10 @@
                         </a>
                         <a class="dropdown-item" href="{{ route('activity.create')  }}">
                             Agregar Actividad
-                        </a>    
+                        </a>
+                        <a class="dropdown-item" href="{{ route('topic.slug')  }}">
+                            slug-topic auto
+                        </a>
                         @endcan
                     </div>
                 </li>

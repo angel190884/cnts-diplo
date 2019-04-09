@@ -6,6 +6,7 @@ use App\Module;
 use App\Topic;
 use Auth;
 use Illuminate\Http\Request;
+use Faker\Generator as Faker;
 use Log;
 
 class TopicController extends Controller
@@ -101,5 +102,17 @@ class TopicController extends Controller
     public function destroy(Topic $topic)
     {
         //
+    }
+
+    public function slugsTopics(Faker $faker)
+    {
+        $topics = Topic::where('slug','#')->get();
+
+        foreach ($topics as $topic){
+            $slug=$faker->randomNumber(8, false) . ' ' . $topic->name;
+            $topic->slug = str_slug($slug, '-');
+            $topic->save();
+        }
+        return redirect()->route('home')->with('success', 'Slugs creados y guardados en topics');
     }
 }
