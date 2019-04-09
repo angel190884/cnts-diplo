@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ForumStoreRequest;
+use App\Mail\ForumPublished;
 use Illuminate\Support\Facades\Input;
 use Faker\Generator as Faker;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ use Carbon\Carbon;
 use App\Forum;
 use App\Course;
 use App\User;
+use Mail;
 use Redirect;
 use Log;
 use DB;
@@ -79,7 +81,16 @@ class ForumController extends Controller
         $forum->start            = request('start');
         $forum->end              = request('end');
 
-        $forum->save();
+        if ($forum->save()) {
+            $userID=auth()->user()->id;
+            Log::info("el prof. con id  $userID publicó un foro con id $forum->id $forum");
+            $users = $forum->course->users()->active()->role('student')->get();
+            //dd($users);
+            foreach ($users as $user){
+                Mail::to($user)->queue(new ForumPublished());
+            }
+
+        }
 
         $users = User::courseFilter(request('course_id'))
             ->role('student')
@@ -88,10 +99,6 @@ class ForumController extends Controller
         $forum->users()->attach($users);
 
         info('el usario:' . auth()->user()->id . 'agrego la pregunta ' . $forum->id);
-        
-        /*
-         * TODO: mandar mail a todos los estudiantes del diplomado queue
-         */
 
         return Redirect::route('forums.index')->with('success', 'Se agrego correctamente el nuevo foro de discusión');
     }

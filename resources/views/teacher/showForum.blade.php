@@ -23,7 +23,7 @@
                     @include('partials.disqusForums')
                 @endrole
                 @role('student')
-                    @if($today < $forum->end)
+                    @if($forum->end >= $today)
                         @include('partials.disqusForums')
                     @else
                         <p class="alert-danger">LO SENTIMOS EL ULTIMO DIA PARA COMENTAR FUE EL {{ strtoupper($forum->formattedEnd) }}</p>
