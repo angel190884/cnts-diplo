@@ -90,17 +90,17 @@ class ForumController extends Controller
                 Mail::to($user)->queue(new ForumPublished());
             }
 
+            $users = User::courseFilter(request('course_id'))
+                ->role('student')
+                ->get();
+
+            $forum->users()->attach($users);
+
+            info('el usario:' . auth()->user()->id . 'agrego la pregunta ' . $forum->id);
+            return Redirect::route('forums.index')->with('success', 'Se agrego correctamente el nuevo foro de discusión');
         }
 
-        $users = User::courseFilter(request('course_id'))
-            ->role('student')
-            ->get();
-
-        $forum->users()->attach($users);
-
-        info('el usario:' . auth()->user()->id . 'agrego la pregunta ' . $forum->id);
-
-        return Redirect::route('forums.index')->with('success', 'Se agrego correctamente el nuevo foro de discusión');
+        return Redirect::route('forums.index')->with('danger', 'Hubo algún error intenta de nuevo');
     }
 
     /**
