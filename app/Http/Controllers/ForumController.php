@@ -74,7 +74,7 @@ class ForumController extends Controller
         $forum = new Forum;
         $forum->forum = request('forum');
         $slug=$faker->randomNumber(8, false) . ' ' . $forum->forum;
-        $forum->slug             = str_slug($slug, '-');
+        $forum->slug             = str_slug(substr($slug, 0, 100), '-');
         $forum->teacher_id       = auth()->user()->id;
         $forum->course_id        = request('course');
         $forum->observations     = request('observations');
