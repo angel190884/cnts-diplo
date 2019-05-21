@@ -52,7 +52,7 @@ class QuestionOptionController extends Controller
         $questionOption->question_id = $question_id;
         $questionOption->correct = $correct;
 
-        if ($questionOption->save()){
+        if ($questionOption->save()) {
             $userID=auth()->user()->id;
             Log::info("el usuario $userID creó una opción con id $questionOption->id que corresponde a la pregunta $questionOption->question_id");
         }
@@ -81,7 +81,7 @@ class QuestionOptionController extends Controller
      */
     public function edit(QuestionOption $questionOption)
     {
-        return 'QuestionOptions edit';
+        return view('questionOptions.edit', compact('questionOption'));
     }
 
     /**
@@ -93,7 +93,23 @@ class QuestionOptionController extends Controller
      */
     public function update(Request $request, QuestionOption $questionOption)
     {
-        //
+        $option = $request->get('option');
+        $question_id = $request->get('question_id');
+        $correct = $request->get('correct');
+
+        //$questionOption = QuestionOption::findOrFail($question_id);
+
+        $questionOption->option = $option;
+        $questionOption->correct = $correct;
+
+        if ($questionOption->save()) {
+            $userID=auth()->user()->id;
+            Log::info("el usuario $userID modificó una opción con id $questionOption->id que corresponde a la pregunta $questionOption->question_id");
+        }
+
+        $question = Question::findOrFail($question_id);
+
+        return redirect()->route('questionOptions.index', $question)->with('success', "La opcion de la pregunta fue modificada Correctamente.");
     }
 
     /**
@@ -104,11 +120,11 @@ class QuestionOptionController extends Controller
      */
     public function destroy(QuestionOption $questionOption)
     {
-        if (QuestionOption::destroy($questionOption->id)){
+        if (QuestionOption::destroy($questionOption->id)) {
             $userID=auth()->user()->id;
             Log::info("el usuario $userID eliminó la respuesta $questionOption->id de la pregunta $questionOption->question_id | $questionOption");
         }
 
-        return redirect()->back()->with('success','la pregunta de elimino correctamente');
+        return redirect()->back()->with('success', 'la pregunta de elimino correctamente');
     }
 }
