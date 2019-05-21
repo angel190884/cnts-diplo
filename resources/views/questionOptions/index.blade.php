@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <div>
                             <div class="row">
-                                <table class="table table-bordered table-striped {{ count($question->questionOptions) > 0 ? 'datatable' : '' }} dt-select">
+                                <table class="table table-bordered table-striped dt-select">
                                     <thead>
                                     <tr>
                                         <th>Preguntas</th>
