@@ -48,7 +48,7 @@
                                                                     <label for="question"></label>
                                                                     <input name='{{ $question->id }}' value='{{ $option->id }}' type="radio" class="form-control" id="question" required>
                                                                 </div>
-                                                                <div class="col-md-10 form-control">
+                                                                <div class="col-md-10">
                                                                     <p class="text-uppercase">{{ $option->option }}</p>
                                                                 </div>
                                                             </div>
