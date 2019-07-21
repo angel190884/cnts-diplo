@@ -22,7 +22,7 @@
                                         <tr>
                                             @if($user->hasRole('student'))
                                                 <td>{{ $user->fullName }}</td>
-                                                @foreach($user->activities as $activity)
+                                                @foreach($user->activities->sortBy('number_activity') as $activity)
                                                     @if($activity->pivot->score >= 6)
                                                         <td bgcolor="#90ee90">
                                                             <abbr title="{{ $activity->number_activity . '.-' .$activity->name }}">
