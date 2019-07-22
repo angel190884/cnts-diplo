@@ -44,7 +44,7 @@
                                     @foreach($topic->activities as $activity)
 
                                         <p>
-                                            <strong>Actividad # {{ $activity->number_activity }}</strong>.- {{ $activity->description }}
+                                            <strong>{{ $activity->name }}</strong>.- {{ $activity->description }}
 
                                             @role('student')
                                                 @if($activity->users()->where('user_id','=',auth()->user()->id)->first()->pivot->file_activity)
