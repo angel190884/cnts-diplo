@@ -8,9 +8,9 @@
 </style>
 
 <article>
-    <h1>&iexcl;Suspension!</h1>
+    <h1>&iexcl;Suspensión!</h1>
     <div>
         <p>Su cuenta de AWS presenta un adeudo!</p>
-        <p>&mdash AWS</p>
+        <p>Atentamente AWS</p>
     </div>
 </article>
