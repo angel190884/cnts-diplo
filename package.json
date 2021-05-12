@@ -31,7 +31,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "ajv-keywords": "^3.2.0",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "jquery": "^3.3.1",
     "moment": "^2.22.1",
     "perfect-scrollbar": "^1.4.0",
